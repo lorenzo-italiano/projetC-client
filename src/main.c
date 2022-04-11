@@ -5,7 +5,6 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
-
     //erreur si pas assez d'arguments
     if(argc != 3){
         perror("Pas assez d'arguments (./fonction IP PORT)");
