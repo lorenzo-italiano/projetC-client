@@ -4,163 +4,179 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#define MAX_STRING_SIZE 256
 
-/**params
- *
- * @return created socket
+
+/**
+ * Perror the message in params and exit the programme.
+ * If hasErrno, print it.
+ * @param errorMessage
+ * @param hasErrno
  */
-int createSocket(){
-    int sock = socket(PF_INET, SOCK_STREAM, 0);
-    // verif erreur
-    if(sock == -1){
-        printf("La création du socket a echoué !");
-        exit(EXIT_FAILURE);
+void throwError (char *errorMessage, int hasErrno) {
+    perror(errorMessage);
+    if (hasErrno) {
+        printf("%s", strerror(errno));
     }
-    else {
-        printf("Socket Créé\n");
-    }
-    return sock;
+    exit(EXIT_FAILURE);
 }
 
-/**params
+/**
+ * Create a socket and return his descriptor.
  *
- * @param socket
- * @param argv
+ * @return the descriptor of the socket created.
  */
-void connectToServer(int socket, char *argv[]){
+int createSocket () {
+    int socketDescriptor = socket(PF_INET, SOCK_STREAM, 0);
+    if (socketDescriptor == -1) {
+        throwError("Erreur lors de la création du socket. \n", 0);
+    }
+    else {
+        printf("Socket Créé. \n");
+    }
+    return socketDescriptor;
+}
+
+
+/**
+ * Find the socket a the adress in params and establish a connection with it.
+ *
+ * @param ip
+ * @param port
+ * @return
+ */
+int connectToServer(char *ip, int port){
+    int socketDescriptor = createSocket();
+
     struct sockaddr_in aS;
     aS.sin_family = AF_INET;
-    int inet = inet_pton(AF_INET,argv[1],&(aS.sin_addr));
-    // verif erreur
-    if(inet == -1){
-        printf("La conversion d'adresse IP a echoué !");
-        exit(EXIT_FAILURE);
+    aS.sin_port = htons(port);
+
+    int inet = inet_pton(AF_INET, ip, &(aS.sin_addr));
+    if (inet == -1){
+        throwError("La conversion d'adresse IP a echouée. \n", 0);
     }
 
-    aS.sin_port = htons(atoi(argv[2]));
     socklen_t lgA = sizeof(struct sockaddr_in);
 
-    int connectTest = connect(socket, (struct sockaddr *) &aS, lgA);
-    // verif erreur
-    if(connectTest == -1){
-        printf("Erreur lors de la connection au socket. \n");
-        printf("%s", strerror(errno));
-        exit(EXIT_FAILURE);
+    if(connect(socketDescriptor, (struct sockaddr *) &aS, lgA) == -1){
+        throwError("Erreur lors de la connection au socketDescriptor. \n", 1);
     }
     else {
-        printf("Socket Connecté\n");
+        printf("Socket Connecté. \n");
     }
+    return socketDescriptor;
 }
 
-/**params
+/**
+ * For an accepted socket descriptor in params, wait until receiving an int message.
+ * This message is usually the size of the message which will be sent just after.
  *
- * @param argc
- * @param argv
+ * @param acceptedSocketDescriptor
+ * @return the size of the message which will be sent after.
  */
-void checkForLaunchErrors(int argc, char *argv[]){
-    //erreur si pas assez d'arguments
-    if(argc != 3){
-        printf("Erreur: Nombre d'arguments invalide. Utilisation :\n");;
-        printf("%s IP PORT\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
-
-    //erreur si port != 4 chiffres (argv 2)
-    if(strlen(argv[2])!= 4){
-        printf("Erreur: Un port doit être composé de 4 chiffres !");
-        exit(EXIT_FAILURE);
-    }
-
-    printf("Début programme\n");
-}
-
-/**params
- *
- * @param socket
- */
-void receiveStringMessage(int socket){
-    printf("Waiting for a message\n");
-
+int receiveMessageInt (int acceptedSocketDescriptor) {
     int size;
-    if(recv(socket, &size, sizeof(int), 0)==-1){
-        printf("Erreur lors de la reception du message. \n");
-        exit(EXIT_FAILURE);
+    if(recv(acceptedSocketDescriptor, &size, sizeof(int), 0) == -1){
+        throwError("Erreur lors de la reception du message. \n", 0);
     }
     else {
         printf("Message reçu : %d\n", size);
     }
-
-    int test = ntohl(size);
-
-    char* msg = (char*)malloc(sizeof(char)*(test+1));
-
-    if(recv(socket, msg, sizeof(char)*test, 0)==-1){
-        printf("Erreur lors de la reception du message. \n");
-        exit(EXIT_FAILURE);
-    }
-    else {
-        printf("Message reçu : %s\n", msg);
-    }
+    return size;
 }
 
-/**params
+/**
+ * For an accepted socket descriptor in params, wait until receiving a message of the messageSize in params.
  *
- * @param socket
+ * @param acceptedSocketDescriptor
+ * @param messageSize
+ * @return the gotten message.
  */
-void sendStringMessage(int socket){
-    char* str1 = (char*)malloc(sizeof(char)*256);
+char *receiveMessageString (int acceptedSocketDescriptor, int messageSize) {
+    char *message = (char*)malloc(sizeof(char) * (messageSize + 1));
+
+    if(recv(acceptedSocketDescriptor, message, sizeof(char) * messageSize, 0) == -1){
+        throwError("Erreur lors de la reception du message. \n", 0);
+    }
+    else {
+        printf("Message reçu : %s\n", message);
+    }
+    return message;
+}
+
+/**
+ *
+ * @param acceptedSocketDescriptor
+ */
+char *receiveMessage(int acceptedSocketDescriptor){
+    printf("Waiting for a message\n");
+    int messageSize = receiveMessageInt(acceptedSocketDescriptor);
+    return receiveMessageString(acceptedSocketDescriptor, messageSize);
+}
+
+char *askUserForString () {
+    char *message = (char *) malloc(sizeof(char) * MAX_STRING_SIZE);
 
     printf("Entrez votre message: \n");
+    if (fgets(message, MAX_STRING_SIZE, stdin) == NULL) {
+        throwError("Error fgets. \n", 1);
+    }
+    return message;
+}
 
-    // Demande une chaine de caractères à l'utilisateur.
-    int fgetsReturn = fgets(str1, 256, stdin);
-
-    /// FIXME remove the \n added by fgets
-
-    // Check if error
-    if(fgetsReturn == -1){
-        printf("Erreur lors de la saisie du message. \n");
-        printf("%s", strerror(errno));
-        exit(EXIT_FAILURE);
+/**
+ * For an accepted socket descriptor in params, send a message of type int.
+ * This message is usually used to send the message's size which will be sent after.
+ *
+ * @param acceptedSocketDescriptor
+ * @param messageSize
+ */
+void sendMessageInt (int acceptedSocketDescriptor, int messageSize) {
+    if(send(acceptedSocketDescriptor, &messageSize, sizeof(int), 0) == -1){
+        throwError("Erreur lors de l'envoi du message. \n", 1);
     }
     else {
-        printf("Vous avez entré le message suivant: %s \n",str1);
-    }
-
-    int taille = (int)strlen(str1);
-    printf("size of sent message: %d \n",(int)strlen(str1));
-    // Sending our message size to server for it to receive the whole message
-    int sendSizeReturn = send(socket, &taille, sizeof(int), 0);
-    // verif erreur
-    if(sendSizeReturn == -1){
-        printf("Erreur lors de l'envoi du message. \n");
-        printf("%s", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-    else {
-        printf("Taille du message envoyé \n");
-    }
-
-    // Sending the message to the server
-    int sendReturn = send(socket, str1, sizeof(char)*(strlen(str1)+1), 0);
-    // verif erreur
-    if(sendReturn == -1){
-        printf("Erreur lors de l'envoi du message. \n");
-        printf("%s", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-    else {
-        printf("Message Envoyé \n");
+        printf("Taille du message envoyée. \n");
     }
 }
 
-/**params
+/**
+ * For an accepted socket descriptor and a message size, send the message in params.
  *
+ * @param acceptedSocketDescriptor
+ * @param message
+ * @param size
+ */
+void sendMessageString (int acceptedSocketDescriptor, char *message, int size) {
+    if(send(acceptedSocketDescriptor, message, sizeof(char) * size, 0) == -1){
+        throwError("Erreur lors de l'envoi du message. \n", 1);
+    }
+    else {
+        printf("Message envoyé. \n");
+    }
+}
+
+/**
+ *
+ * @param acceptedSocketDescriptor
+ */
+void sendMessage(int acceptedSocketDescriptor, char *userMessage){
+    int messageSize = (int)strlen(userMessage);
+    printf("Size of sent message: %d \n", messageSize);
+
+    // Send message size.
+    sendMessageInt(acceptedSocketDescriptor, messageSize);
+    // Send message.
+    sendMessageString(acceptedSocketDescriptor, userMessage, messageSize);
+}
+
+/**
  * @param socket
  * @return current client status
  */
 char* receiveStatus(int socket){
-    char* response = (char*)malloc(sizeof(char)*5);
+    char *response = (char*)malloc(sizeof(char)*5);
     int recvReturn = recv(socket, response, sizeof(response), 0);
     // verif erreur
     if(recvReturn == -1){
@@ -173,49 +189,61 @@ char* receiveStatus(int socket){
     return response;
 }
 
+
+/**
+ * Client side.
+ */
 int main(int argc, char *argv[]) {
+/**
+ * Client start.
+ */
+    printf("Début programme\n");
 
-    /*-----------------------------------------
-     *
-     *          Setting up the client
-     *
-     *-----------------------------------------
-     */
 
-    checkForLaunchErrors(argc, argv);
-
-    int dS = createSocket();
-
-    connectToServer(dS, argv);
-
-    /*----------------------------------
-     *
-     *              BEGIN
-     *
-     *----------------------------------
-     */
-
-    // Receiving our current state from server
-    char* response = (char*)malloc(sizeof(char)*5);
-    response = receiveStatus(dS);
-
-    // check state and apply actions
-    if(strcmp(response,"wait\0")==0){
-        // If we are in wait mode, we wait until the second client sends a message
-        receiveStringMessage(dS);
-    }
-    else{
-        // If we are in send mode, we have to send a message to the server which will tranfer it to the waiting client
-        sendStringMessage(dS);
+/**
+ * Check arguments.
+ */
+    // Error if the number of arguments isn't valid.
+    if(argc != 3){
+        printf("Erreur: Nombre d'arguments invalide. Utilisation :\n");;
+        printf("%s IP PORT\n", argv[0]);
+        exit(EXIT_FAILURE);
     }
 
-    /*---------------------------------------------
-     *
-     *          Shutting down the client
-     *
-     *---------------------------------------------
-     */
+    // Erreur si port < 1024 (argv 2)
+    if(atoi(argv[2]) < 1024){
+        throwError("Erreur: le port doit être supérieur à 1024. \n", 0);
+    }
 
-    shutdown(dS,2);
+
+/**
+ * Connection to the server.
+ */
+    int socketDescriptor = connectToServer(argv[1], atoi(argv[2]));
+
+
+/**
+ * Exchange beginning.
+ */
+    // Receiving our current state from server.
+    char* serverStatusMessage = receiveStatus(socketDescriptor);
+
+    // Check status and apply actions.
+    if(strcmp(serverStatusMessage, "wait\0") == 0) {    // Client receiver.
+        // If we are in wait mode, we wait until the second client sends a message.
+        char *message = receiveMessage(socketDescriptor);
+        printf("Message reçu : %s\n", message);
+    }
+    else {   // Client sender.
+        // If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
+        char* userMessage = askUserForString();
+        sendMessage(socketDescriptor, userMessage);
+    }
+
+
+/**
+ * Shutdown the client.
+ */
+    shutdown(socketDescriptor, 2);
     printf("Fin du programme. \n");
 }
