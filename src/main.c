@@ -127,7 +127,7 @@ void sendStringMessage(int socket){
         printf("Vous avez entré le message suivant: %s \n",str1);
     }
 
-    int taille = htonl(strlen(str1));
+    int taille = (int)strlen(str1);
     printf("size of sent message: %d \n",(int)strlen(str1));
     // Sending our message size to server for it to receive the whole message
     int sendSizeReturn = send(socket, &taille, sizeof(int), 0);
