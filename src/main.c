@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <pthread.h>
 #define MAX_STRING_SIZE 256
 
 
@@ -80,9 +81,6 @@ int receiveMessageInt (int acceptedSocketDescriptor) {
     if(recv(acceptedSocketDescriptor, &size, sizeof(int), 0) == -1){
         throwError("Erreur lors de la reception du message. \n", 0);
     }
-    else {
-        printf("Message reçu : %d\n", size);
-    }
     return size;
 }
 
@@ -98,9 +96,6 @@ char *receiveMessageString (int acceptedSocketDescriptor, int messageSize) {
 
     if(recv(acceptedSocketDescriptor, message, sizeof(char) * messageSize, 0) == -1){
         throwError("Erreur lors de la reception du message. \n", 0);
-    }
-    else {
-        printf("Message reçu : %s\n", message);
     }
     return message;
 }
@@ -189,6 +184,13 @@ char* receiveStatus(int socket){
     return response;
 }
 
+void readingLoop(int acceptedSocketDescriptor){
+    while(1){
+        // If we are in wait mode, we wait until the second client sends a message.
+        char *message = receiveMessage(acceptedSocketDescriptor);
+        printf("Message reçu : %s\n", message);
+    }
+}
 
 /**
  * Client side.
@@ -225,20 +227,23 @@ int main(int argc, char *argv[]) {
 /**
  * Exchange beginning.
  */
-    // Receiving our current state from server.
-    char* serverStatusMessage = receiveStatus(socketDescriptor);
 
-    // Check status and apply actions.
-    if(strcmp(serverStatusMessage, "wait\0") == 0) {    // Client receiver.
-        // If we are in wait mode, we wait until the second client sends a message.
-        char *message = receiveMessage(socketDescriptor);
-        printf("Message reçu : %s\n", message);
-    }
-    else {   // Client sender.
-        // If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
-        char* userMessage = askUserForString();
-        sendMessage(socketDescriptor, userMessage);
-    }
+// Lancer le thread de lecture
+
+pthread_t pthread;
+
+int testThread = pthread_create(&pthread,NULL,readingLoop,socketDescriptor);
+
+if (testThread) {
+    throwError("Error:unable to create thread, %d\n", 0);
+}
+
+// Lancer le thread d'écriture
+while(1){ // Sending messages to server
+    // If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
+    char* userMessage = askUserForString();
+    sendMessage(socketDescriptor, userMessage);
+}
 
 
 /**
