@@ -105,7 +105,7 @@ char *receiveMessageString (int acceptedSocketDescriptor, int messageSize) {
  * @param acceptedSocketDescriptor
  */
 char *receiveMessage(int acceptedSocketDescriptor){
-    printf("Waiting for a message\n");
+    //printf("Waiting for a message\n");
     int messageSize = receiveMessageInt(acceptedSocketDescriptor);
     return receiveMessageString(acceptedSocketDescriptor, messageSize);
 }
@@ -188,7 +188,6 @@ void readingLoop(int acceptedSocketDescriptor){
     while(1){
         // If we are in wait mode, we wait until the second client sends a message.
         char *message = receiveMessage(acceptedSocketDescriptor);
-        printf("Message reçu : %s\n", message);
     }
 }
 
