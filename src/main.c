@@ -5,11 +5,13 @@
 #include <string.h>
 #include <errno.h>
 #include <pthread.h>
+#include "color.c"
 #define MAX_STRING_SIZE 256
 #define ENDING_MESSAGE "Fin\n\0"
 
 int acceptedSocketDescriptor;
-
+char* pseudo;
+int isDebugMode = 0;
 
 /**
  * Perror the message in params and exit the programme.
@@ -36,7 +38,9 @@ int createSocket () {
         throwError("Erreur lors de la création du socket. \n", 0);
     }
     else {
-        printf("Socket Créé. \n");
+        if(isDebugMode){
+            printf("Socket Créé. \n");
+        }
     }
     return socketDescriptor;
 }
@@ -67,47 +71,11 @@ int connectToServer(char *ip, int port){
         throwError("Erreur lors de la connection au socketDescriptor. \n", 1);
     }
     else {
-        printf("Socket Connecté. \n");
+        if(isDebugMode){
+            printf("Socket Connecté. \n");
+        }
     }
     return socketDescriptor;
-}
-
-/**
- * For an accepted socket descriptor, wait until receiving an int message.
- * This message is usually the size of the message which will be sent just after.
- *
- * @return the size of the message which will be sent after.
- */
-int receiveMessageInt () {
-    int size;
-    if(recv(acceptedSocketDescriptor, &size, sizeof(int), 0) == -1){
-        throwError("Erreur lors de la reception du message. \n", 0);
-    }
-    return size;
-}
-
-/**
- * For an accepted socket descriptor, wait until receiving a message of the messageSize in params.
- *
- * @param messageSize
- * @return the gotten message.
- */
-char *receiveMessageString (int messageSize) {
-    char *message = (char*)malloc(sizeof(char) * (messageSize + 1));
-
-    if(recv(acceptedSocketDescriptor,message, sizeof(char) * messageSize, 0) == -1){
-        throwError("Erreur lors de la reception du message. \n", 0);
-    }
-    return message;
-}
-
-/**
- * Wait until receiving a message.
- */
-char *receiveMessage(){
-    //printf("Waiting for a message\n");
-    int messageSize = receiveMessageInt();
-    return receiveMessageString(messageSize);
 }
 
 /**
@@ -117,7 +85,9 @@ char *receiveMessage(){
 char *askUserForString () {
     char *message = (char *) malloc(sizeof(char) * MAX_STRING_SIZE);
 
-    printf("Entrez votre message: \n");
+    if(isDebugMode){
+        printf("Entrez votre message: \n");
+    }
     if (fgets(message, MAX_STRING_SIZE, stdin) == NULL) {
         throwError("Error fgets. \n", 1);
     }
@@ -135,7 +105,9 @@ void sendMessageInt (int messageSize) {
         throwError("Erreur lors de l'envoi du message. \n", 1);
     }
     else {
-        printf("Taille du message envoyée. \n");
+        if(isDebugMode){
+            printf("Taille du message envoyée. \n");
+        }
     }
 }
 
@@ -150,7 +122,9 @@ void sendMessageString (char *message, int size) {
         throwError("Erreur lors de l'envoi du message. \n", 1);
     }
     else {
-        printf("Message envoyé. \n");
+        setPurpleText();
+        printf("%s : %s", pseudo, message);
+        setWhiteText();
     }
 }
 
@@ -159,23 +133,14 @@ void sendMessageString (char *message, int size) {
  */
 void sendMessage(char *userMessage){
     int messageSize = (int)strlen(userMessage);
-    printf("Size of sent message: %d \n", messageSize);
+    if(isDebugMode){
+        printf("Size of sent message: %d \n", messageSize);
+    }
 
     // Send message size.
     sendMessageInt(messageSize);
     // Send message.
     sendMessageString(userMessage, messageSize);
-}
-
-/**
- * Main receiving loop.
- */
-void readingLoop(){
-    while(1){
-        // If we are in wait mode, we wait until the second client sends a message.
-        char *message = receiveMessage();
-        printf("Message reçu : %s", message);
-    }
 }
 
 /**
@@ -188,15 +153,87 @@ void shutdownClient () {
     exit(EXIT_SUCCESS);
 }
 
+/**
+* Shutdown the thread.
+*/
+void shutdownThread () {
+    //sendMessage(ENDING_MESSAGE);
+    shutdown(acceptedSocketDescriptor, 2);
+    printf("Fin du thread de lecture. \n");
+    pthread_exit(NULL);
+}
+
+/**
+ * For an accepted socket descriptor, wait until receiving an int message.
+ * This message is usually the size of the message which will be sent just after.
+ *
+ * @return the size of the message which will be sent after.
+ */
+int receiveMessageInt () {
+    int size;
+    int recvInt = recv(acceptedSocketDescriptor, &size, sizeof(int), 0);
+    if(recvInt == -1){
+        throwError("Erreur lors de la reception du message. \n", 0);
+    }
+    else if(recvInt == 0){
+        throwError("La connexion avec le serveur distant a été fermée \n", 0);
+    }
+    return size;
+}
+
+/**
+ * For an accepted socket descriptor, wait until receiving a message of the messageSize in params.
+ *
+ * @param messageSize
+ * @return the gotten message.
+ */
+char *receiveMessageString (int messageSize) {
+    char *message = (char*)malloc(sizeof(char) * (messageSize + 1));
+
+    int recvInt = recv(acceptedSocketDescriptor,message, sizeof(char) * messageSize, 0);
+    if(recvInt == -1){
+        throwError("Erreur lors de la reception du message. \n", 0);
+    }
+    else if(recvInt == 0){
+        throwError("La connexion avec le serveur distant a été fermée \n", 0);
+    }
+    return message;
+}
+
+/**
+ * Wait until receiving a message.
+ */
+char *receiveMessage(){
+    int messageSize = receiveMessageInt();
+    return receiveMessageString(messageSize);
+}
+
+/**
+ * Main receiving loop.
+ */
+void readingLoop(){
+    while(1){
+        // If we are in wait mode, we wait until the second client sends a message.
+        char *message = receiveMessage();
+        if(strcmp("", message)!=0){
+            printf("Message reçu : %s", message);
+        }
+    }
+}
+
 
 /**
  * Client side.
  */
 int main(int argc, char *argv[]) {
+    //set default text color
+    setWhiteText();
 /**
  * Client start.
  */
-    printf("Début programme\n");
+    if(isDebugMode){
+        printf("Début programme\n");
+    }
 
     // Assigning function closeServer() to SIGTERM signal
     signal(SIGTERM, shutdownClient);   // Signal shutdown from ide.
@@ -234,6 +271,15 @@ int main(int argc, char *argv[]) {
     if (pthread_create(&pthread, NULL, readingLoop, acceptedSocketDescriptor)) {
         throwError("Error:unable to create thread, %d\n", 0);
     }
+
+/**
+ * Ask user for pseudo
+ */
+
+    printf("Entrez votre pseudo: ");
+    pseudo = askUserForString();
+    pseudo[strlen(pseudo)-1] = '\0';
+    //printf("%s \n",pseudo);
 
 // Lancer le thread d'écriture
     while(1){ // Sending messages to server
