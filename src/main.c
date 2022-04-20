@@ -123,7 +123,7 @@ void sendMessageString (char *message, int size) {
     }
     else {
         setPurpleText();
-        printf("%s : %s", pseudo, message);
+        printf("%s: %s", pseudo, message);
         setWhiteText();
     }
 }
@@ -216,7 +216,7 @@ void readingLoop(){
         // If we are in wait mode, we wait until the second client sends a message.
         char *message = receiveMessage();
         if(strcmp("", message)!=0){
-            printf("Message reçu : %s", message);
+            printf("%s", message);
         }
     }
 }
@@ -279,7 +279,8 @@ int main(int argc, char *argv[]) {
     printf("Entrez votre pseudo: ");
     pseudo = askUserForString();
     pseudo[strlen(pseudo)-1] = '\0';
-    //printf("%s \n",pseudo);
+    sendMessage(pseudo);
+    printf("\n");
 
 // Lancer le thread d'écriture
     while(1){ // Sending messages to server
