@@ -262,6 +262,26 @@ int main(int argc, char *argv[]) {
     acceptedSocketDescriptor = connectToServer(argv[1], atoi(argv[2]));
 
 
+
+
+/**
+ * Ask user for pseudo
+ */
+    int verifiedUsername = 0;
+
+    while(!verifiedUsername){
+        printf("Entrez votre pseudo: ");
+        pseudo = askUserForString();
+        pseudo[strlen(pseudo)-1] = '\0';
+        sendMessage(pseudo);
+        printf("\n");
+        int resp = receiveMessageInt();
+        printf("%d \n",resp);
+        if(resp==201){
+            verifiedUsername = 1;
+        }
+    }
+
 /**
  * Exchange beginning.
  */
@@ -271,16 +291,6 @@ int main(int argc, char *argv[]) {
     if (pthread_create(&pthread, NULL, readingLoop, acceptedSocketDescriptor)) {
         throwError("Error:unable to create thread, %d\n", 0);
     }
-
-/**
- * Ask user for pseudo
- */
-
-    printf("Entrez votre pseudo: ");
-    pseudo = askUserForString();
-    pseudo[strlen(pseudo)-1] = '\0';
-    sendMessage(pseudo);
-    printf("\n");
 
 // Lancer le thread d'écriture
     while(1){ // Sending messages to server
