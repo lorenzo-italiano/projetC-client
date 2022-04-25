@@ -7,7 +7,7 @@
 #include <pthread.h>
 #include "color.c"
 #define MAX_STRING_SIZE 256
-#define ENDING_MESSAGE "Fin\n\0"
+#define ENDING_MESSAGE "/disconnect\n\0"
 
 int acceptedSocketDescriptor;
 char* pseudo;
