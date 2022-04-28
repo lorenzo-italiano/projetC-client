@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 /**
  * Set color text to Red, bold or not depending on the function you call
  * Red: \033[0;31m -> color to display errors

@@ -3,29 +3,18 @@
 #include <arpa/inet.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
 #include <pthread.h>
-#include "color.c"
+
+#include "util/color.c"
+#include "util/error.c"
+#include "util/regex.c"
+
 #define MAX_STRING_SIZE 256
 #define ENDING_MESSAGE "/disconnect\n\0"
 
 int acceptedSocketDescriptor;
 char* pseudo;
 int isDebugMode = 0;
-
-/**
- * Perror the message in params and exit the programme.
- * If hasErrno, print it.
- * @param errorMessage
- * @param hasErrno
- */
-void throwError (char *errorMessage, int hasErrno) {
-    perror(errorMessage);
-    if (hasErrno) {
-        printf("%s", strerror(errno));
-    }
-    exit(EXIT_FAILURE);
-}
 
 /**
  * Create a socket and return his descriptor.
@@ -197,6 +186,15 @@ char *receiveMessageString (int messageSize) {
     else if(recvInt == 0){
         throwError("La connexion avec le serveur distant a été fermée \n", 0);
     }
+
+    if(isMatch(message, "^MP ([^ ].*)")){
+        setBlueText();
+        char *list[3];
+        getRegexGroup(list,message,"^MP ([^ ].*)");
+        return list[1];
+        //printf("%s \n", list[1]);
+    }
+
     return message;
 }
 
@@ -217,6 +215,7 @@ void readingLoop(){
         char *message = receiveMessage();
         if(strcmp("", message)!=0){
             printf("%s", message);
+            setWhiteText();
         }
     }
 }
@@ -255,10 +254,12 @@ int main(int argc, char *argv[]) {
         throwError("Erreur: le port doit être supérieur à 1024. \n", 0);
     }
 
-
 /**
  * Connection to the server.
  */
+
+    // TODO print to say "waiting for connection to server"
+
     acceptedSocketDescriptor = connectToServer(argv[1], atoi(argv[2]));
 
 
