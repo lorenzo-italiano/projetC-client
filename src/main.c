@@ -57,7 +57,7 @@ int connectToServer(char *ip, int port){
     socklen_t lgA = sizeof(struct sockaddr_in);
 
     if(connect(socketDescriptor, (struct sockaddr *) &aS, lgA) == -1){
-        throwError("Erreur lors de la connection au socketDescriptor. \n", 1);
+        throwError("Erreur lors de la connexion au socketDescriptor. \n", 1);
     }
     else {
         if(isDebugMode){
@@ -165,7 +165,7 @@ int receiveMessageInt () {
         throwError("Erreur lors de la reception du message. \n", 0);
     }
     else if(recvInt == 0){
-        throwError("La connexion avec le serveur distant a été fermée \n", 0);
+        throwError("La connexion avec le serveur distant a été fermée. \n", 0);
     }
     return size;
 }
@@ -184,7 +184,7 @@ char *receiveMessageString (int messageSize) {
         throwError("Erreur lors de la reception du message. \n", 0);
     }
     else if(recvInt == 0){
-        throwError("La connexion avec le serveur distant a été fermée \n", 0);
+        throwError("La connexion avec le serveur distant a été fermée. \n", 0);
     }
 
     if(isMatch(message, "^MP ([^ ].*)")){
@@ -257,9 +257,7 @@ int main(int argc, char *argv[]) {
 /**
  * Connection to the server.
  */
-
-    // TODO print to say "waiting for connection to server"
-
+    printf("Waiting for connection to server. \n");
     acceptedSocketDescriptor = connectToServer(argv[1], atoi(argv[2]));
 
 
