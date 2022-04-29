@@ -137,7 +137,6 @@ void sendMessage(char *userMessage){
 */
 void shutdownClient () {
     sendMessage(ENDING_MESSAGE);
-    shutdown(acceptedSocketDescriptor, 2);
     printf("Fin du programme. \n");
     exit(EXIT_SUCCESS);
 }
@@ -295,10 +294,12 @@ int main(int argc, char *argv[]) {
     while(1){ // Sending messages to server
         // If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
         char *userMessage = askUserForString();
-        sendMessage(userMessage);
-        if (strcmp(ENDING_MESSAGE, userMessage) == 0) {
+        if (isMatch(userMessage, "(^/disconnect *\n$)")) {
             // Shutdown the client.
             shutdownClient();
+        }
+        else {
+            sendMessage(userMessage);
         }
     }
 }
