@@ -57,3 +57,4 @@ dkms.conf
 .vscode
 /src/cmake-build-debug/
 /src/client
+/client
