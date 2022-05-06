@@ -1,209 +1,21 @@
 #include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
+#include <sys/socket.h>
+
+#include "global.c"
 
 #include "util/color.c"
 #include "util/error.c"
 #include "util/regex.c"
 
-#define MAX_STRING_SIZE 256
-#define ENDING_MESSAGE "/disconnect\n\0"
-
-int acceptedSocketDescriptor;
-char* pseudo;
-int isDebugMode = 0;
-
-/**
- * Create a socket and return his descriptor.
- *
- * @return the descriptor of the socket created.
- */
-int createSocket () {
-    int socketDescriptor = socket(PF_INET, SOCK_STREAM, 0);
-    if (socketDescriptor == -1) {
-        throwError("Erreur lors de la création du socket. \n", 0);
-    }
-    else {
-        if(isDebugMode){
-            printf("Socket Créé. \n");
-        }
-    }
-    return socketDescriptor;
-}
+#include "socket/receive.c"
+#include "socket/send.c"
+#include "socket/clientSocket.c"
+#include "util/ask.c"
 
 
-/**
- * Find the socket a the address in params and establish a connection with it.
- *
- * @param ip
- * @param port
- * @return
- */
-int connectToServer(char *ip, int port){
-    int socketDescriptor = createSocket();
-
-    struct sockaddr_in aS;
-    aS.sin_family = AF_INET;
-    aS.sin_port = htons(port);
-
-    int inet = inet_pton(AF_INET, ip, &(aS.sin_addr));
-    if (inet == -1){
-        throwError("La conversion d'adresse IP a echouée. \n", 0);
-    }
-
-    socklen_t lgA = sizeof(struct sockaddr_in);
-
-    if(connect(socketDescriptor, (struct sockaddr *) &aS, lgA) == -1){
-        throwError("Erreur lors de la connexion au socketDescriptor. \n", 1);
-    }
-    else {
-        if(isDebugMode){
-            printf("Socket Connecté. \n");
-        }
-    }
-    return socketDescriptor;
-}
-
-/**
- * Ask the user for a message, in the console.
- * @return
- */
-char *askUserForString () {
-    char *message = (char *) malloc(sizeof(char) * MAX_STRING_SIZE);
-
-    if(isDebugMode){
-        printf("Entrez votre message: \n");
-    }
-    if (fgets(message, MAX_STRING_SIZE, stdin) == NULL) {
-        throwError("Error fgets. \n", 1);
-    }
-    return message;
-}
-
-/**
- * For an accepted socket descriptor in params, send a message of type int.
- * This message is usually used to send the message's size which will be sent after.
- *
- * @param messageSize
- */
-void sendMessageInt (int messageSize) {
-    if(send(acceptedSocketDescriptor, &messageSize, sizeof(int), 0) == -1){
-        throwError("Erreur lors de l'envoi du message. \n", 1);
-    }
-    else {
-        if(isDebugMode){
-            printf("Taille du message envoyée. \n");
-        }
-    }
-}
-
-/**
- * For an accepted socket descriptor and a message size, send the message in params.
- *
- * @param message
- * @param size
- */
-void sendMessageString (char *message, int size) {
-    if(send(acceptedSocketDescriptor, message, sizeof(char) * size, 0) == -1){
-        throwError("Erreur lors de l'envoi du message. \n", 1);
-    }
-    else {
-        setPurpleText();
-        printf("%s: %s", pseudo, message);
-        setWhiteText();
-    }
-}
-
-/**
- *
- */
-void sendMessage(char *userMessage){
-    int messageSize = (int)strlen(userMessage);
-    if(isDebugMode){
-        printf("Size of sent message: %d \n", messageSize);
-    }
-
-    // Send message size.
-    sendMessageInt(messageSize);
-    // Send message.
-    sendMessageString(userMessage, messageSize);
-}
-
-/**
-* Shutdown the client.
-*/
-void shutdownClient () {
-    sendMessage(ENDING_MESSAGE);
-    printf("Fin du programme. \n");
-    exit(EXIT_SUCCESS);
-}
-
-/**
-* Shutdown the thread.
-*/
-void shutdownThread () {
-    //sendMessage(ENDING_MESSAGE);
-    shutdown(acceptedSocketDescriptor, 2);
-    printf("Fin du thread de lecture. \n");
-    pthread_exit(NULL);
-}
-
-/**
- * For an accepted socket descriptor, wait until receiving an int message.
- * This message is usually the size of the message which will be sent just after.
- *
- * @return the size of the message which will be sent after.
- */
-int receiveMessageInt () {
-    int size;
-    int recvInt = recv(acceptedSocketDescriptor, &size, sizeof(int), 0);
-    if(recvInt == -1){
-        throwError("Erreur lors de la reception du message. \n", 0);
-    }
-    else if(recvInt == 0){
-        throwError("La connexion avec le serveur distant a été fermée. \n", 0);
-    }
-    return size;
-}
-
-/**
- * For an accepted socket descriptor, wait until receiving a message of the messageSize in params.
- *
- * @param messageSize
- * @return the gotten message.
- */
-char *receiveMessageString (int messageSize) {
-    char *message = (char*)malloc(sizeof(char) * (messageSize + 1));
-
-    int recvInt = recv(acceptedSocketDescriptor,message, sizeof(char) * messageSize, 0);
-    if(recvInt == -1){
-        throwError("Erreur lors de la reception du message. \n", 0);
-    }
-    else if(recvInt == 0){
-        throwError("La connexion avec le serveur distant a été fermée. \n", 0);
-    }
-
-    if(isMatch(message, "^MP ([^ ].*)")){
-        setBlueText();
-        char *list[3];
-        getRegexGroup(list,message,"^MP ([^ ].*)");
-        return list[1];
-        //printf("%s \n", list[1]);
-    }
-
-    return message;
-}
-
-/**
- * Wait until receiving a message.
- */
-char *receiveMessage(){
-    int messageSize = receiveMessageInt();
-    return receiveMessageString(messageSize);
-}
 
 /**
  * Main receiving loop.
@@ -260,25 +72,9 @@ int main(int argc, char *argv[]) {
     acceptedSocketDescriptor = connectToServer(argv[1], atoi(argv[2]));
 
 
+    // Ask user for username.
+    username = askForUsername();
 
-
-/**
- * Ask user for pseudo
- */
-    int verifiedUsername = 0;
-
-    while(!verifiedUsername){
-        printf("Entrez votre pseudo: ");
-        pseudo = askUserForString();
-        pseudo[strlen(pseudo)-1] = '\0';
-        sendMessage(pseudo);
-        printf("\n");
-        int resp = receiveMessageInt();
-        printf("%d \n",resp);
-        if(resp==201){
-            verifiedUsername = 1;
-        }
-    }
 
 /**
  * Exchange beginning.
