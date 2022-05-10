@@ -1,8 +1,8 @@
 #include <stdio.h>
+#include <sys/socket.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
-#include <sys/socket.h>
 
 #include "global.c"
 
@@ -14,6 +14,9 @@
 #include "socket/send.c"
 #include "socket/clientSocket.c"
 #include "util/ask.c"
+
+#include "command/Command.c"
+#include "command/action.c"
 
 
 
@@ -46,8 +49,8 @@ int main(int argc, char *argv[]) {
     }
 
     // Assigning function closeServer() to SIGTERM signal
-    signal(SIGTERM, shutdownClient);   // Signal shutdown from ide.
-    signal(SIGINT, shutdownClient);    // Signal shutdown from ctr+c in terminal.
+    signal(SIGTERM, disconnectAction);   // Signal shutdown from ide.
+    signal(SIGINT, disconnectAction);    // Signal shutdown from ctr+c in terminal.
 
 
 /**
@@ -65,6 +68,8 @@ int main(int argc, char *argv[]) {
         throwError("Erreur: le port doit être supérieur à 1024. \n", 0);
     }
 
+    initCommandList();
+
 /**
  * Connection to the server.
  */
@@ -73,7 +78,8 @@ int main(int argc, char *argv[]) {
 
 
     // Ask user for username.
-    username = askForUsername();
+    // username is a global variable.
+    askForUsername();
 
 
 /**
@@ -90,12 +96,8 @@ int main(int argc, char *argv[]) {
     while(1){ // Sending messages to server
         // If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
         char *userMessage = askUserForString();
-        if (isMatch(userMessage, "(^/disconnect *\n$)")) {
-            // Shutdown the client.
-            shutdownClient();
-        }
-        else {
-            sendMessage(userMessage);
-        }
+
+        // Execute the command associated or send the message to the server.
+        doCommandAction(userMessage);
     }
 }

@@ -3,12 +3,12 @@
  * @return
  */
 char *askUserForString () {
-    char *message = (char *) malloc(sizeof(char) * MAX_STRING_SIZE);
+    char *message = (char *) malloc(sizeof(char) * MAX_SIZE_SENT);
 
     if(isDebugMode){
         printf("Entrez votre message: \n");
     }
-    if (fgets(message, MAX_STRING_SIZE, stdin) == NULL) {
+    if (fgets(message, MAX_SIZE_SENT, stdin) == NULL) {
         throwError("Error fgets. \n", 1);
     }
     return message;
@@ -17,7 +17,7 @@ char *askUserForString () {
 /**
  * Ask user for username.
  */
-char *askForUsername () {
+void askForUsername () {
     int verifiedUsername = 0;
 
     while(!verifiedUsername){
