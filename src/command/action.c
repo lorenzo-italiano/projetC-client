@@ -1,6 +1,3 @@
-
-#include <unistd.h>
-
 /**
  * Shutdown the client.
  */
@@ -34,14 +31,7 @@ void *fileActionThreaded (void *file) {
 void fileAction (Command *command, char *message) {
     // Get current path.
     char filePath[200];
-    getwd(filePath);
-    if (isMatch(filePath, "cmake-build-debug")) {
-        // Program launched by Cmake project. It means that the current pwd is the directory cmake-build-debug.
-        strcat(filePath, "/../uploads/");
-    } else {
-        // Program launched by the script client.sh.
-        strcat(filePath, "/src/uploads/");
-    }
+    getPwd(filePath);
 
     // Get filename and add it to the file path.
     char *regexGroupList[3];

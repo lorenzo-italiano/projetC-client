@@ -3,12 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #include "global.c"
 
 #include "util/color.c"
 #include "util/error.c"
 #include "util/regex.c"
+#include "util/util.c"
 
 #include "socket/receive.c"
 #include "socket/send.c"
@@ -23,7 +25,7 @@
 /**
  * Main receiving loop.
  */
-void readingLoop(){
+void *readingLoop(){
     while(1){
         // If we are in wait mode, we wait until the second client sends a message.
         char *message = receiveMessage();
@@ -88,7 +90,7 @@ int main(int argc, char *argv[]) {
 
 // Lancer le thread de lecture
     pthread_t pthread;
-    if (pthread_create(&pthread, NULL, readingLoop, acceptedSocketDescriptor)) {
+    if (pthread_create(&pthread, NULL, readingLoop, NULL)) {
         throwError("Error:unable to create thread, %d\n", 0);
     }
 
