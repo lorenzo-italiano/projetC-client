@@ -17,8 +17,7 @@
 #include "socket/clientSocket.c"
 #include "util/ask.c"
 
-#include "command/Command.c"
-#include "command/action.c"
+#include "command/router.c"
 
 
 

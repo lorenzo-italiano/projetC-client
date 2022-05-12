@@ -1,3 +1,5 @@
+#include <dirent.h>
+
 /**
  * Shutdown the client.
  */
@@ -31,12 +33,12 @@ void *fileActionThreaded (void *file) {
 void fileAction (Command *command, char *message) {
     // Get current path.
     char filePath[200];
-    getPwd(filePath);
+    getUploadDirectoryPath(filePath);
 
     // Get filename and add it to the file path.
     char *regexGroupList[3];
     getRegexGroup(regexGroupList, message, command->regex);
-    strcat(filePath, regexGroupList[2]);
+    strcat(filePath, regexGroupList[1]);
 
     FILE *file;
     file = fopen(filePath, "rb");
@@ -55,33 +57,54 @@ void fileAction (Command *command, char *message) {
 
     free(regexGroupList[0]);
     free(regexGroupList[1]);
-    free(regexGroupList[2]);
+//    free(regexGroupList[2]);
 }
 
 /**
- * Find the wanted command in the message in params (with regex).
- * Call the action attached to this command.
- * If there isn't any associated command, juste sebd the message.
+ * Print directory's names within uploads/.
+ * Depending on the option in message, print the client or server directory.
  *
+ * @param command
  * @param message
  */
-void doCommandAction (char *message) {
-    Command *command = getCommand(message);
+void filesAction (Command *command, char *message) {
+    // Get the option. -c || -s.
+    char *regexGroupList[3];
+    getRegexGroup(regexGroupList, message, command->regex);
 
-    if (command == NULL) {
-        // Unknown action.
+    if (strcmp(regexGroupList[1], "c") == 0) {
+        // Client files listing.
+
+        printf("Liste des fichiers disponibles dans le dossier uploads : \n");
+
+        // Get uploads path.
+        char uploadDirectoryPath[200];
+        getUploadDirectoryPath(uploadDirectoryPath);
+
+        // Get directory.
+        DIR *directory;
+        struct dirent *file;
+        directory = opendir(uploadDirectoryPath);
+        if (directory == NULL) {
+            throwError("Unable to open the directory. \n", 0);
+        }
+
+        while ((file = readdir(directory)) != NULL) {
+            if (strcmp(file->d_name, ".") != 0 && strcmp(file->d_name, "..") != 0) {  // Don't take files : "." et "..".
+//                printf("File %d : %s\n", n, file->d_name);
+                printf("%s\n", file->d_name);
+            }
+        }
+        printf("\n");
+        closedir(directory);
+    }
+    else if (strcmp(regexGroupList[1], "s") == 0) {
+        // Server files listing.
+        printf("Liste des fichiers disponibles sur le serveur : \n");
         sendMessage(message);
     }
-    else if (strcmp("disconnect", command->name) == 0) {
-        // Disconnection.
-        disconnectAction();
-    }
-    else if (strcmp("file", command->name) == 0) {
-        // File sending.
-        fileAction(command, message);
-    }
-    else {
-        // Unknown action.
-        sendMessage(message);
-    }
+
+    free(regexGroupList[0]);
+    free(regexGroupList[1]);
+    free(regexGroupList[2]);
 }

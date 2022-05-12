@@ -2,7 +2,7 @@
 #define ENDING_MESSAGE "/disconnect\n\0"
 #define IP "127.0.0.1"
 #define PORT_SOCKET_FILE 3333
-#define NB_COMMAND 2
+#define NB_COMMAND 3
 
 int acceptedSocketDescriptor;
 char *username;
