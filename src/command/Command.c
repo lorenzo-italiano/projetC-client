@@ -1,7 +1,6 @@
 struct Command {
     char *name;
     char *regex;
-    char *description;
     /// TODO : Add action function associated.
 };
 typedef struct Command Command;
@@ -11,15 +10,13 @@ typedef struct Command Command;
  *
  * @param name
  * @param regex
- * @param description
  * @return
  */
-Command *createCommand (char *name, char *regex, char *description) {
+Command *createCommand (char *name, char *regex) {
     Command *command = (Command *)malloc(sizeof(Command));
 
     command->name = name;
     command->regex = regex;
-    command->description = description;
 
     return command;
 }
@@ -29,9 +26,9 @@ Command *commandList[NB_COMMAND];
  * Initialize the global list of available commands, commandList.
  */
 void initCommandList () {
-    commandList[0] = createCommand("disconnect", "^/disconnect *\n$", "Déconnecte l'utilisateur. \n");
-    commandList[1] = createCommand("file", "^/file +([^ ]+) *\n$", "Envoi un fichier. \n");
-    commandList[2] = createCommand("files", "^/files +-(c|s) *\n$", "Liste des fichier disponibles dans le répertoire client ou serveur. /files -c || -s \n");
+    commandList[0] = createCommand("disconnect", "^/disconnect *\n$");  // Déconnecte l'utilisateur.
+    commandList[1] = createCommand("file", "^/file +([^ ]+) *\n$");     // Envoi un fichier.
+    commandList[2] = createCommand("files", "^/files +-(c|s) *\n$");    // Liste des fichier disponibles dans le répertoire client ou serveur. /files -c || -s
     // Don't forger to update NB_COMMAND.
 }
 
