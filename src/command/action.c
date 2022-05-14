@@ -1,26 +1,11 @@
 #include <dirent.h>
+#include "actionThreaded.c"
 
 /**
  * Shutdown the client.
  */
 void disconnectAction () {
     shutdownClient();
-}
-
-/**
- * Threaded function called by fileAction(...).
- * Connect to the socket used to send files and send the file.
- *
- * @param file
- * @return
- */
-void *fileActionThreaded (void *file) {
-    int clientSocketForFile = connectToServer(IP, PORT_SOCKET_FILE);
-
-    sendFile(clientSocketForFile, file);
-
-    close(clientSocketForFile);
-    pthread_exit(NULL);
 }
 
 /**
@@ -31,28 +16,32 @@ void *fileActionThreaded (void *file) {
  * @param message
  */
 void fileAction (Command *command, char *message) {
-    // Get current path.
-    char filePath[200];
-    getUploadDirectoryPath(filePath);
-
     // Get filename and add it to the file path.
     char *regexGroupList[3];
     getRegexGroup(regexGroupList, message, command->regex);
-    strcat(filePath, regexGroupList[1]);
+    // regexGroupList[0] = message
+    // regexGroupList[1] = -send || -get || username
+    // regexGroupList[2] = filename
 
-    FILE *file;
-    file = fopen(filePath, "rb");
-    if (file != NULL) {
-        // File exists.
+    pthread_t fileThread;
+
+    if (strcmp("-send", regexGroupList[1]) == 0) {
+        // User send file to the server.
+        printf("file -send filename\n");
+
+        // params : [message, filename].
+        pthread_create(&fileThread, NULL, sendFileThreaded, regexGroupList[2]);
+    }
+    else if (strcmp("-get", regexGroupList[1]) == 0) {
+        // User get file from the server.
+        printf("file -get filename\n");
+
         sendMessage(message);
-
-        // Create thread which send the file.
-        pthread_t fileThread;
-        pthread_create(&fileThread, NULL, fileActionThreaded, file);
+        pthread_create(&fileThread, NULL, receiveFileThreaded, regexGroupList[2]);
     }
     else {
-        // File doesn't exists.
-        printf("Fichier inconnu. \n");
+        // User send file to other user.
+        printf("file username filename\n");
     }
 
     free(regexGroupList[0]);
