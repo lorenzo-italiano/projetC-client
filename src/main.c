@@ -6,6 +6,7 @@
 #include <unistd.h>
 
 #include "global.c"
+#include "internationalization/i18n.c"
 
 #include "util/color.c"
 #include "util/error.c"
@@ -54,7 +55,7 @@ int main(int argc, char *argv[]) {
  * Client start.
  */
     if(isDebugMode){
-        printf("Début programme\n");
+        printf(PROGRAM_START);
     }
 
     // Assigning function closeServer() to SIGTERM signal
@@ -67,14 +68,14 @@ int main(int argc, char *argv[]) {
  */
     // Error if the number of arguments isn't valid.
     if(argc != 3){
-        printf("Erreur: Nombre d'arguments invalide. Utilisation :\n");;
+        printf(ERROR_ARGS);
         printf("%s IP PORT\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     // Erreur si port < 1024 (argv 2)
     if(atoi(argv[2]) < 1024){
-        throwError("Erreur: le port doit être supérieur à 1024. \n", 0);
+        throwError(ERROR_PORT, 0);
     }
 
     initCommandList();
@@ -82,7 +83,7 @@ int main(int argc, char *argv[]) {
 /**
  * Connection to the server.
  */
-    printf("Waiting for connection to server. \n");
+    printf(WAITING_SERVER_CONNECTION);
     acceptedSocketDescriptor = connectToServer(argv[1], atoi(argv[2]));
 
 
@@ -98,7 +99,7 @@ int main(int argc, char *argv[]) {
 // Lancer le thread de lecture
     pthread_t pthread;
     if (pthread_create(&pthread, NULL, readingLoop, NULL)) {
-        throwError("Error:unable to create thread, %d\n", 0);
+        throwError(ERROR_THREAD_CREATION, 0);
     }
 
 // Lancer le thread d'écriture

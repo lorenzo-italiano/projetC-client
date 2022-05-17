@@ -14,7 +14,7 @@ int isMatch (char *message, char *reg) {
 
     regexValue = regcomp(&regex, reg, REG_EXTENDED);
     if (regexValue) {
-        throwError("Could not compile regex. \n", 0);
+        throwError(ERROR_REGEX_NOT_COMPILED, 0);
     }
 
     //Execute regular expression.
@@ -29,7 +29,7 @@ int isMatch (char *message, char *reg) {
         isMatch = 0;
     }
     else {
-        throwError("Regex error. \n", 0);
+        throwError(ERROR_REGEX, 0);
     }
 
     // Free memory allocated to the pattern buffer by regcomp().
@@ -51,7 +51,7 @@ void getRegexGroup (char *list[], char *message, char *regexString) {
     regmatch_t groupArray[maxGroups];
 
     if (regcomp(&regexCompiled, regexString, REG_EXTENDED)){
-        throwError("Could not compile regex. \n", 0);
+        throwError(ERROR_REGEX_NOT_COMPILED, 0);
     }
 
     if (regexec(&regexCompiled, message, maxGroups, groupArray, 0) == 0) {

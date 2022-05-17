@@ -52,7 +52,7 @@ Command *getCommand (char *message) {
     if (isCommand(message)) {
         for (int i = 0; i < NB_COMMAND; i++) {
             if (isMatch(message, commandList[i]->regex)) {
-                printf("Command : %s. \n", commandList[i]->name);
+                if (isDebugMode) { printf("Command : %s. \n", commandList[i]->name); }
                 return commandList[i];
             }
         }

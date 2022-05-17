@@ -8,7 +8,7 @@
 int createSocket () {
     int socketDescriptor = socket(PF_INET, SOCK_STREAM, 0);
     if (socketDescriptor == -1) {
-        throwError("Erreur lors de la création du socket. \n", 0);
+        throwError(ERROR_SOCKET_CREATION, 0);
     }
     else {
         if(isDebugMode){
@@ -35,13 +35,13 @@ int connectToServer(char *ip, int port){
 
     int inet = inet_pton(AF_INET, ip, &(aS.sin_addr));
     if (inet == -1){
-        throwError("La conversion d'adresse IP a echouée. \n", 0);
+        throwError(ERROR_INET, 0);
     }
 
     socklen_t lgA = sizeof(struct sockaddr_in);
 
     if(connect(socketDescriptor, (struct sockaddr *) &aS, lgA) == -1){
-        throwError("Erreur lors de la connexion au socketDescriptor. \n", 1);
+        throwError(ERROR_SOCKET_CONNECTION, 1);
     }
     else {
         if(isDebugMode){
@@ -56,16 +56,6 @@ int connectToServer(char *ip, int port){
 */
 void shutdownClient () {
     sendMessage(ENDING_MESSAGE);
-    printf("Fin du programme. \n");
+    printf(PROGRAM_END);
     exit(EXIT_SUCCESS);
-}
-
-/**
-* Shutdown the thread.
-*/
-void shutdownThread () {
-    //sendMessage(ENDING_MESSAGE);
-    shutdown(acceptedSocketDescriptor, 2);
-    printf("Fin du thread de lecture. \n");
-    pthread_exit(NULL);
 }

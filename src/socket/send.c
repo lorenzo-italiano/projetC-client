@@ -6,11 +6,11 @@
  */
 void sendMessageInt (int messageSize) {
     if(send(acceptedSocketDescriptor, &messageSize, sizeof(int), 0) == -1){
-        throwError("Erreur lors de l'envoi du message. \n", 1);
+        throwError(ERROR_SEND_MESSAGE, 1);
     }
     else {
         if(isDebugMode){
-            printf("Taille du message envoyée. \n");
+            printf(SEND_MESSAGE_INT);
         }
     }
 }
@@ -23,7 +23,7 @@ void sendMessageInt (int messageSize) {
  */
 void sendMessageString (char *message, int size) {
     if(send(acceptedSocketDescriptor, message, sizeof(char) * size, 0) == -1){
-        throwError("Erreur lors de l'envoi du message. \n", 1);
+        throwError(ERROR_SEND_MESSAGE, 1);
     }
     else {
         setPurpleText();
@@ -40,9 +40,6 @@ void sendMessageString (char *message, int size) {
  */
 void sendMessage(char *userMessage){
     int messageSize = (int)strlen(userMessage);
-    if(isDebugMode){
-        printf("Size of sent message: %d \n", messageSize);
-    }
 
     // Send message size.
     sendMessageInt(messageSize);
@@ -74,11 +71,11 @@ void sendFile(int socketForFile, FILE *file){
         fread(subBuffer, blocSize, 1, file); // Read in the file.
 
         if (send(socketForFile, subBuffer, sizeof(subBuffer), 0) == -1) {   // Send bloc of data.
-            throwError("Error in sending file. \n", 1);
+            throwError(ERROR_SEND_FILE, 1);
         }
         bzero(subBuffer, MAX_SIZE_SENT);    // Clear the buffer.
     }
 
     fclose(file); // Close the file
-    printf("Le ficher a bien été envoyé. \n");
+    printf(FILE_SENT);
 }

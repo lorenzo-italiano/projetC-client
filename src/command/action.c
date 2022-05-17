@@ -33,17 +33,17 @@ void fileAction (Command *command, char *message) {
 
     if (strcmp("-send", regexGroupList[1]) == 0) {
         // User send file to the server.
-        printf("file -send filename\n");
+        if (isDebugMode) { printf("file -send filename\n"); }
         pthread_create(&fileThread, NULL, sendFileThreaded, param);
     }
     else if (strcmp("-get", regexGroupList[1]) == 0) {
         // User get file from the server.
-        printf("file -get filename\n");
+        if (isDebugMode) { printf("file -get filename\n"); }
         pthread_create(&fileThread, NULL, receiveFileThreaded, param);
     }
     else {
         // User send file to other user.
-        printf("file username filename\n");
+        if (isDebugMode) { printf("file username filename\n"); }
 
         pthread_create(&fileThread, NULL, mpSendFileThreaded, param);
     }
@@ -66,7 +66,7 @@ void filesAction (Command *command, char *message) {
     if (strcmp(regexGroupList[1], "c") == 0) {
         // Client files listing.
 
-        printf("Liste des fichiers disponibles dans le dossier uploads : \n");
+        printf(FILE_LIST_HEADER_CLIENT);
 
         // Get uploads path.
         char uploadDirectoryPath[200];
@@ -91,7 +91,7 @@ void filesAction (Command *command, char *message) {
     }
     else if (strcmp(regexGroupList[1], "s") == 0) {
         // Server files listing.
-        printf("Liste des fichiers disponibles sur le serveur : \n");
+        printf(FILE_LIST_HEADER_SERVER);
         sendMessage(message);
     }
 

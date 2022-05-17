@@ -24,11 +24,11 @@ void *sendFileThreaded (struct paramFileThreaded *param) {
         int clientSocketForFile = connectToServer(IP, PORT_SOCKET_FILE);
         sendFile(clientSocketForFile, file);
         close(clientSocketForFile);
-        printf("Le fichier a bien été envoyé. \n");
+        printf(FILE_SENT);
     }
     else {
         // File doesn't exists.
-        printf("Fichier inconnu. \n");
+        printf(FILE_NOT_FOUND);
     }
 
     free(param->message);
@@ -57,12 +57,12 @@ void *receiveFileThreaded (struct paramFileThreaded *param) {
 
     if (requestStatus == 404) {
         // File not found.
-        printf("Le fichier n'existe pas. \n");
+        printf(FILE_NOT_FOUND);
     }
     else {
         // Status == 204. File found.
         receiveFile(clientSocketForFile, param->filename);
-        printf("Le fichier a bien été importé. \n");
+        printf(FILE_IMPORTED);
         close(clientSocketForFile);
     }
 
@@ -100,18 +100,18 @@ void *mpSendFileThreaded (struct paramFileThreaded *param) {
         recv(clientSocketForFile, &userTargetStatus, sizeof(int), 0);   /// TODO : modif recv msg int avec socket en params.
 
         if (userTargetStatus == 204) {
-            printf("Send file. \n");
+            if (isDebugMode) { printf("Send file. \n"); }
             sendFile(clientSocketForFile, file);
         }
         else {
             // userTargetStatus == 404
-            printf("Utilisateur cible invalid. \n");
+            printf(USER_NOT_FOUND);
         }
         close(clientSocketForFile);
     }
     else {
         // File doesn't exists.
-        printf("Fichier inconnu. \n");
+        printf(FILE_NOT_FOUND);
     }
 
 

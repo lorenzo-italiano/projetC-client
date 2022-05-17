@@ -8,10 +8,10 @@ int receiveMessageInt () {
     int size;
     int recvInt = recv(acceptedSocketDescriptor, &size, sizeof(int), 0);
     if(recvInt == -1){
-        throwError("Erreur lors de la reception du message. \n", 0);
+        throwError(ERROR_RECEIVE_MESSAGE, 0);
     }
     else if(recvInt == 0){
-        throwError("La connexion avec le serveur distant a été fermée. \n", 0);
+        throwError(SERVER_CONNECTION_CLOSED, 0);
     }
     return size;
 }
@@ -27,20 +27,19 @@ char *receiveMessageString (int messageSize) {
 
     int recvInt = recv(acceptedSocketDescriptor,message, sizeof(char) * messageSize, 0);
     if(recvInt == -1){
-        throwError("Erreur lors de la reception du message. \n", 0);
+        throwError(ERROR_RECEIVE_MESSAGE, 0);
     }
     else if(recvInt == 0){
-        throwError("La connexion avec le serveur distant a été fermée. \n", 0);
+        throwError(SERVER_CONNECTION_CLOSED, 0);
     }
 
     if(isMatch(message, "^MP ([^ ].*)")){
         setBlueText();
         char *list[3];
-        getRegexGroup(list,message,"^MP ([^ ].*)");
+        getRegexGroup(list,message,"^MP ([^ ].*)");     /// TODO : free.
         return list[1];
         //printf("%s \n", list[1]);
     }
-
     return message;
 }
 

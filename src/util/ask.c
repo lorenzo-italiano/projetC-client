@@ -6,10 +6,10 @@ char *askUserForString () {
     char *message = (char *) malloc(sizeof(char) * MAX_SIZE_SENT);
 
     if(isDebugMode){
-        printf("Entrez votre message: \n");
+        printf(ASK_FOR_STRING);
     }
     if (fgets(message, MAX_SIZE_SENT, stdin) == NULL) {
-        throwError("Error fgets. \n", 1);
+        throwError(ERROR_FGETS, 1);
     }
     return message;
 }
@@ -21,7 +21,7 @@ void askForUsername () {
     int verifiedUsername = 0;
 
     while(!verifiedUsername){
-        printf("Entrez votre username: ");
+        printf(ASK_FOR_USERNAME);
         username = askUserForString();
         username[strlen(username) - 1] = '\0';
         sendMessage(username);
