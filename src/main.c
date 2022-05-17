@@ -33,7 +33,10 @@ void *readingLoop(){
             pthread_t pthread;
             pthread_create(&pthread, NULL, mpReceiveFileThreaded, message);
         }
-        if(strcmp("", message)!=0){
+        else if (isMatch(message, commandList[0]->regex)) {
+            sendMessage(ENDING_MESSAGE);
+        }
+        else if(strcmp("", message)!=0){
             printf("%s", message);
             setWhiteText();
         }
