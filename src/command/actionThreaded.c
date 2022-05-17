@@ -1,4 +1,11 @@
 
+// Struct used for threaded function.
+struct paramFileThreaded {
+    char *message;
+    char *username;
+    char *filename;
+};
+
 /**
  * Threaded function called by fileAction(...).
  * Connect to the socket used to send files and send the file.
@@ -6,22 +13,12 @@
  * @param filename
  * @return
  */
-void *sendFileThreaded (void *filename) {
-    // Get current path.
-    char filePath[200];
-    getUploadDirectoryPath(filePath);
-    strcat(filePath, filename);
+void *sendFileThreaded (struct paramFileThreaded *param) {
+    FILE *file = openFile(param->filename, "rb");
 
-    // Create initial user message. Can't get it in params because it's a threaded function.
-    char message[200] = "/file -send ";
-    strcat(message, filename);
-    strcat(message, "\n");
-
-    FILE *file;
-    file = fopen(filePath, "rb");
     if (file != NULL) {
         // File exists.
-        sendMessage(message);
+        sendMessage(param->message);
 
         // Connection to the socket used to send files.
         int clientSocketForFile = connectToServer(IP, PORT_SOCKET_FILE);
@@ -33,6 +30,12 @@ void *sendFileThreaded (void *filename) {
         // File doesn't exists.
         printf("Fichier inconnu. \n");
     }
+
+    free(param->message);
+    free(param->username);
+    free(param->filename);
+    free(param);
+
     pthread_exit(NULL);
 }
 
@@ -43,7 +46,9 @@ void *sendFileThreaded (void *filename) {
  * @param filename
  * @return
  */
-void *receiveFileThreaded (char *filename) {
+void *receiveFileThreaded (struct paramFileThreaded *param) {
+    sendMessage(param->message);
+
     // Connection to the socket used to send files.
     int clientSocketForFile = connectToServer(IP, PORT_SOCKET_FILE);
     int requestStatus;
@@ -56,9 +61,90 @@ void *receiveFileThreaded (char *filename) {
     }
     else {
         // Status == 204. File found.
-        receiveFile(clientSocketForFile, filename);
+        receiveFile(clientSocketForFile, param->filename);
         printf("Le fichier a bien été importé. \n");
+        close(clientSocketForFile);
     }
 
+    free(param->message);
+    free(param->username);
+    free(param->filename);
+    free(param);
+
+    pthread_exit(NULL);
+}
+
+/**
+ * Threaded function called when a user wanna mp a file to another user.
+ *
+ * @param param
+ * @return
+ */
+void *mpSendFileThreaded (struct paramFileThreaded *param) {
+    // Check file exists locally.
+    // Send message to serv.
+    // Connect to second socket.
+    // Server asert that the wanted user is connected.
+        // If connected, send the file.
+
+    FILE *file = openFile(param->filename, "rb");
+
+    if (file != NULL) {
+        // File exists.
+
+        sendMessage(param->message);
+
+        // Connection to the socket used to send files.
+        int clientSocketForFile = connectToServer(IP, PORT_SOCKET_FILE);
+        int userTargetStatus;
+        recv(clientSocketForFile, &userTargetStatus, sizeof(int), 0);   /// TODO : modif recv msg int avec socket en params.
+
+        if (userTargetStatus == 204) {
+            printf("Send file. \n");
+            sendFile(clientSocketForFile, file);
+        }
+        else {
+            // userTargetStatus == 404
+            printf("Utilisateur cible invalid. \n");
+        }
+        close(clientSocketForFile);
+    }
+    else {
+        // File doesn't exists.
+        printf("Fichier inconnu. \n");
+    }
+
+
+    free(param->message);
+    free(param->username);
+    free(param->filename);
+    free(param);
+
+    pthread_exit(NULL);
+}
+
+/**
+ * Threaded function called when a user receive a message saying that he will receive a file from mp.
+ *
+ * @param message
+ * @return
+ */
+void *mpReceiveFileThreaded (void *message) {
+    // Connection to the socket used to send files.
+    int clientSocketForFile = connectToServer(IP, PORT_SOCKET_FILE);
+
+    char *regexGroupList[3];
+    getRegexGroup(regexGroupList, message, commandList[1]->regex);
+    // regexGroupList[0] = message
+    // regexGroupList[1] = -send || -get || username
+    // regexGroupList[2] = filename
+
+    receiveFile(clientSocketForFile, regexGroupList[2]);
+
+    free(regexGroupList[0]);
+    free(regexGroupList[1]);
+    free(regexGroupList[2]);
+
+    close(clientSocketForFile);
     pthread_exit(NULL);
 }

@@ -28,6 +28,11 @@ void *readingLoop(){
     while(1){
         // If we are in wait mode, we wait until the second client sends a message.
         char *message = receiveMessage();
+        if (isMatch(message, commandList[1]->regex)) {
+            // If client is receiving a file from another client.
+            pthread_t pthread;
+            pthread_create(&pthread, NULL, mpReceiveFileThreaded, message);
+        }
         if(strcmp("", message)!=0){
             printf("%s", message);
             setWhiteText();

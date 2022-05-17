@@ -23,30 +23,32 @@ void fileAction (Command *command, char *message) {
     // regexGroupList[1] = -send || -get || username
     // regexGroupList[2] = filename
 
+    struct paramFileThreaded *param;
+    param = malloc(sizeof(struct paramFileThreaded));
+    param->message = message;
+    param->username = regexGroupList[1];    // -send || -get || username
+    param->filename = regexGroupList[2];
+
     pthread_t fileThread;
 
     if (strcmp("-send", regexGroupList[1]) == 0) {
         // User send file to the server.
         printf("file -send filename\n");
-
-        // params : [message, filename].
-        pthread_create(&fileThread, NULL, sendFileThreaded, regexGroupList[2]);
+        pthread_create(&fileThread, NULL, sendFileThreaded, param);
     }
     else if (strcmp("-get", regexGroupList[1]) == 0) {
         // User get file from the server.
         printf("file -get filename\n");
-
-        sendMessage(message);
-        pthread_create(&fileThread, NULL, receiveFileThreaded, regexGroupList[2]);
+        pthread_create(&fileThread, NULL, receiveFileThreaded, param);
     }
     else {
         // User send file to other user.
         printf("file username filename\n");
+
+        pthread_create(&fileThread, NULL, mpSendFileThreaded, param);
     }
 
-    free(regexGroupList[0]);
-    free(regexGroupList[1]);
-//    free(regexGroupList[2]);
+    // Free within threaded functions.
 }
 
 /**

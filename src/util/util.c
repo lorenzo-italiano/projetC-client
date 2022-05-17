@@ -12,3 +12,22 @@ void getUploadDirectoryPath (char *filePath) {
         strcat(filePath, "/src/uploads/");
     }
 }
+
+/**
+ * For a filename, return an opened file on binary reading.
+ * Can return NULL.
+ *
+ * @param filename
+ * @return
+ */
+FILE *openFile (char *filename, char *mode) {
+    // Get current path.
+    char filePath[200];
+    getUploadDirectoryPath(filePath);
+    strcat(filePath, filename);
+
+    FILE *file;
+    file = fopen(filePath, mode);
+
+    return file;
+}

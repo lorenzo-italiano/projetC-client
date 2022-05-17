@@ -66,6 +66,7 @@ void receiveFile(int serverFileSocket, char *fileName){
     // Get current path.
     char filePath[200];
     getUploadDirectoryPath(filePath);
+    strcat(filePath, "receiving/");
     strcat(filePath, fileName);
 
     // File creation.
