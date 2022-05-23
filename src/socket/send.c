@@ -25,11 +25,14 @@ void sendMessageString (char *message, int size) {
     if(send(acceptedSocketDescriptor, message, sizeof(char) * size, 0) == -1){
         throwError(ERROR_SEND_MESSAGE, 1);
     }
-    else {
-        setPurpleText();
-        printf("%s: %s", username, message);
-        setWhiteText();
-    }
+//    else {
+//        TODO Set text to magenta
+//        window_print_white(strcat(username, message));
+//        wattron(win_display, COLOR_PAIR(1));
+//        wprintw(win_display, "t");
+//        wattroff(win_display, COLOR_PAIR(1));
+//        printf("%s: %s", username, message);
+//    }
 }
 
 /**

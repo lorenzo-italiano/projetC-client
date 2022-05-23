@@ -4,21 +4,30 @@
 #include <string.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <ncurses.h>
+#include <form.h>
+#include <assert.h>
+#include <ctype.h>
 
 #include "global.c"
 #include "internationalization/i18n.c"
 
-#include "util/color.c"
 #include "util/error.c"
 #include "util/regex.c"
 #include "util/util.c"
 
+#include "ui/colors.c"
+
+#include "socket/receive.c"
 #include "socket/send.c"
 #include "socket/clientSocket.c"
-#include "socket/receive.c"
 #include "util/ask.c"
 
 #include "command/router.c"
+
+#include "ui/utils.c"
+
+
 
 
 
@@ -27,7 +36,6 @@
  */
 void *readingLoop(){
     while(1){
-        // If we are in wait mode, we wait until the second client sends a message.
         char *message = receiveMessage();
         if (isMatch(message, commandList[1]->regex)) {
             // If client is receiving a file from another client.
@@ -38,8 +46,21 @@ void *readingLoop(){
             sendMessage(ENDING_MESSAGE);
         }
         else if(strcmp("", message)!=0){
-            printf("%s", message);
-            setWhiteText();
+
+            if(isMatch(message, "^MP ([^ ].*)")){
+                char *list[3];
+                getRegexGroup(list,message,"^MP ([^ ].*)");     /// TODO : free.
+                window_print_blue(list[1]);
+            }
+            else if(isMatch(message, "^Me: ([^ ].*)")){
+                char *list[3];
+                getRegexGroup(list,message,"^Me: ([^ ].*)");     /// TODO : free.
+                window_print_magenta(list[0]);
+            }
+            else{
+                window_print_white(message);
+            }
+            refresh_all();
         }
     }
 }
@@ -49,8 +70,6 @@ void *readingLoop(){
  * Client side.
  */
 int main(int argc, char *argv[]) {
-    //set default text color
-    setWhiteText();
 /**
  * Client start.
  */
@@ -102,12 +121,30 @@ int main(int argc, char *argv[]) {
         throwError(ERROR_THREAD_CREATION, 0);
     }
 
-// Lancer le thread d'écriture
-    while(1){ // Sending messages to server
-        // If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
-        char *userMessage = askUserForString();
+    int ch;
 
-        // Execute the command associated or send the message to the server.
-        doCommandAction(userMessage);
+    interface_init();
+
+    wprintw(win_display, "Hello and welcome on the chat !\n");
+
+    form_initialisation();
+
+    set_field_buffer(fields[1], 0, "Message..");
+
+    set_title("Salon 2");
+
+    doCommandAction("/help\n");
+
+    refresh_all();
+
+    // Lancer le thread d'écriture
+    while(1){ // Sending messages to server
+        /* If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
+        char *userMessage = askUserForString();*/
+
+        ch = getch();
+        driver(ch);
+
+
     }
 }

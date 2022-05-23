@@ -70,4 +70,3 @@ void getRegexGroup (char *list[], char *message, char *regexString) {
     }
     regfree(&regexCompiled);
 }
-

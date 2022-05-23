@@ -4,7 +4,7 @@
 /**
  * Find the wanted command in the message in params (with regex).
  * Call the action attached to this command.
- * If there isn't any associated command, juste sebd the message.
+ * If there isn't any associated command, juste send the message.
  *
  * @param message
  */
@@ -26,10 +26,6 @@ void doCommandAction (char *message) {
     else if (strcmp("files", command->name) == 0) {
         // Files listing.
         filesAction(command, message);
-    }
-    else if (strcmp("join", command->name) == 0) {
-        // Files listing.
-        joinAction(message);
     }
     else {
         // Unknown action.
