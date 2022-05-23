@@ -25,11 +25,11 @@ int receiveMessageInt () {
 char *receiveMessageString (int messageSize) {
     char *message = (char*)malloc(sizeof(char) * (messageSize + 1));
 
-    int recvInt = recv(acceptedSocketDescriptor,message, sizeof(char) * messageSize, 0);
-    if(recvInt == -1){
+    size_t sizeReceived = recv(acceptedSocketDescriptor, message, sizeof(char) * messageSize, 0);
+    if(sizeReceived == -1){
         throwError(ERROR_RECEIVE_MESSAGE, 0);
     }
-    else if(recvInt == 0){
+    else if(sizeReceived == 0){
         throwError(SERVER_CONNECTION_CLOSED, 0);
     }
 
@@ -83,4 +83,19 @@ void receiveFile(int serverFileSocket, char *fileName){
     }
 
     fclose(file);
+}
+
+/**
+ * Connect to the switch channel and wait until receiving a new port.
+ * Can also receive an error status.
+ *
+ * @return a new port received by the switch channel.
+ */
+int receiveNewPort () {
+    int switchChannel = connectToServer(IP, CHANNEL_SWITCH_PORT);
+    int port;
+    recv(switchChannel, &port, sizeof(int), 0);
+    close(switchChannel);
+
+    return port;
 }

@@ -13,9 +13,9 @@
 #include "util/regex.c"
 #include "util/util.c"
 
-#include "socket/receive.c"
 #include "socket/send.c"
 #include "socket/clientSocket.c"
+#include "socket/receive.c"
 #include "util/ask.c"
 
 #include "command/router.c"

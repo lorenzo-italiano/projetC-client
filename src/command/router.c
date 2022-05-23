@@ -27,6 +27,10 @@ void doCommandAction (char *message) {
         // Files listing.
         filesAction(command, message);
     }
+    else if (strcmp("join", command->name) == 0) {
+        // Files listing.
+        joinAction(message);
+    }
     else {
         // Unknown action.
         sendMessage(message);

@@ -99,3 +99,28 @@ void filesAction (Command *command, char *message) {
     free(regexGroupList[1]);
     free(regexGroupList[2]);
 }
+
+/**
+ * Action used to join another channel.
+ *
+ * @param message
+ */
+void joinAction (char *message) {
+    sendMessage(message);
+    int newPort = receiveNewPort();
+
+    if (newPort == 404) {
+        // Channel not found.
+        printf(CHANNEL_NOT_FOUND);
+    }
+    else if (newPort == 400) {
+        // Bad request.
+        printf(ALREADY_IN_CHANNEL);
+    }
+    else {
+        // Port received.
+        int newServerSocket = connectToServer(IP, newPort);
+        acceptedSocketDescriptor = newServerSocket;
+        printf(CHANNEL_WELCOME);
+    }
+}

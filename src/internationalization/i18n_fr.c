@@ -32,3 +32,7 @@
 #define ERROR_THREAD_CREATION "Erreur lors de la création du thread. \n"
 #define ERROR_ARGS "Erreur: Nombre d'arguments invalide. Utilisation :\n"
 #define ERROR_PORT "Erreur: le port doit être supérieur à 1024. \n"
+
+#define CHANNEL_WELCOME "Bienvenue dans ce channel. \n"
+#define CHANNEL_NOT_FOUND "Channel introuvable. \n"
+#define ALREADY_IN_CHANNEL "Vous êtes déjà dans ce channel. \n"

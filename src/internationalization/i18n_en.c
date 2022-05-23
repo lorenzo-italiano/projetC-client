@@ -32,3 +32,7 @@
 #define ERROR_THREAD_CREATION "Error while creating thread. \n"
 #define ERROR_ARGS "Error arguments. Use :\n"
 #define ERROR_PORT "Error : the port must be more than 1024. \n"
+
+#define CHANNEL_WELCOME "Welcome to this channel. \n"
+#define CHANNEL_NOT_FOUND "Channel not found. \n"
+#define ALREADY_IN_CHANNEL "You already are in this channel. \n"
