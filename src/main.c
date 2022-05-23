@@ -139,8 +139,6 @@ int main(int argc, char *argv[]) {
 
     // Lancer le thread d'écriture
     while(1){ // Sending messages to server
-        /* If we are in send mode, we have to send a message to the server which will transfer it to the waiting client.
-        char *userMessage = askUserForString();*/
 
         ch = getch();
         driver(ch);
