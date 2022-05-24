@@ -26,10 +26,9 @@ Command *commandList[NB_COMMAND];
  * Initialize the global list of available commands, commandList.
  */
 void initCommandList () {
-    commandList[0] = createCommand("disconnect", "^/disconnect *\n$");          // Déconnecte l'utilisateur.
-    commandList[1] = createCommand("file", "^/file +([^ ]+) +([^ ]+) *\n$");    // Envoi un fichier.
-    commandList[2] = createCommand("files", "^/files +-(c|s) *\n$");            // Liste des fichier disponibles dans le répertoire client ou serveur. /files -c || -s
-    commandList[3] = createCommand("join", "^/join +([0-9]{1,2}) *\n$");        // Rejoint le channel spécifié.
+    commandList[0] = createCommand("disconnect", "^/disconnect *\n$");  // Déconnecte l'utilisateur.
+    commandList[1] = createCommand("file", "^/file +([^ ]+) +([^ ]+) *\n$");     // Envoi un fichier.
+    commandList[2] = createCommand("files", "^/files +-(c|s) *\n$");    // Liste des fichier disponibles dans le répertoire client ou serveur. /files -c || -s
     // Don't forger to update NB_COMMAND.
 }
 

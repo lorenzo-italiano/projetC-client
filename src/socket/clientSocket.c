@@ -57,5 +57,20 @@ int connectToServer(char *ip, int port){
 void shutdownClient () {
     sendMessage(ENDING_MESSAGE);
     printf(PROGRAM_END);
+
+    /**
+    * close ui
+    */
+    unpost_form(form);
+    free_form(form);
+    free_field(fields[0]);
+    free_field(fields[1]);
+
+    delwin(win_screen);
+    delwin(win_form);
+    delwin(win_display);
+    delwin(sub_win_form);
+
+    endwin();
     exit(EXIT_SUCCESS);
 }
