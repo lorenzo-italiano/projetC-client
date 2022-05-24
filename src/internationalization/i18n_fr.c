@@ -13,6 +13,7 @@
 #define FILE_IMPORTED "Le fichier a bien été importé. \n"
 
 #define USER_NOT_FOUND "Utilisateur introuvable. \n"
+#define USER_ALREADY_EXISTS "Ce nom d'utilisateur est déjà utilisé. \n"
 
 #define SERVER_CONNECTION_CLOSED "La connexion avec le serveur distant a été fermée. \n"
 #define SEND_MESSAGE_INT "Message de type int envoyé. \n"
@@ -36,3 +37,5 @@
 #define CHANNEL_WELCOME "Bienvenue dans ce channel. \n"
 #define CHANNEL_NOT_FOUND "Channel introuvable. \n"
 #define ALREADY_IN_CHANNEL "Vous êtes déjà dans ce channel. \n"
+#define CHANNNEL_FULL "Désolé, le channel est déjà remplit. \n"
+

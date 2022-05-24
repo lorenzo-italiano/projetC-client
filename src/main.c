@@ -45,7 +45,7 @@ void *readingLoop(){
         else if (isMatch(message, commandList[0]->regex)) {
             sendMessage(ENDING_MESSAGE);
         }
-        else if(strcmp("", message)!=0){
+        else if(strcmp("", message) != 0){
 
             if(isMatch(message, "^MP ([^ ].*)")){
                 char *list[3];
@@ -53,9 +53,10 @@ void *readingLoop(){
                 window_print_blue(list[1]);
             }
             else if(isMatch(message, "^Me: ([^ ].*)")){
-                char *list[3];
-                getRegexGroup(list,message,"^Me: ([^ ].*)");     /// TODO : free.
-                window_print_magenta(list[0]);
+                window_print_magenta(message);
+            }
+            else if(isMatch(message, "->ALL : ([^ ].*)")){
+                window_print_yellow(message);
             }
             else{
                 window_print_white(message);
@@ -135,6 +136,7 @@ int main(int argc, char *argv[]) {
     set_title("Salon 2");
 
     doCommandAction("/help\n");
+    doCommandAction("/join 3\n");
 
     refresh_all();
 

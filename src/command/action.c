@@ -117,6 +117,10 @@ void joinAction (char *message) {
         // Bad request.
         window_print_white(ALREADY_IN_CHANNEL);
     }
+    else if (newPort == 409) {
+        // Bad request.
+        window_print_white(CHANNEL_FULL);
+    }
     else {
         // Port received.
         int newServerSocket = connectToServer(IP, newPort);
