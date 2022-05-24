@@ -18,9 +18,9 @@
 
 #include "ui/colors.c"
 
-#include "socket/receive.c"
 #include "socket/send.c"
 #include "socket/clientSocket.c"
+#include "socket/receive.c"
 #include "util/ask.c"
 
 #include "command/router.c"
@@ -80,6 +80,7 @@ int main(int argc, char *argv[]) {
     // Assigning function closeServer() to SIGTERM signal
     signal(SIGTERM, disconnectAction);   // Signal shutdown from ide.
     signal(SIGINT, disconnectAction);    // Signal shutdown from ctr+c in terminal.
+    signal(SIGHUP, disconnectAction);    // Signal close terminal.
 
 
 /**
@@ -139,10 +140,7 @@ int main(int argc, char *argv[]) {
 
     // Lancer le thread d'écriture
     while(1){ // Sending messages to server
-
         ch = getch();
         driver(ch);
-
-
     }
 }
