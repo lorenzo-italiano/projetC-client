@@ -90,25 +90,19 @@ int main(int argc, char *argv[]) {
  * Check arguments.
  */
     // Error if the number of arguments isn't valid.
-    if(argc != 3){
+    if(argc != 2){
         printf(ERROR_ARGS);
-        printf("%s IP PORT\n", argv[0]);
+        printf("%s IP\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-
-    // Erreur si port < 1024 (argv 2)
-    if(atoi(argv[2]) < 1024){
-        throwError(ERROR_PORT, 0);
-    }
-
     IP = argv[1];
-    initCommandList();
 
+    initCommandList();
 /**
  * Connection to the server.
  */
     printf(WAITING_SERVER_CONNECTION);
-    acceptedSocketDescriptor = connectToServer(argv[1], atoi(argv[2]));
+    acceptedSocketDescriptor = connectToServer(IP, CHANNEL_DEFAULT_PORT);
 
 
     // Ask user for username.
