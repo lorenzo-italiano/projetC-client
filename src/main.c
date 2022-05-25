@@ -17,6 +17,7 @@
 #include "util/regex.c"
 #include "util/util.c"
 
+#include "ui/driver.c"
 #include "ui/colors.c"
 
 #include "socket/send.c"
@@ -137,7 +138,7 @@ int main(int argc, char *argv[]) {
     set_title("Salon 2");
 
     doCommandAction("/help\n");
-    doCommandAction("/join 3\n");
+//    doCommandAction("/join 3\n");
 
     refresh_all();
 

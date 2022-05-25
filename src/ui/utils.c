@@ -163,11 +163,6 @@ static void form_initialisation(){
     post_form(form);
 }
 
-static void set_title(char* title){
-    mvwprintw(win_title, 1, (COLS/2)-(strlen(title)/2),title);
-    refresh_all();
-}
-
 static void free_interface(){
     unpost_form(form);
     free_form(form);

@@ -66,7 +66,7 @@ void filesAction (Command *command, char *message) {
     if (strcmp(regexGroupList[1], "c") == 0) {
         // Client files listing.
 
-        printf(FILE_LIST_HEADER_CLIENT);
+        window_print_white(FILE_LIST_HEADER_CLIENT);
 
         // Get uploads path.
         char uploadDirectoryPath[200];
@@ -83,20 +83,22 @@ void filesAction (Command *command, char *message) {
         while ((file = readdir(directory)) != NULL) {
             if (strcmp(file->d_name, ".") != 0 && strcmp(file->d_name, "..") != 0) {  // Don't take files : "." et "..".
 //                printf("File %d : %s\n", n, file->d_name);
-                printf("%s\n", file->d_name);
+//                printf("%s\n", file->d_name);
+                window_print_white(file->d_name);
+                window_print_white("\n");
             }
         }
-        printf("\n");
+        window_print_white("\n");
         closedir(directory);
     }
     else if (strcmp(regexGroupList[1], "s") == 0) {
         // Server files listing.
-        printf(FILE_LIST_HEADER_SERVER);
+        window_print_white(FILE_LIST_HEADER_SERVER);
         sendMessage(message);
     }
 
     free(regexGroupList[0]);
-    free(regexGroupList[1]);
+//    free(regexGroupList[1]);
     free(regexGroupList[2]);
 }
 
