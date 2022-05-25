@@ -8,6 +8,7 @@
 #include <form.h>
 #include <assert.h>
 #include <ctype.h>
+#include <signal.h>
 
 #include "global.c"
 #include "internationalization/i18n.c"
