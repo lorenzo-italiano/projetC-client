@@ -8,6 +8,9 @@
 #define FILE_LIST_HEADER_CLIENT "List of available files within the repertory uploads : \n"
 #define FILE_LIST_HEADER_SERVER "List of available files within the server : \n"
 
+#define FILE_SENDING "File sending...\n"
+#define FILE_RECEIVING "Receiving a file...\n"
+#define FILE_RECEIVED "File received. \n"
 #define FILE_SENT "The file has been sent. \n"
 #define FILE_NOT_FOUND "File not fount. \n"
 #define FILE_IMPORTED "The file has been imported. \n"

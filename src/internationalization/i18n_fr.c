@@ -8,6 +8,9 @@
 #define FILE_LIST_HEADER_CLIENT "Liste des fichiers disponibles dans le dossier uploads : \n"
 #define FILE_LIST_HEADER_SERVER "Liste des fichiers disponibles sur le serveur : \n"
 
+#define FILE_SENDING "Fichier en cours d'envoi...\n"
+#define FILE_RECEIVING "En train de recevoir un fichier...\n"
+#define FILE_RECEIVED "Fichier reçu. \n"
 #define FILE_SENT "Le fichier a bien été envoyé. \n"
 #define FILE_NOT_FOUND "Fichier introuvable. \n"
 #define FILE_IMPORTED "Le fichier a bien été importé. \n"

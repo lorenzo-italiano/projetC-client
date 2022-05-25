@@ -97,9 +97,9 @@ void filesAction (Command *command, char *message) {
         sendMessage(message);
     }
 
-    free(regexGroupList[0]);
+//    free(regexGroupList[0]);
 //    free(regexGroupList[1]);
-    free(regexGroupList[2]);
+//    free(regexGroupList[2]);
 }
 
 /**

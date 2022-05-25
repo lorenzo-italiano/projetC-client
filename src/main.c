@@ -101,6 +101,7 @@ int main(int argc, char *argv[]) {
         throwError(ERROR_PORT, 0);
     }
 
+    IP = argv[1];
     initCommandList();
 
 /**
