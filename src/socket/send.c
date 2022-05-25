@@ -80,5 +80,4 @@ void sendFile(int socketForFile, FILE *file){
     }
 
     fclose(file); // Close the file
-    window_print_green(FILE_SENT);
 }

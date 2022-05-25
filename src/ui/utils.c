@@ -21,14 +21,14 @@ static void interface_init(){
     init_pair(7, COLOR_CYAN, COLOR_BLACK);
     bkgd(COLOR_PAIR(1));
 
-    win_title = newwin(3,COLS-2,0,1);
-    assert(win_title != NULL);
-    box(win_title, 0 , 0);
-
     /* height, width offsetHeight, offsetWidth */
     win_screen = newwin(LINES-8,COLS-2,3,1);
     assert(win_screen != NULL);
     box(win_screen, 0 , 0);
+
+    win_title = newwin(3,COLS-2,0,1);
+    assert(win_title != NULL);
+    box(win_title, 0 , 0);
 
     win_display = subwin(win_screen, LINES-12,COLS-6,5,3);
     scrollok(win_display, TRUE);
@@ -40,6 +40,8 @@ static void interface_init(){
     sub_win_form = subwin(win_form, 1,COLS-6,LINES-3,3);
     assert(sub_win_form != NULL);
     box(sub_win_form, 0, 0);
+
+    refresh_all();
 }
 
 static char* trim_whitespaces(char *str){
