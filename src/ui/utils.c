@@ -1,7 +1,4 @@
 
-/*
- * This is useful because ncurses fill fields blanks with spaces.
- */
 static void interface_init(){
     initscr();
     noecho();
@@ -24,14 +21,14 @@ static void interface_init(){
     init_pair(7, COLOR_CYAN, COLOR_BLACK);
     bkgd(COLOR_PAIR(1));
 
+    win_title = newwin(3,COLS-2,0,1);
+    assert(win_title != NULL);
+    box(win_title, 0 , 0);
+
     /* height, width offsetHeight, offsetWidth */
     win_screen = newwin(LINES-8,COLS-2,3,1);
     assert(win_screen != NULL);
     box(win_screen, 0 , 0);
-
-    win_title = newwin(3,COLS-2,0,1);
-    assert(win_title != NULL);
-    box(win_title, 0 , 0);
 
     win_display = subwin(win_screen, LINES-12,COLS-6,5,3);
     scrollok(win_display, TRUE);
@@ -147,6 +144,7 @@ static void driver(int ch){
 static void form_initialisation(){
     fields[0] = new_field(1, 10, 0, 0, 0, 0);
     fields[1] = new_field(1, 40, 0, 15, 0, 0);
+    fields[2] = NULL;
 
     assert(fields[0] != NULL && fields[1] != NULL);
 
@@ -165,15 +163,6 @@ static void form_initialisation(){
     post_form(form);
 }
 
-static void refresh_all(){
-    refresh();
-    wrefresh(win_screen);
-    wrefresh(win_form);
-    wrefresh(win_display);
-    wrefresh(win_title);
-    wrefresh(sub_win_form);
-}
-
 static void set_title(char* title){
     mvwprintw(win_title, 1, (COLS/2)-(strlen(title)/2),title);
     refresh_all();
@@ -184,6 +173,7 @@ static void free_interface(){
     free_form(form);
     free_field(fields[0]);
     free_field(fields[1]);
+    free_field(fields[2]);
 
     delwin(win_screen);
     delwin(win_form);
