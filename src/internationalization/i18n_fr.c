@@ -17,6 +17,8 @@
 
 #define USER_NOT_FOUND "Utilisateur introuvable. \n"
 #define USER_ALREADY_EXISTS "Ce nom d'utilisateur est déjà utilisé. \n"
+#define VALID_USERNAME "Nom d'utilisateur validé. \n"
+#define INVALID_USERNAME "Nom d'utilisateur non valid. \n"
 
 #define SERVER_CONNECTION_CLOSED "La connexion avec le serveur distant a été fermée. \n"
 #define SEND_MESSAGE_INT "Message de type int envoyé. \n"

@@ -27,9 +27,12 @@ void askForUsername () {
         sendMessage(username);
         printf("\n");
         int resp = receiveMessageInt();
-        printf("%d \n",resp);
         if(resp == 201){
+            printf(VALID_USERNAME);
             verifiedUsername = 1;
+        }
+        else {
+            printf(INVALID_USERNAME);
         }
     }
 }

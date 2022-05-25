@@ -17,6 +17,8 @@
 
 #define USER_NOT_FOUND "User not found. \n"
 #define USER_ALREADY_EXISTS "This username is already used. \n"
+#define VALID_USERNAME "Username validated. \n"
+#define INVALID_USERNAME "Invalid username. \n"
 
 #define SERVER_CONNECTION_CLOSED "The connection with the server is closed. \n"
 #define SEND_MESSAGE_INT "Message of type int sent. \n"
