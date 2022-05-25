@@ -13,7 +13,9 @@ struct paramFileThreaded {
  * @param filename
  * @return
  */
-void *sendFileThreaded (struct paramFileThreaded *param) {
+void *sendFileThreaded (void *paramVoid) {
+    struct paramFileThreaded *param = (struct paramFileThreaded *)paramVoid;
+
     FILE *file = openFile(param->filename, "rb");
 
     if (file != NULL) {
@@ -46,7 +48,9 @@ void *sendFileThreaded (struct paramFileThreaded *param) {
  * @param filename
  * @return
  */
-void *receiveFileThreaded (struct paramFileThreaded *param) {
+void *receiveFileThreaded (void *paramVoid) {
+    struct paramFileThreaded *param = (struct paramFileThreaded *)paramVoid;
+
     sendMessage(param->message);
 
     // Receive the port of the socket used to transfer files, by the switch socket.
@@ -80,7 +84,9 @@ void *receiveFileThreaded (struct paramFileThreaded *param) {
  * @param param
  * @return
  */
-void *mpSendFileThreaded (struct paramFileThreaded *param) {
+void *mpSendFileThreaded (void *paramVoid) {
+    struct paramFileThreaded *param = (struct paramFileThreaded *)paramVoid;
+
     // Check file exists locally.
     // Send message to serv.
     // Connect to second socket.
@@ -106,6 +112,7 @@ void *mpSendFileThreaded (struct paramFileThreaded *param) {
         if (userTargetStatus == 204) {
             if (isDebugMode) { printf("Send file. \n"); }
             sendFile(clientSocketForFile, file);
+            window_print_white(FILE_SENT);
         }
         else {
             // userTargetStatus == 404
@@ -120,7 +127,6 @@ void *mpSendFileThreaded (struct paramFileThreaded *param) {
 
     free(param);
 
-    window_print_white(FILE_SENT);
     pthread_exit(NULL);
 }
 
@@ -131,6 +137,8 @@ void *mpSendFileThreaded (struct paramFileThreaded *param) {
  * @return
  */
 void *mpReceiveFileThreaded (void *message) {
+    message = (char *)message;
+
     window_print_white(FILE_RECEIVING);
     // Receive the port of the socket used to transfer files, by the switch socket.
     int portSocketForFile = receiveNewPort();
