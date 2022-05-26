@@ -7,7 +7,7 @@ char *IP;
 #define CHANNEL_SWITCH_PORT 3334
 
 FORM *form;
-FIELD *fields[2];
+FIELD *fields[3];
 WINDOW *win_screen;
 WINDOW *win_form;
 WINDOW *win_display;
