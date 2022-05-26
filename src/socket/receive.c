@@ -4,9 +4,9 @@
  *
  * @return the size of the message which will be sent after.
  */
-int receiveMessageInt () {
+int receiveMessageIntFrom (int serverSocket) {
     int size;
-    int recvInt = recv(acceptedSocketDescriptor, &size, sizeof(int), 0);
+    int recvInt = recv(serverSocket, &size, sizeof(int), 0);
     if(recvInt == -1){
         throwError(ERROR_RECEIVE_MESSAGE, 0);
     }
@@ -17,16 +17,26 @@ int receiveMessageInt () {
 }
 
 /**
+ * For an accepted socket descriptor, wait until receiving an int message.
+ * This message is usually the size of the message which will be sent just after.
+ *
+ * @return the size of the message which will be sent after.
+ */
+int receiveMessageInt () {
+    return receiveMessageIntFrom(acceptedSocketDescriptor);
+}
+
+/**
  * For an accepted socket descriptor, wait until receiving a message of the messageSize in params.
  *
  * @param messageSize
  * @return the gotten message.
  */
-char *receiveMessageString (int messageSize) {
+char *receiveMessageStringFrom (int serverSocket, int messageSize) {
     char *message = (char*)malloc(sizeof(char) * (messageSize + 1));
     bzero(message, sizeof(char)* (messageSize + 1));
 
-    int sizeReceived = recv(acceptedSocketDescriptor,message, sizeof(char) * messageSize, 0);
+    int sizeReceived = recv(serverSocket,message, sizeof(char) * messageSize, 0);
     if(sizeReceived == -1){
         throwError(ERROR_RECEIVE_MESSAGE, 0);
     }
@@ -34,6 +44,24 @@ char *receiveMessageString (int messageSize) {
         throwError(SERVER_CONNECTION_CLOSED, 0);
     }
     return message;
+}
+
+/**
+ * For an accepted socket descriptor, wait until receiving a message of the messageSize in params.
+ *
+ * @param messageSize
+ * @return the gotten message.
+ */
+char *receiveMessageString (int messageSize) {
+    return receiveMessageStringFrom(acceptedSocketDescriptor, messageSize);
+}
+
+/**
+ * Wait until receiving a message.
+ */
+char *receiveMessageFrom(int serverSocket){
+    int messageSize = receiveMessageIntFrom(serverSocket);
+    return receiveMessageStringFrom(serverSocket, messageSize);
 }
 
 /**

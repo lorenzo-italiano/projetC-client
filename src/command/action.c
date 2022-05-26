@@ -126,7 +126,13 @@ void joinAction (char *message) {
     else {
         // Port received.
         int newServerSocket = connectToServer(IP, newPort);
+        int oldSocket = acceptedSocketDescriptor;
         acceptedSocketDescriptor = newServerSocket;
         window_print_cyan(CHANNEL_WELCOME);
+
+        // Set the new channel name.
+        char *newChannelName = receiveMessageFrom(oldSocket);
+        set_title(newChannelName);
+        free(newChannelName);
     }
 }
