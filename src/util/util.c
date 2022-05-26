@@ -31,3 +31,19 @@ FILE *openFile (char *filename, char *mode) {
 
     return file;
 }
+
+/**
+ * @brief : Concatenation of a tab of strings within the buffer.
+ *
+ * @param buffer : String which will receive every sub strings.
+ * @param bufferSize : Size of the buffer.
+ * @param tab : Array of strings which contains every strings that will go on the buffer.
+ * @param tabSize : Size of the array of strings.
+ */
+void strcatArray(char *buffer, int bufferSize, char *tab[], int tabSize) {
+    bzero(buffer, bufferSize);
+
+    for (int i = 0; i < tabSize; i++) {
+        strcat(buffer, tab[i]);
+    }
+}
