@@ -107,7 +107,9 @@ int main(int argc, char *argv[]) {
     printf(WAITING_SERVER_CONNECTION);
     acceptedSocketDescriptor = connectToServer(IP, CHANNEL_DEFAULT_PORT);
 
+    printf("\033[0;31m");
     printf(TERMINAL_SIZE_WARNING);
+    printf("\033[0;37m");
 
 
     // Ask user for username.
@@ -134,10 +136,6 @@ int main(int argc, char *argv[]) {
     wprintw(win_display, "Hello and welcome on the chat !\n");
 
     form_initialisation();
-
-    set_field_buffer(fields[1], 0, "Message..");
-
-    set_title("Salon 2");
 
     doCommandAction("/join 3\n");
     doCommandAction("/help\n");
