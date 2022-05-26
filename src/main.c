@@ -134,8 +134,8 @@ int main(int argc, char *argv[]) {
 
     set_title("Salon 2");
 
+    doCommandAction("/join 3\n");
     doCommandAction("/help\n");
-//    doCommandAction("/join 3\n");
 
     refresh_all();
 
