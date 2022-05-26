@@ -84,6 +84,7 @@ void filesAction (Command *command, char *message) {
             if (strcmp(file->d_name, ".") != 0 && strcmp(file->d_name, "..") != 0) {  // Don't take files : "." et "..".
 //                printf("File %d : %s\n", n, file->d_name);
 //                printf("%s\n", file->d_name);
+                window_print_white("\t");
                 window_print_white(file->d_name);
                 window_print_white("\n");
             }
