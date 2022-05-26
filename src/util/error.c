@@ -9,7 +9,6 @@ void throwError (char *errorMessage, int hasErrno) {
         perror(errorMessage);
     }
     else{
-        //TODO Set text to red
         printf("%s \n", errorMessage);
     }
     exit(EXIT_FAILURE);

@@ -112,7 +112,7 @@ void *mpSendFileThreaded (void *paramVoid) {
         if (userTargetStatus == 204) {
             if (isDebugMode) { printf("Send file. \n"); }
             sendFile(clientSocketForFile, file);
-            window_print_white(FILE_SENT);
+            window_print_green(FILE_SENT);
         }
         else {
             // userTargetStatus == 404
@@ -159,6 +159,6 @@ void *mpReceiveFileThreaded (void *message) {
     free(regexGroupList[2]);
 
     close(clientSocketForFile);
-    window_print_white(FILE_RECEIVED);
+    window_print_green(FILE_RECEIVED);
     pthread_exit(NULL);
 }

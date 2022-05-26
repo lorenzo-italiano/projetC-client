@@ -49,18 +49,20 @@ void *readingLoop(){
         }
         else if(strcmp("", message) != 0){
 
-            if(isMatch(message, "^MP ([^ ].*)")){
-                char *list[3];
-                getRegexGroup(list,message,"^MP ([^ ].*)");     /// TODO : free.
-                window_print_blue(list[1]);
-            }
-            else if(isMatch(message, "^Me: ([^ ].*)")){
-                window_print_magenta(message);
-            }
-            else if(isMatch(message, "->ALL : ([^ ].*)")){
+            if(isMatch(message, "->Me : ")){
+                // Message received from mp.
                 window_print_yellow(message);
             }
+            else if(isMatch(message, "^Me : ") || isMatch(message, "^Me->")){
+                // Message sent by the current user.
+                window_print_magenta(message);
+            }
+            else if(isMatch(message, "->ALL : ")){
+                // Message received from /all.
+                window_print_cyan(message);
+            }
             else{
+                // Normal message.
                 window_print_white(message);
             }
             refresh_all();

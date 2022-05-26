@@ -113,20 +113,20 @@ void joinAction (char *message) {
 
     if (newPort == 404) {
         // Channel not found.
-        window_print_white(CHANNEL_NOT_FOUND);
+        window_print_red(CHANNEL_NOT_FOUND);
     }
     else if (newPort == 400) {
         // Bad request.
-        window_print_white(ALREADY_IN_CHANNEL);
+        window_print_red(ALREADY_IN_CHANNEL);
     }
     else if (newPort == 409) {
         // Bad request.
-        window_print_white(CHANNEL_FULL);
+        window_print_red(CHANNEL_FULL);
     }
     else {
         // Port received.
         int newServerSocket = connectToServer(IP, newPort);
         acceptedSocketDescriptor = newServerSocket;
-        window_print_white(CHANNEL_WELCOME);
+        window_print_cyan(CHANNEL_WELCOME);
     }
 }
