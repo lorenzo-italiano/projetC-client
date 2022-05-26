@@ -107,6 +107,8 @@ int main(int argc, char *argv[]) {
     printf(WAITING_SERVER_CONNECTION);
     acceptedSocketDescriptor = connectToServer(IP, CHANNEL_DEFAULT_PORT);
 
+    printf(TERMINAL_SIZE_WARNING);
+
 
     // Ask user for username.
     // username is a global variable.

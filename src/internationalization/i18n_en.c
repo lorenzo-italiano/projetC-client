@@ -43,3 +43,5 @@
 #define CHANNEL_NOT_FOUND "Channel not found. \n"
 #define ALREADY_IN_CHANNEL "You already are in this channel. \n"
 #define CHANNEL_FULL "Sorry, the channel is already full. \n"
+
+#define TERMINAL_SIZE_WARNING "Beware : to have the best experience, be sure to put your terminal on a confortable size, you won't be able to change it later ! \n"
