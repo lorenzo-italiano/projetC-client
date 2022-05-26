@@ -8,6 +8,8 @@ static void refresh_all(){
 }
 
 void set_title(char* title){
+    wclear(win_title);
+    box(win_title,0,0);
     mvwprintw(win_title, 1, (COLS/2)-(strlen(title)/2),title);
     refresh_all();
 }
