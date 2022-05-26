@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <ctype.h>
 #include <signal.h>
+#include <sys/ioctl.h>
 
 #include "global.c"
 #include "internationalization/i18n.c"
@@ -125,6 +126,8 @@ int main(int argc, char *argv[]) {
     int ch;
 
     interface_init();
+
+    signal(SIGWINCH, resize_window);
 
     wprintw(win_display, "Hello and welcome on the chat !\n");
 

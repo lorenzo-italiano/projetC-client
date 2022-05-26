@@ -177,3 +177,111 @@ static void free_interface(){
     delwin(win_display);
     delwin(sub_win_form);
 }
+
+void resize_window(){
+    struct winsize w;
+    ioctl(0, TIOCGWINSZ, &w);
+    COLS = w.ws_col;
+    LINES = w.ws_row;
+
+    wclear(stdscr);
+    wresize(stdscr, LINES, COLS);
+    mvwin(stdscr, 0, 0);
+
+    // win screen
+
+    wclear(win_screen);
+
+    wrefresh(win_screen);
+
+    wresize(win_screen, LINES-8,COLS-2);
+
+    wrefresh(win_screen);
+
+    mvwin(win_screen, 3, 1);
+
+    wclear(win_screen);
+
+    wrefresh(win_screen);
+
+    // win title
+
+    wclear(win_title);
+
+    wrefresh(win_title);
+
+    wresize(win_title, 3,COLS-2);
+
+    wrefresh(win_title);
+
+    mvwin(win_title, 0, 1);
+
+    wclear(win_title);
+
+    wrefresh(win_title);
+
+    // win display
+
+    wclear(win_display);
+
+    wrefresh(win_display);
+
+    wresize(win_display, LINES-12,COLS-6);
+
+    wrefresh(win_display);
+
+    mvwin(win_display, 5,3);
+
+    wclear(win_display);
+
+    wrefresh(win_display);
+
+    // win form
+
+    wclear(win_form);
+
+    wrefresh(win_form);
+
+    wresize(win_form, 5,COLS-2);
+
+    wrefresh(win_form);
+
+    mvwin(win_form, LINES-5, 1);
+
+    wclear(win_form);
+
+    wrefresh(win_form);
+
+    // sub win form
+
+    wclear(sub_win_form);
+
+    wrefresh(sub_win_form);
+
+    wresize(sub_win_form, 1,COLS-6);
+
+    wrefresh(sub_win_form);
+
+    mvwin(sub_win_form, 3, LINES-3);
+
+    wclear(sub_win_form);
+
+    wrefresh(sub_win_form);
+
+    refresh_all();
+
+    // boxes
+
+    clear();
+    wclear(stdscr);
+
+    box(win_form, 0, 0);
+
+    box(win_screen, 0 , 0);
+
+    box(win_title, 0 , 0);
+
+    box(sub_win_form, 0, 0);
+
+    refresh_all();
+}
