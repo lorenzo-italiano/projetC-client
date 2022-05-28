@@ -42,7 +42,7 @@
 #define CHANNEL_WELCOME "Bienvenue dans ce channel. \n"
 #define CHANNEL_NOT_FOUND "Channel introuvable. \n"
 #define ALREADY_IN_CHANNEL "Vous êtes déjà dans ce channel. \n"
-#define CHANNNEL_FULL "Désolé, le channel est déjà remplit. \n"
+#define CHANNEL_FULL "Désolé, le channel est déjà remplit. \n"
 
-#define TERMINAL_SIZE_WARNING "Attention : pour profiter d'une expérience optimale, veuillez à mettre une taille de terminal adéquate, vous ne pourrez plus changer après ! \n"
+#define TERMINAL_SIZE_WARNING "Attention : pour profiter d'une expérience optimale, veillez à mettre une taille de terminal adéquate, vous ne pourrez plus changer après ! \n"
 
