@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>projetC-client: /Users/tom/Documents/partageGit/projetC/projetC-client/src/command/action.c Source File</title>
+<title>projetC-client: src/command/action.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">projetC-client<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">projetC-client
    </div>
   </td>
  </tr>
@@ -62,94 +62,94 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_db5d8c0870ce84e17ad60fae723678a9.html">projetC-client</a></li><li class="navelem"><a class="el" href="dir_64ab3c1107266106511b6fda32b327a8.html">src</a></li><li class="navelem"><a class="el" href="dir_e5b499ecae28702b28348f2e57cbf530.html">command</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2b1a946209a10c32ed7ce5dec2f54bea.html">command</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">action.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;dirent.h&gt;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;actionThreaded.c&quot;</span></div>
+<a href="action_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;dirent.h&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="action_threaded_8c.html">actionThreaded.c</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> disconnectAction () {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    shutdownClient();</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="action_8c.html#a431426b48c7770349b3d0a5797f17314">    7</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="action_8c.html#a431426b48c7770349b3d0a5797f17314">disconnectAction</a> () {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="client_socket_8c.html#a1c5d9ca1116ce45cc7d8c7b096fdb783">shutdownClient</a>();</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> fileAction (<a class="code hl_struct" href="struct_command.html">Command</a> *command, <span class="keywordtype">char</span> *message) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="action_8c.html#aaa9a1375e669fd7686c7628599f0fcc4">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="action_8c.html#aaa9a1375e669fd7686c7628599f0fcc4">fileAction</a> (<a class="code hl_struct" href="struct_command.html">Command</a> *command, <span class="keywordtype">char</span> *message) {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Get filename and add it to the file path.</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">char</span> *regexGroupList[3];</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    getRegexGroup(regexGroupList, message, command-&gt;regex);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="regex_8c.html#aa65837f664d674ef7d9dbc95bf926990">getRegexGroup</a>(regexGroupList, message, command-&gt;<a class="code hl_variable" href="struct_command.html#a9f3c1102da0931dd8a0fa03a94b3a335">regex</a>);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// regexGroupList[0] = message</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// regexGroupList[1] = -send || -get || username</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// regexGroupList[2] = filename</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structparam_file_threaded.html">paramFileThreaded</a> *param;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    param = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structparam_file_threaded.html">paramFileThreaded</a>));</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    param-&gt;message = message;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    param-&gt;username = regexGroupList[1];    <span class="comment">// -send || -get || username</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    param-&gt;filename = regexGroupList[2];</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    param-&gt;<a class="code hl_variable" href="structparam_file_threaded.html#a0b2e8c7f76df48129f994ecc46d5c66c">message</a> = <a class="code hl_variable" href="structparam_file_threaded.html#a0b2e8c7f76df48129f994ecc46d5c66c">message</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    param-&gt;<a class="code hl_variable" href="structparam_file_threaded.html#a9b20c006bd90a09e1465fb668700e81d">username</a> = regexGroupList[1];    <span class="comment">// -send || -get || username</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    param-&gt;<a class="code hl_variable" href="structparam_file_threaded.html#aeac90097f29f7529968697163cea5c18">filename</a> = regexGroupList[2];</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    pthread_t fileThread;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;-send&quot;</span>, regexGroupList[1]) == 0) {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment">// User send file to the server.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> (isDebugMode) { printf(<span class="stringliteral">&quot;file -send filename\n&quot;</span>); }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        pthread_create(&amp;fileThread, NULL, sendFileThreaded, param);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a>) { printf(<span class="stringliteral">&quot;file -send filename\n&quot;</span>); }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        pthread_create(&amp;fileThread, NULL, <a class="code hl_function" href="action_threaded_8c.html#af405b6ba1c0db643754041e5617d7701">sendFileThreaded</a>, param);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;-get&quot;</span>, regexGroupList[1]) == 0) {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// User get file from the server.</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span> (isDebugMode) { printf(<span class="stringliteral">&quot;file -get filename\n&quot;</span>); }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        pthread_create(&amp;fileThread, NULL, receiveFileThreaded, param);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a>) { printf(<span class="stringliteral">&quot;file -get filename\n&quot;</span>); }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        pthread_create(&amp;fileThread, NULL, <a class="code hl_function" href="action_threaded_8c.html#a6ffa207f40f3413713ed00382da4a3b1">receiveFileThreaded</a>, param);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// User send file to other user.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span> (isDebugMode) { printf(<span class="stringliteral">&quot;file username filename\n&quot;</span>); }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a>) { printf(<span class="stringliteral">&quot;file username filename\n&quot;</span>); }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        pthread_create(&amp;fileThread, NULL, mpSendFileThreaded, param);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        pthread_create(&amp;fileThread, NULL, <a class="code hl_function" href="action_threaded_8c.html#a83486a7897ff5acb2c7e2f73d841dc46">mpSendFileThreaded</a>, param);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Free within threaded functions.</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> filesAction (<a class="code hl_struct" href="struct_command.html">Command</a> *command, <span class="keywordtype">char</span> *message) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="action_8c.html#a8b9919af4c0acbc6858b429cc3941c12">   61</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="action_8c.html#a8b9919af4c0acbc6858b429cc3941c12">filesAction</a> (<a class="code hl_struct" href="struct_command.html">Command</a> *command, <span class="keywordtype">char</span> *<a class="code hl_variable" href="structparam_file_threaded.html#a0b2e8c7f76df48129f994ecc46d5c66c">message</a>) {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// Get the option. -c || -s.</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">char</span> *regexGroupList[3];</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    getRegexGroup(regexGroupList, message, command-&gt;regex);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="regex_8c.html#aa65837f664d674ef7d9dbc95bf926990">getRegexGroup</a>(regexGroupList, <a class="code hl_variable" href="structparam_file_threaded.html#a0b2e8c7f76df48129f994ecc46d5c66c">message</a>, command-&gt;<a class="code hl_variable" href="struct_command.html#a9f3c1102da0931dd8a0fa03a94b3a335">regex</a>);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (strcmp(regexGroupList[1], <span class="stringliteral">&quot;c&quot;</span>) == 0) {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="comment">// Client files listing.</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        window_print_white(FILE_LIST_HEADER_CLIENT);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a>(<a class="code hl_define" href="i18n__en_8c.html#a48c15a9daf286e6f05fe6daf1fdad157">FILE_LIST_HEADER_CLIENT</a>);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">// Get uploads path.</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordtype">char</span> uploadDirectoryPath[200];</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        getUploadDirectoryPath(uploadDirectoryPath);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_function" href="util_8c.html#aba1623ca3e44b15e0920f664207587c0">getUploadDirectoryPath</a>(uploadDirectoryPath);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">// Get directory.</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        DIR *directory;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">struct </span>dirent *file;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        directory = opendir(uploadDirectoryPath);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (directory == NULL) {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            throwError(<span class="stringliteral">&quot;Unable to open the directory. \n&quot;</span>, 0);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <a class="code hl_function" href="error_8c.html#ad5fd1194b361cfb4bc723c13d4b2182b">throwError</a>(<span class="stringliteral">&quot;Unable to open the directory. \n&quot;</span>, 0);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">while</span> ((file = readdir(directory)) != NULL) {</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">if</span> (strcmp(file-&gt;d_name, <span class="stringliteral">&quot;.&quot;</span>) != 0 &amp;&amp; strcmp(file-&gt;d_name, <span class="stringliteral">&quot;..&quot;</span>) != 0) {  <span class="comment">// Don&#39;t take files : &quot;.&quot; et &quot;..&quot;.</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">//                printf(&quot;File %d : %s\n&quot;, n, file-&gt;d_name);</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">//                printf(&quot;%s\n&quot;, file-&gt;d_name);</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                window_print_white(<span class="stringliteral">&quot;\t&quot;</span>);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                window_print_white(file-&gt;d_name);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                window_print_white(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                <a class="code hl_function" href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a>(<span class="stringliteral">&quot;\t&quot;</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                <a class="code hl_function" href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a>(file-&gt;d_name);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                <a class="code hl_function" href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            }</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        window_print_white(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_function" href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        closedir(directory);</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(regexGroupList[1], <span class="stringliteral">&quot;s&quot;</span>) == 0) {</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// Server files listing.</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        window_print_white(FILE_LIST_HEADER_SERVER);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        sendMessage(message);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_function" href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a>(<a class="code hl_define" href="i18n__en_8c.html#a4b9900aeba7c629e0b06d8e60ed93a67">FILE_LIST_HEADER_SERVER</a>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_function" href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a>(message);</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">//    free(regexGroupList[0]);</span></div>
@@ -157,37 +157,70 @@ $(function() {
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">//    free(regexGroupList[2]);</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keywordtype">void</span> joinAction (<span class="keywordtype">char</span> *message) {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    sendMessage(message);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">int</span> newPort = receiveNewPort();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="action_8c.html#aad264a1f01f9bcf28cd1c150c67b9e96">  111</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="action_8c.html#aad264a1f01f9bcf28cd1c150c67b9e96">joinAction</a> (<span class="keywordtype">char</span> *message) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_function" href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a>(message);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">int</span> newPort = <a class="code hl_function" href="receive_8c.html#abad535e0f683d91516d96a033fad40be">receiveNewPort</a>();</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">if</span> (newPort == 404) {</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="comment">// Channel not found.</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        window_print_red(CHANNEL_NOT_FOUND);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_function" href="colors_8c.html#affab9a388d687aaae91c09766e603fc2">window_print_red</a>(<a class="code hl_define" href="i18n__en_8c.html#ab03727955c2c151b30acab6a9d76c9b6">CHANNEL_NOT_FOUND</a>);</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (newPort == 400) {</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="comment">// Bad request.</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        window_print_red(ALREADY_IN_CHANNEL);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <a class="code hl_function" href="colors_8c.html#affab9a388d687aaae91c09766e603fc2">window_print_red</a>(<a class="code hl_define" href="i18n__en_8c.html#a778d0363a4466191cf4da8191de39f32">ALREADY_IN_CHANNEL</a>);</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (newPort == 409) {</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="comment">// Bad request.</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        window_print_red(CHANNEL_FULL);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_function" href="colors_8c.html#affab9a388d687aaae91c09766e603fc2">window_print_red</a>(<a class="code hl_define" href="i18n__en_8c.html#acf23cb7e7ad998d2647f218b1dc2f373">CHANNEL_FULL</a>);</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="comment">// Port received.</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordtype">int</span> newServerSocket = connectToServer(IP, newPort);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">int</span> oldSocket = acceptedSocketDescriptor;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        acceptedSocketDescriptor = newServerSocket;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        window_print_cyan(CHANNEL_WELCOME);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordtype">int</span> newServerSocket = <a class="code hl_function" href="client_socket_8c.html#a331a2d290348deac91f3e619ccf3efc8">connectToServer</a>(<a class="code hl_variable" href="global_8c.html#a77360afa4099281daa8ee4b1dca4e713">IP</a>, newPort);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">int</span> oldSocket = <a class="code hl_variable" href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <a class="code hl_variable" href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a> = newServerSocket;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <a class="code hl_function" href="colors_8c.html#ae11cb1bb9d6f12d36d281e7afd20b170">window_print_cyan</a>(<a class="code hl_define" href="i18n__en_8c.html#a159564c3a5a6742031f18cde118f395e">CHANNEL_WELCOME</a>);</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// Set the new channel name.</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">char</span> *newChannelName = receiveMessageFrom(oldSocket);</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        set_title(newChannelName);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">char</span> *newChannelName = <a class="code hl_function" href="receive_8c.html#a5a2c745e3990f8de71b399dcbe4e0f6d">receiveMessageFrom</a>(oldSocket);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <a class="code hl_function" href="driver_8c.html#a5e0577f95f9f1ca17f5e59fc9296f266">set_title</a>(newChannelName);</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        free(newChannelName);</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+<div class="ttc" id="aaction_8c_html_a431426b48c7770349b3d0a5797f17314"><div class="ttname"><a href="action_8c.html#a431426b48c7770349b3d0a5797f17314">disconnectAction</a></div><div class="ttdeci">void disconnectAction()</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00007">action.c:7</a></div></div>
+<div class="ttc" id="aaction_8c_html_a8b9919af4c0acbc6858b429cc3941c12"><div class="ttname"><a href="action_8c.html#a8b9919af4c0acbc6858b429cc3941c12">filesAction</a></div><div class="ttdeci">void filesAction(Command *command, char *message)</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00061">action.c:61</a></div></div>
+<div class="ttc" id="aaction_8c_html_aaa9a1375e669fd7686c7628599f0fcc4"><div class="ttname"><a href="action_8c.html#aaa9a1375e669fd7686c7628599f0fcc4">fileAction</a></div><div class="ttdeci">void fileAction(Command *command, char *message)</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00018">action.c:18</a></div></div>
+<div class="ttc" id="aaction_8c_html_aad264a1f01f9bcf28cd1c150c67b9e96"><div class="ttname"><a href="action_8c.html#aad264a1f01f9bcf28cd1c150c67b9e96">joinAction</a></div><div class="ttdeci">void joinAction(char *message)</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00111">action.c:111</a></div></div>
+<div class="ttc" id="aaction_threaded_8c_html"><div class="ttname"><a href="action_threaded_8c.html">actionThreaded.c</a></div></div>
+<div class="ttc" id="aaction_threaded_8c_html_a6ffa207f40f3413713ed00382da4a3b1"><div class="ttname"><a href="action_threaded_8c.html#a6ffa207f40f3413713ed00382da4a3b1">receiveFileThreaded</a></div><div class="ttdeci">void * receiveFileThreaded(void *paramVoid)</div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00051">actionThreaded.c:51</a></div></div>
+<div class="ttc" id="aaction_threaded_8c_html_a83486a7897ff5acb2c7e2f73d841dc46"><div class="ttname"><a href="action_threaded_8c.html#a83486a7897ff5acb2c7e2f73d841dc46">mpSendFileThreaded</a></div><div class="ttdeci">void * mpSendFileThreaded(void *paramVoid)</div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00087">actionThreaded.c:87</a></div></div>
+<div class="ttc" id="aaction_threaded_8c_html_af405b6ba1c0db643754041e5617d7701"><div class="ttname"><a href="action_threaded_8c.html#af405b6ba1c0db643754041e5617d7701">sendFileThreaded</a></div><div class="ttdeci">void * sendFileThreaded(void *paramVoid)</div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00016">actionThreaded.c:16</a></div></div>
+<div class="ttc" id="aclient_socket_8c_html_a1c5d9ca1116ce45cc7d8c7b096fdb783"><div class="ttname"><a href="client_socket_8c.html#a1c5d9ca1116ce45cc7d8c7b096fdb783">shutdownClient</a></div><div class="ttdeci">void shutdownClient()</div><div class="ttdef"><b>Definition:</b> <a href="client_socket_8c_source.html#l00057">clientSocket.c:57</a></div></div>
+<div class="ttc" id="aclient_socket_8c_html_a331a2d290348deac91f3e619ccf3efc8"><div class="ttname"><a href="client_socket_8c.html#a331a2d290348deac91f3e619ccf3efc8">connectToServer</a></div><div class="ttdeci">int connectToServer(char *ip, int port)</div><div class="ttdef"><b>Definition:</b> <a href="client_socket_8c_source.html#l00029">clientSocket.c:29</a></div></div>
+<div class="ttc" id="acolors_8c_html_a7c806bc7b475d48823e55f8ae578ab13"><div class="ttname"><a href="colors_8c.html#a7c806bc7b475d48823e55f8ae578ab13">window_print_white</a></div><div class="ttdeci">void window_print_white(char *text)</div><div class="ttdef"><b>Definition:</b> <a href="colors_8c_source.html#l00001">colors.c:1</a></div></div>
+<div class="ttc" id="acolors_8c_html_ae11cb1bb9d6f12d36d281e7afd20b170"><div class="ttname"><a href="colors_8c.html#ae11cb1bb9d6f12d36d281e7afd20b170">window_print_cyan</a></div><div class="ttdeci">void window_print_cyan(char *text)</div><div class="ttdef"><b>Definition:</b> <a href="colors_8c_source.html#l00043">colors.c:43</a></div></div>
+<div class="ttc" id="acolors_8c_html_affab9a388d687aaae91c09766e603fc2"><div class="ttname"><a href="colors_8c.html#affab9a388d687aaae91c09766e603fc2">window_print_red</a></div><div class="ttdeci">void window_print_red(char *text)</div><div class="ttdef"><b>Definition:</b> <a href="colors_8c_source.html#l00008">colors.c:8</a></div></div>
+<div class="ttc" id="adriver_8c_html_a5e0577f95f9f1ca17f5e59fc9296f266"><div class="ttname"><a href="driver_8c.html#a5e0577f95f9f1ca17f5e59fc9296f266">set_title</a></div><div class="ttdeci">void set_title(char *title)</div><div class="ttdef"><b>Definition:</b> <a href="driver_8c_source.html#l00010">driver.c:10</a></div></div>
+<div class="ttc" id="aerror_8c_html_ad5fd1194b361cfb4bc723c13d4b2182b"><div class="ttname"><a href="error_8c.html#ad5fd1194b361cfb4bc723c13d4b2182b">throwError</a></div><div class="ttdeci">void throwError(char *errorMessage, int hasErrno)</div><div class="ttdef"><b>Definition:</b> <a href="error_8c_source.html#l00007">error.c:7</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a24d2c747aa74c9920a7bb854ba7bdd26"><div class="ttname"><a href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a></div><div class="ttdeci">int isDebugMode</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00019">global.c:19</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a77360afa4099281daa8ee4b1dca4e713"><div class="ttname"><a href="global_8c.html#a77360afa4099281daa8ee4b1dca4e713">IP</a></div><div class="ttdeci">char * IP</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00003">global.c:3</a></div></div>
+<div class="ttc" id="aglobal_8c_html_af3026a10afe86549e403ed46b8ff437a"><div class="ttname"><a href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a></div><div class="ttdeci">int acceptedSocketDescriptor</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00017">global.c:17</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_a159564c3a5a6742031f18cde118f395e"><div class="ttname"><a href="i18n__en_8c.html#a159564c3a5a6742031f18cde118f395e">CHANNEL_WELCOME</a></div><div class="ttdeci">#define CHANNEL_WELCOME</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00042">i18n_en.c:42</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_a48c15a9daf286e6f05fe6daf1fdad157"><div class="ttname"><a href="i18n__en_8c.html#a48c15a9daf286e6f05fe6daf1fdad157">FILE_LIST_HEADER_CLIENT</a></div><div class="ttdeci">#define FILE_LIST_HEADER_CLIENT</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00008">i18n_en.c:8</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_a4b9900aeba7c629e0b06d8e60ed93a67"><div class="ttname"><a href="i18n__en_8c.html#a4b9900aeba7c629e0b06d8e60ed93a67">FILE_LIST_HEADER_SERVER</a></div><div class="ttdeci">#define FILE_LIST_HEADER_SERVER</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00009">i18n_en.c:9</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_a778d0363a4466191cf4da8191de39f32"><div class="ttname"><a href="i18n__en_8c.html#a778d0363a4466191cf4da8191de39f32">ALREADY_IN_CHANNEL</a></div><div class="ttdeci">#define ALREADY_IN_CHANNEL</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00044">i18n_en.c:44</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_ab03727955c2c151b30acab6a9d76c9b6"><div class="ttname"><a href="i18n__en_8c.html#ab03727955c2c151b30acab6a9d76c9b6">CHANNEL_NOT_FOUND</a></div><div class="ttdeci">#define CHANNEL_NOT_FOUND</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00043">i18n_en.c:43</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_acf23cb7e7ad998d2647f218b1dc2f373"><div class="ttname"><a href="i18n__en_8c.html#acf23cb7e7ad998d2647f218b1dc2f373">CHANNEL_FULL</a></div><div class="ttdeci">#define CHANNEL_FULL</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00045">i18n_en.c:45</a></div></div>
+<div class="ttc" id="areceive_8c_html_a5a2c745e3990f8de71b399dcbe4e0f6d"><div class="ttname"><a href="receive_8c.html#a5a2c745e3990f8de71b399dcbe4e0f6d">receiveMessageFrom</a></div><div class="ttdeci">char * receiveMessageFrom(int serverSocket)</div><div class="ttdef"><b>Definition:</b> <a href="receive_8c_source.html#l00062">receive.c:62</a></div></div>
+<div class="ttc" id="areceive_8c_html_abad535e0f683d91516d96a033fad40be"><div class="ttname"><a href="receive_8c.html#abad535e0f683d91516d96a033fad40be">receiveNewPort</a></div><div class="ttdeci">int receiveNewPort()</div><div class="ttdef"><b>Definition:</b> <a href="receive_8c_source.html#l00115">receive.c:115</a></div></div>
+<div class="ttc" id="aregex_8c_html_aa65837f664d674ef7d9dbc95bf926990"><div class="ttname"><a href="regex_8c.html#aa65837f664d674ef7d9dbc95bf926990">getRegexGroup</a></div><div class="ttdeci">void getRegexGroup(char *list[], char *message, char *regexString)</div><div class="ttdef"><b>Definition:</b> <a href="regex_8c_source.html#l00047">regex.c:47</a></div></div>
+<div class="ttc" id="asend_8c_html_a232ae0b8d47fa481b9c67b1dfaeedf17"><div class="ttname"><a href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a></div><div class="ttdeci">void sendMessage(char *userMessage)</div><div class="ttdef"><b>Definition:</b> <a href="send_8c_source.html#l00044">send.c:44</a></div></div>
 <div class="ttc" id="astruct_command_html"><div class="ttname"><a href="struct_command.html">Command</a></div><div class="ttdef"><b>Definition:</b> <a href="_command_8c_source.html#l00001">Command.c:1</a></div></div>
+<div class="ttc" id="astruct_command_html_a9f3c1102da0931dd8a0fa03a94b3a335"><div class="ttname"><a href="struct_command.html#a9f3c1102da0931dd8a0fa03a94b3a335">Command::regex</a></div><div class="ttdeci">char * regex</div><div class="ttdef"><b>Definition:</b> <a href="_command_8c_source.html#l00003">Command.c:3</a></div></div>
 <div class="ttc" id="astructparam_file_threaded_html"><div class="ttname"><a href="structparam_file_threaded.html">paramFileThreaded</a></div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00003">actionThreaded.c:3</a></div></div>
+<div class="ttc" id="astructparam_file_threaded_html_a0b2e8c7f76df48129f994ecc46d5c66c"><div class="ttname"><a href="structparam_file_threaded.html#a0b2e8c7f76df48129f994ecc46d5c66c">paramFileThreaded::message</a></div><div class="ttdeci">char * message</div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00004">actionThreaded.c:4</a></div></div>
+<div class="ttc" id="astructparam_file_threaded_html_a9b20c006bd90a09e1465fb668700e81d"><div class="ttname"><a href="structparam_file_threaded.html#a9b20c006bd90a09e1465fb668700e81d">paramFileThreaded::username</a></div><div class="ttdeci">char * username</div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00005">actionThreaded.c:5</a></div></div>
+<div class="ttc" id="astructparam_file_threaded_html_aeac90097f29f7529968697163cea5c18"><div class="ttname"><a href="structparam_file_threaded.html#aeac90097f29f7529968697163cea5c18">paramFileThreaded::filename</a></div><div class="ttdeci">char * filename</div><div class="ttdef"><b>Definition:</b> <a href="action_threaded_8c_source.html#l00006">actionThreaded.c:6</a></div></div>
+<div class="ttc" id="autil_8c_html_aba1623ca3e44b15e0920f664207587c0"><div class="ttname"><a href="util_8c.html#aba1623ca3e44b15e0920f664207587c0">getUploadDirectoryPath</a></div><div class="ttdeci">void getUploadDirectoryPath(char *filePath)</div><div class="ttdef"><b>Definition:</b> <a href="util_8c_source.html#l00005">util.c:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

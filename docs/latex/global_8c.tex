@@ -1,0 +1,206 @@
+\hypertarget{global_8c}{}\doxysection{src/global.c File Reference}
+\label{global_8c}\index{src/global.c@{src/global.c}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\+\_\+\+SIZE\+\_\+\+SENT}}~512
+\item 
+\#define \mbox{\hyperlink{global_8c_a44ccca153e1092e2cd5fc917d7470eeb}{ENDING\+\_\+\+MESSAGE}}~\char`\"{}/disconnect\textbackslash{}n\textbackslash{}0\char`\"{}
+\item 
+\#define \mbox{\hyperlink{global_8c_afbba329c1ebf150d9c697177de5c2d26}{NB\+\_\+\+COMMAND}}~4
+\item 
+\#define \mbox{\hyperlink{global_8c_aba5431d531f986c4f7969bf01d0b452e}{CHANNEL\+\_\+\+DEFAULT\+\_\+\+PORT}}~3000
+\item 
+\#define \mbox{\hyperlink{global_8c_ad7f270ccd216bd1f1ad29effb2dc82fa}{CHANNEL\+\_\+\+SWITCH\+\_\+\+PORT}}~3334
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{global_8c_a77360afa4099281daa8ee4b1dca4e713}{IP}}
+\item 
+FORM $\ast$ \mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}
+\item 
+FIELD $\ast$ \mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}} \mbox{[}3\mbox{]}
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\+\_\+screen}}
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\+\_\+form}}
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\+\_\+display}}
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\+\_\+win\+\_\+form}}
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\+\_\+title}}
+\item 
+int \mbox{\hyperlink{global_8c_af3026a10afe86549e403ed46b8ff437a}{accepted\+Socket\+Descriptor}}
+\item 
+char $\ast$ \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}}
+\item 
+int \mbox{\hyperlink{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}{is\+Debug\+Mode}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{global_8c_aba5431d531f986c4f7969bf01d0b452e}\label{global_8c_aba5431d531f986c4f7969bf01d0b452e}} 
+\index{global.c@{global.c}!CHANNEL\_DEFAULT\_PORT@{CHANNEL\_DEFAULT\_PORT}}
+\index{CHANNEL\_DEFAULT\_PORT@{CHANNEL\_DEFAULT\_PORT}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{CHANNEL\_DEFAULT\_PORT}{CHANNEL\_DEFAULT\_PORT}}
+{\footnotesize\ttfamily \#define CHANNEL\+\_\+\+DEFAULT\+\_\+\+PORT~3000}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00006}{6}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_ad7f270ccd216bd1f1ad29effb2dc82fa}\label{global_8c_ad7f270ccd216bd1f1ad29effb2dc82fa}} 
+\index{global.c@{global.c}!CHANNEL\_SWITCH\_PORT@{CHANNEL\_SWITCH\_PORT}}
+\index{CHANNEL\_SWITCH\_PORT@{CHANNEL\_SWITCH\_PORT}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{CHANNEL\_SWITCH\_PORT}{CHANNEL\_SWITCH\_PORT}}
+{\footnotesize\ttfamily \#define CHANNEL\+\_\+\+SWITCH\+\_\+\+PORT~3334}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00007}{7}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a44ccca153e1092e2cd5fc917d7470eeb}\label{global_8c_a44ccca153e1092e2cd5fc917d7470eeb}} 
+\index{global.c@{global.c}!ENDING\_MESSAGE@{ENDING\_MESSAGE}}
+\index{ENDING\_MESSAGE@{ENDING\_MESSAGE}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{ENDING\_MESSAGE}{ENDING\_MESSAGE}}
+{\footnotesize\ttfamily \#define ENDING\+\_\+\+MESSAGE~\char`\"{}/disconnect\textbackslash{}n\textbackslash{}0\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00002}{2}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}\label{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}} 
+\index{global.c@{global.c}!MAX\_SIZE\_SENT@{MAX\_SIZE\_SENT}}
+\index{MAX\_SIZE\_SENT@{MAX\_SIZE\_SENT}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_SIZE\_SENT}{MAX\_SIZE\_SENT}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+SIZE\+\_\+\+SENT~512}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00001}{1}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_afbba329c1ebf150d9c697177de5c2d26}\label{global_8c_afbba329c1ebf150d9c697177de5c2d26}} 
+\index{global.c@{global.c}!NB\_COMMAND@{NB\_COMMAND}}
+\index{NB\_COMMAND@{NB\_COMMAND}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{NB\_COMMAND}{NB\_COMMAND}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+COMMAND~4}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00004}{4}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{global_8c_af3026a10afe86549e403ed46b8ff437a}\label{global_8c_af3026a10afe86549e403ed46b8ff437a}} 
+\index{global.c@{global.c}!acceptedSocketDescriptor@{acceptedSocketDescriptor}}
+\index{acceptedSocketDescriptor@{acceptedSocketDescriptor}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{acceptedSocketDescriptor}{acceptedSocketDescriptor}}
+{\footnotesize\ttfamily int accepted\+Socket\+Descriptor}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00017}{17}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a4692ce48f64c8231afe0021347f398d4}\label{global_8c_a4692ce48f64c8231afe0021347f398d4}} 
+\index{global.c@{global.c}!fields@{fields}}
+\index{fields@{fields}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{fields}{fields}}
+{\footnotesize\ttfamily FIELD$\ast$ fields\mbox{[}3\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00010}{10}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a77aa91746f2308130ee8638af6887392}\label{global_8c_a77aa91746f2308130ee8638af6887392}} 
+\index{global.c@{global.c}!form@{form}}
+\index{form@{form}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{form}{form}}
+{\footnotesize\ttfamily FORM$\ast$ form}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00009}{9}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a77360afa4099281daa8ee4b1dca4e713}\label{global_8c_a77360afa4099281daa8ee4b1dca4e713}} 
+\index{global.c@{global.c}!IP@{IP}}
+\index{IP@{IP}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{IP}{IP}}
+{\footnotesize\ttfamily char$\ast$ IP}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00003}{3}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}\label{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}} 
+\index{global.c@{global.c}!isDebugMode@{isDebugMode}}
+\index{isDebugMode@{isDebugMode}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{isDebugMode}{isDebugMode}}
+{\footnotesize\ttfamily int is\+Debug\+Mode = 0}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00019}{19}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a81be67ebc502e7edb6233bfeb2eac252}\label{global_8c_a81be67ebc502e7edb6233bfeb2eac252}} 
+\index{global.c@{global.c}!sub\_win\_form@{sub\_win\_form}}
+\index{sub\_win\_form@{sub\_win\_form}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{sub\_win\_form}{sub\_win\_form}}
+{\footnotesize\ttfamily WINDOW$\ast$ sub\+\_\+win\+\_\+form}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00014}{14}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a9b20c006bd90a09e1465fb668700e81d}\label{global_8c_a9b20c006bd90a09e1465fb668700e81d}} 
+\index{global.c@{global.c}!username@{username}}
+\index{username@{username}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily char$\ast$ username}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00018}{18}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}\label{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}} 
+\index{global.c@{global.c}!win\_display@{win\_display}}
+\index{win\_display@{win\_display}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{win\_display}{win\_display}}
+{\footnotesize\ttfamily WINDOW$\ast$ win\+\_\+display}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00013}{13}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_acabafd623676116571b3d489eb9b777b}\label{global_8c_acabafd623676116571b3d489eb9b777b}} 
+\index{global.c@{global.c}!win\_form@{win\_form}}
+\index{win\_form@{win\_form}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{win\_form}{win\_form}}
+{\footnotesize\ttfamily WINDOW$\ast$ win\+\_\+form}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00012}{12}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a34e1505c51600923f8940b4ac8d33f50}\label{global_8c_a34e1505c51600923f8940b4ac8d33f50}} 
+\index{global.c@{global.c}!win\_screen@{win\_screen}}
+\index{win\_screen@{win\_screen}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{win\_screen}{win\_screen}}
+{\footnotesize\ttfamily WINDOW$\ast$ win\+\_\+screen}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00011}{11}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+
+\mbox{\Hypertarget{global_8c_a52c198266f9c338c249bd0c781cd637a}\label{global_8c_a52c198266f9c338c249bd0c781cd637a}} 
+\index{global.c@{global.c}!win\_title@{win\_title}}
+\index{win\_title@{win\_title}!global.c@{global.c}}
+\doxysubsubsection{\texorpdfstring{win\_title}{win\_title}}
+{\footnotesize\ttfamily WINDOW$\ast$ win\+\_\+title}
+
+
+
+Definition at line \mbox{\hyperlink{global_8c_source_l00015}{15}} of file \mbox{\hyperlink{global_8c_source}{global.\+c}}.
+

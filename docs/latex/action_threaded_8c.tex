@@ -1,0 +1,101 @@
+\hypertarget{action_threaded_8c}{}\doxysection{src/command/action\+Threaded.c File Reference}
+\label{action_threaded_8c}\index{src/command/actionThreaded.c@{src/command/actionThreaded.c}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structparam_file_threaded}{param\+File\+Threaded}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{action_threaded_8c_af405b6ba1c0db643754041e5617d7701}{send\+File\+Threaded}} (void $\ast$param\+Void)
+\item 
+void $\ast$ \mbox{\hyperlink{action_threaded_8c_a6ffa207f40f3413713ed00382da4a3b1}{receive\+File\+Threaded}} (void $\ast$param\+Void)
+\item 
+void $\ast$ \mbox{\hyperlink{action_threaded_8c_a83486a7897ff5acb2c7e2f73d841dc46}{mp\+Send\+File\+Threaded}} (void $\ast$param\+Void)
+\item 
+void $\ast$ \mbox{\hyperlink{action_threaded_8c_ab51b04f36f56ed0e7c8fba4bfd371384}{mp\+Receive\+File\+Threaded}} (void $\ast$message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{action_threaded_8c_ab51b04f36f56ed0e7c8fba4bfd371384}\label{action_threaded_8c_ab51b04f36f56ed0e7c8fba4bfd371384}} 
+\index{actionThreaded.c@{actionThreaded.c}!mpReceiveFileThreaded@{mpReceiveFileThreaded}}
+\index{mpReceiveFileThreaded@{mpReceiveFileThreaded}!actionThreaded.c@{actionThreaded.c}}
+\doxysubsubsection{\texorpdfstring{mpReceiveFileThreaded()}{mpReceiveFileThreaded()}}
+{\footnotesize\ttfamily void $\ast$ mp\+Receive\+File\+Threaded (\begin{DoxyParamCaption}\item[{void $\ast$}]{message }\end{DoxyParamCaption})}
+
+Threaded function called when a user receive a message saying that he will receive a file from mp.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{action_threaded_8c_source_l00139}{139}} of file \mbox{\hyperlink{action_threaded_8c_source}{action\+Threaded.\+c}}.
+
+\mbox{\Hypertarget{action_threaded_8c_a83486a7897ff5acb2c7e2f73d841dc46}\label{action_threaded_8c_a83486a7897ff5acb2c7e2f73d841dc46}} 
+\index{actionThreaded.c@{actionThreaded.c}!mpSendFileThreaded@{mpSendFileThreaded}}
+\index{mpSendFileThreaded@{mpSendFileThreaded}!actionThreaded.c@{actionThreaded.c}}
+\doxysubsubsection{\texorpdfstring{mpSendFileThreaded()}{mpSendFileThreaded()}}
+{\footnotesize\ttfamily void $\ast$ mp\+Send\+File\+Threaded (\begin{DoxyParamCaption}\item[{void $\ast$}]{param\+Void }\end{DoxyParamCaption})}
+
+Threaded function called when a user wanna mp a file to another user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+TODO \+: modif recv msg int avec socket en params.
+
+Definition at line \mbox{\hyperlink{action_threaded_8c_source_l00087}{87}} of file \mbox{\hyperlink{action_threaded_8c_source}{action\+Threaded.\+c}}.
+
+\mbox{\Hypertarget{action_threaded_8c_a6ffa207f40f3413713ed00382da4a3b1}\label{action_threaded_8c_a6ffa207f40f3413713ed00382da4a3b1}} 
+\index{actionThreaded.c@{actionThreaded.c}!receiveFileThreaded@{receiveFileThreaded}}
+\index{receiveFileThreaded@{receiveFileThreaded}!actionThreaded.c@{actionThreaded.c}}
+\doxysubsubsection{\texorpdfstring{receiveFileThreaded()}{receiveFileThreaded()}}
+{\footnotesize\ttfamily void $\ast$ receive\+File\+Threaded (\begin{DoxyParamCaption}\item[{void $\ast$}]{param\+Void }\end{DoxyParamCaption})}
+
+Request a file to the server. If the file exists, put it in ./uploads/.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{action_threaded_8c_source_l00051}{51}} of file \mbox{\hyperlink{action_threaded_8c_source}{action\+Threaded.\+c}}.
+
+\mbox{\Hypertarget{action_threaded_8c_af405b6ba1c0db643754041e5617d7701}\label{action_threaded_8c_af405b6ba1c0db643754041e5617d7701}} 
+\index{actionThreaded.c@{actionThreaded.c}!sendFileThreaded@{sendFileThreaded}}
+\index{sendFileThreaded@{sendFileThreaded}!actionThreaded.c@{actionThreaded.c}}
+\doxysubsubsection{\texorpdfstring{sendFileThreaded()}{sendFileThreaded()}}
+{\footnotesize\ttfamily void $\ast$ send\+File\+Threaded (\begin{DoxyParamCaption}\item[{void $\ast$}]{param\+Void }\end{DoxyParamCaption})}
+
+Threaded function called by file\+Action(...). Connect to the socket used to send files and send the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{action_threaded_8c_source_l00016}{16}} of file \mbox{\hyperlink{action_threaded_8c_source}{action\+Threaded.\+c}}.
+

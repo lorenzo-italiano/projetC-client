@@ -1,41 +1,41 @@
 \hypertarget{_command_8c_source}{}\doxysection{Command.\+c}
-\label{_command_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/Command.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/Command.c}}
-
+\label{_command_8c_source}\index{src/command/Command.c@{src/command/Command.c}}
+\mbox{\hyperlink{_command_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00001}\mbox{\hyperlink{struct_command}{00001}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_command}{Command}} \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00002}00002     \textcolor{keywordtype}{char} *name;}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00003}00003     \textcolor{keywordtype}{char} *regex;}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00002}\mbox{\hyperlink{struct_command_a5ac083a645d964373f022d03df4849c8}{00002}}     \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_command_a5ac083a645d964373f022d03df4849c8}{name}};}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00003}\mbox{\hyperlink{struct_command_a9f3c1102da0931dd8a0fa03a94b3a335}{00003}}     \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_command_a9f3c1102da0931dd8a0fa03a94b3a335}{regex}};}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00005}00005 \};}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00006}00006 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{struct_command}{Command}};}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00006}\mbox{\hyperlink{_command_8c_a62d1747f225814325ab32d45082a23c1}{00006}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{struct_command}{Command}};}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00015}00015 \mbox{\hyperlink{struct_command}{Command}} *createCommand (\textcolor{keywordtype}{char} *name, \textcolor{keywordtype}{char} *regex) \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00015}\mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{00015}} \mbox{\hyperlink{struct_command}{Command}} *\mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{createCommand}} (\textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_command_a5ac083a645d964373f022d03df4849c8}{name}}, \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_command_a9f3c1102da0931dd8a0fa03a94b3a335}{regex}}) \{}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00016}00016     \mbox{\hyperlink{struct_command}{Command}} *command = (\mbox{\hyperlink{struct_command}{Command}} *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_command}{Command}}));}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00018}00018     command-\/>name = name;}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00019}00019     command-\/>regex = regex;}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00018}00018     command-\/>\mbox{\hyperlink{struct_command_a5ac083a645d964373f022d03df4849c8}{name}} = \mbox{\hyperlink{struct_command_a5ac083a645d964373f022d03df4849c8}{name}};}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00019}00019     command-\/>\mbox{\hyperlink{struct_command_a9f3c1102da0931dd8a0fa03a94b3a335}{regex}} = \mbox{\hyperlink{struct_command_a9f3c1102da0931dd8a0fa03a94b3a335}{regex}};}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00020}00020 }
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00021}00021     \textcolor{keywordflow}{return} command;}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00022}00022 \}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00024}00024 \mbox{\hyperlink{struct_command}{Command}} *commandList[NB\_COMMAND];}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00028}00028 \textcolor{keywordtype}{void} initCommandList () \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00029}00029     commandList[0] = createCommand(\textcolor{stringliteral}{"{}disconnect"{}}, \textcolor{stringliteral}{"{}\string^/disconnect *\(\backslash\)n\$"{}});          \textcolor{comment}{// Déconnecte l'utilisateur.}}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00030}00030     commandList[1] = createCommand(\textcolor{stringliteral}{"{}file"{}}, \textcolor{stringliteral}{"{}\string^/file +([\string^ ]+) +([\string^ ]+) *\(\backslash\)n\$"{}});    \textcolor{comment}{// Envoi un fichier.}}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00031}00031     commandList[2] = createCommand(\textcolor{stringliteral}{"{}files"{}}, \textcolor{stringliteral}{"{}\string^/files +-\/(c|s) *\(\backslash\)n\$"{}});            \textcolor{comment}{// Liste des fichier disponibles dans le répertoire client ou serveur. /files -\/c || -\/s}}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00032}00032     commandList[3] = createCommand(\textcolor{stringliteral}{"{}join"{}}, \textcolor{stringliteral}{"{}\string^/join +([0-\/9]\{1,2\}) *\(\backslash\)n\$"{}});        \textcolor{comment}{// Rejoint le channel spécifié.}}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00024}\mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{00024}} \mbox{\hyperlink{struct_command}{Command}} *\mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[\mbox{\hyperlink{global_8c_afbba329c1ebf150d9c697177de5c2d26}{NB\_COMMAND}}];}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00028}\mbox{\hyperlink{_command_8c_abd3bceb28341368efbdc81ec71893dfa}{00028}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_command_8c_abd3bceb28341368efbdc81ec71893dfa}{initCommandList}} () \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00029}00029     \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[0] = \mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{createCommand}}(\textcolor{stringliteral}{"{}disconnect"{}}, \textcolor{stringliteral}{"{}\string^/disconnect *\(\backslash\)n\$"{}});          \textcolor{comment}{// Déconnecte l'utilisateur.}}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00030}00030     \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[1] = \mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{createCommand}}(\textcolor{stringliteral}{"{}file"{}}, \textcolor{stringliteral}{"{}\string^/file +([\string^ ]+) +([\string^ ]+) *\(\backslash\)n\$"{}});    \textcolor{comment}{// Envoi un fichier.}}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00031}00031     \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[2] = \mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{createCommand}}(\textcolor{stringliteral}{"{}files"{}}, \textcolor{stringliteral}{"{}\string^/files +-\/(c|s) *\(\backslash\)n\$"{}});            \textcolor{comment}{// Liste des fichier disponibles dans le répertoire client ou serveur. /files -\/c || -\/s}}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00032}00032     \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[3] = \mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{createCommand}}(\textcolor{stringliteral}{"{}join"{}}, \textcolor{stringliteral}{"{}\string^/join +([0-\/9]\{1,2\}) *\(\backslash\)n\$"{}});        \textcolor{comment}{// Rejoint le channel spécifié.}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00033}00033     \textcolor{comment}{// Don't forger to update NB\_COMMAND.}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00034}00034 \}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00041}00041 \textcolor{keywordtype}{int} isCommand (\textcolor{keywordtype}{char} *message) \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00042}00042     \textcolor{keywordflow}{return} isMatch(message, \textcolor{stringliteral}{"{}\string^/"{}});}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00041}\mbox{\hyperlink{_command_8c_aa3d9fcc59bb4194ba72397423febb9d7}{00041}} \textcolor{keywordtype}{int} \mbox{\hyperlink{_command_8c_aa3d9fcc59bb4194ba72397423febb9d7}{isCommand}} (\textcolor{keywordtype}{char} *message) \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00042}00042     \textcolor{keywordflow}{return} \mbox{\hyperlink{regex_8c_a7e3aa9478821ab94f37a66a529cac597}{isMatch}}(message, \textcolor{stringliteral}{"{}\string^/"{}});}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00043}00043 \}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00052}00052 \mbox{\hyperlink{struct_command}{Command}} *getCommand (\textcolor{keywordtype}{char} *message) \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00053}00053     \textcolor{keywordflow}{if} (isCommand(message)) \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00054}00054         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < NB\_COMMAND; i++) \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00055}00055             \textcolor{keywordflow}{if} (isMatch(message, commandList[i]-\/>regex)) \{}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00056}00056                 \textcolor{keywordflow}{if} (isDebugMode) \{ printf(\textcolor{stringliteral}{"{}Command : \%s. \(\backslash\)n"{}}, commandList[i]-\/>name); \}}
-\DoxyCodeLine{\Hypertarget{_command_8c_source_l00057}00057                 \textcolor{keywordflow}{return} commandList[i];}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00052}\mbox{\hyperlink{_command_8c_aeb617e5c55cd5efe3217bc05ac2e8638}{00052}} \mbox{\hyperlink{struct_command}{Command}} *\mbox{\hyperlink{_command_8c_aeb617e5c55cd5efe3217bc05ac2e8638}{getCommand}} (\textcolor{keywordtype}{char} *message) \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00053}00053     \textcolor{keywordflow}{if} (\mbox{\hyperlink{_command_8c_aa3d9fcc59bb4194ba72397423febb9d7}{isCommand}}(message)) \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00054}00054         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{global_8c_afbba329c1ebf150d9c697177de5c2d26}{NB\_COMMAND}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00055}00055             \textcolor{keywordflow}{if} (\mbox{\hyperlink{regex_8c_a7e3aa9478821ab94f37a66a529cac597}{isMatch}}(message, \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[i]-\/>\mbox{\hyperlink{struct_command_a9f3c1102da0931dd8a0fa03a94b3a335}{regex}})) \{}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00056}00056                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}{isDebugMode}}) \{ printf(\textcolor{stringliteral}{"{}Command : \%s. \(\backslash\)n"{}}, \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[i]-\/>\mbox{\hyperlink{struct_command_a5ac083a645d964373f022d03df4849c8}{name}}); \}}
+\DoxyCodeLine{\Hypertarget{_command_8c_source_l00057}00057                 \textcolor{keywordflow}{return} \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[i];}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00058}00058             \}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00059}00059         \}}
 \DoxyCodeLine{\Hypertarget{_command_8c_source_l00060}00060     \}}

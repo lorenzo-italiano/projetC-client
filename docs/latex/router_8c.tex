@@ -1,0 +1,29 @@
+\hypertarget{router_8c}{}\doxysection{src/command/router.c File Reference}
+\label{router_8c}\index{src/command/router.c@{src/command/router.c}}
+{\ttfamily \#include \char`\"{}Command.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}action.\+c\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{router_8c_a3cbc0941b621fb4c2452f655ed953097}{do\+Command\+Action}} (char $\ast$message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{router_8c_a3cbc0941b621fb4c2452f655ed953097}\label{router_8c_a3cbc0941b621fb4c2452f655ed953097}} 
+\index{router.c@{router.c}!doCommandAction@{doCommandAction}}
+\index{doCommandAction@{doCommandAction}!router.c@{router.c}}
+\doxysubsubsection{\texorpdfstring{doCommandAction()}{doCommandAction()}}
+{\footnotesize\ttfamily void do\+Command\+Action (\begin{DoxyParamCaption}\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+Find the wanted command in the message in params (with regex). Call the action attached to this command. If there isn\textquotesingle{}t any associated command, juste send the message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{router_8c_source_l00011}{11}} of file \mbox{\hyperlink{router_8c_source}{router.\+c}}.
+

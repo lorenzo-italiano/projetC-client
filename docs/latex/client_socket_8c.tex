@@ -1,0 +1,62 @@
+\hypertarget{client_socket_8c}{}\doxysection{src/socket/client\+Socket.c File Reference}
+\label{client_socket_8c}\index{src/socket/clientSocket.c@{src/socket/clientSocket.c}}
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{client_socket_8c_a5ece610682861d1713357ebe3d61997f}{create\+Socket}} ()
+\item 
+int \mbox{\hyperlink{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}{connect\+To\+Server}} (char $\ast$ip, int port)
+\item 
+void \mbox{\hyperlink{client_socket_8c_a1c5d9ca1116ce45cc7d8c7b096fdb783}{shutdown\+Client}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}\label{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}} 
+\index{clientSocket.c@{clientSocket.c}!connectToServer@{connectToServer}}
+\index{connectToServer@{connectToServer}!clientSocket.c@{clientSocket.c}}
+\doxysubsubsection{\texorpdfstring{connectToServer()}{connectToServer()}}
+{\footnotesize\ttfamily int connect\+To\+Server (\begin{DoxyParamCaption}\item[{char $\ast$}]{ip,  }\item[{int}]{port }\end{DoxyParamCaption})}
+
+Find the socket a the address in params and establish a connection with it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & \\
+\hline
+{\em port} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client_socket_8c_source_l00029}{29}} of file \mbox{\hyperlink{client_socket_8c_source}{client\+Socket.\+c}}.
+
+\mbox{\Hypertarget{client_socket_8c_a5ece610682861d1713357ebe3d61997f}\label{client_socket_8c_a5ece610682861d1713357ebe3d61997f}} 
+\index{clientSocket.c@{clientSocket.c}!createSocket@{createSocket}}
+\index{createSocket@{createSocket}!clientSocket.c@{clientSocket.c}}
+\doxysubsubsection{\texorpdfstring{createSocket()}{createSocket()}}
+{\footnotesize\ttfamily int create\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a socket and return his descriptor.
+
+\begin{DoxyReturn}{Returns}
+the descriptor of the socket created. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client_socket_8c_source_l00008}{8}} of file \mbox{\hyperlink{client_socket_8c_source}{client\+Socket.\+c}}.
+
+\mbox{\Hypertarget{client_socket_8c_a1c5d9ca1116ce45cc7d8c7b096fdb783}\label{client_socket_8c_a1c5d9ca1116ce45cc7d8c7b096fdb783}} 
+\index{clientSocket.c@{clientSocket.c}!shutdownClient@{shutdownClient}}
+\index{shutdownClient@{shutdownClient}!clientSocket.c@{clientSocket.c}}
+\doxysubsubsection{\texorpdfstring{shutdownClient()}{shutdownClient()}}
+{\footnotesize\ttfamily void shutdown\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Shutdown the client. close ui
+
+Definition at line \mbox{\hyperlink{client_socket_8c_source_l00057}{57}} of file \mbox{\hyperlink{client_socket_8c_source}{client\+Socket.\+c}}.
+

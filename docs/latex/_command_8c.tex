@@ -1,0 +1,127 @@
+\hypertarget{_command_8c}{}\doxysection{src/command/\+Command.c File Reference}
+\label{_command_8c}\index{src/command/Command.c@{src/command/Command.c}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_command}{Command}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{_command_8c_a62d1747f225814325ab32d45082a23c1}{Command}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_command}{Command}} $\ast$ \mbox{\hyperlink{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}{create\+Command}} (char $\ast$name, char $\ast$regex)
+\item 
+void \mbox{\hyperlink{_command_8c_abd3bceb28341368efbdc81ec71893dfa}{init\+Command\+List}} ()
+\item 
+int \mbox{\hyperlink{_command_8c_aa3d9fcc59bb4194ba72397423febb9d7}{is\+Command}} (char $\ast$message)
+\item 
+\mbox{\hyperlink{struct_command}{Command}} $\ast$ \mbox{\hyperlink{_command_8c_aeb617e5c55cd5efe3217bc05ac2e8638}{get\+Command}} (char $\ast$message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_command}{Command}} $\ast$ \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{command\+List}} \mbox{[}\mbox{\hyperlink{global_8c_afbba329c1ebf150d9c697177de5c2d26}{NB\+\_\+\+COMMAND}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_command_8c_a62d1747f225814325ab32d45082a23c1}\label{_command_8c_a62d1747f225814325ab32d45082a23c1}} 
+\index{Command.c@{Command.c}!Command@{Command}}
+\index{Command@{Command}!Command.c@{Command.c}}
+\doxysubsubsection{\texorpdfstring{Command}{Command}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{struct_command}{Command}}}
+
+
+
+Definition at line \mbox{\hyperlink{_command_8c_source_l00006}{6}} of file \mbox{\hyperlink{_command_8c_source}{Command.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}\label{_command_8c_a125f5b8f686d04ca2e80ffe62d3b9af9}} 
+\index{Command.c@{Command.c}!createCommand@{createCommand}}
+\index{createCommand@{createCommand}!Command.c@{Command.c}}
+\doxysubsubsection{\texorpdfstring{createCommand()}{createCommand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_command}{Command}} $\ast$ create\+Command (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{char $\ast$}]{regex }\end{DoxyParamCaption})}
+
+Malloc a struct \mbox{\hyperlink{struct_command}{Command}} and set attributes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em regex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_command_8c_source_l00015}{15}} of file \mbox{\hyperlink{_command_8c_source}{Command.\+c}}.
+
+\mbox{\Hypertarget{_command_8c_aeb617e5c55cd5efe3217bc05ac2e8638}\label{_command_8c_aeb617e5c55cd5efe3217bc05ac2e8638}} 
+\index{Command.c@{Command.c}!getCommand@{getCommand}}
+\index{getCommand@{getCommand}!Command.c@{Command.c}}
+\doxysubsubsection{\texorpdfstring{getCommand()}{getCommand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_command}{Command}} $\ast$ get\+Command (\begin{DoxyParamCaption}\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+Return the \mbox{\hyperlink{struct_command}{Command}} associated to the message in params. If there is no matching command, then return NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_command_8c_source_l00052}{52}} of file \mbox{\hyperlink{_command_8c_source}{Command.\+c}}.
+
+\mbox{\Hypertarget{_command_8c_abd3bceb28341368efbdc81ec71893dfa}\label{_command_8c_abd3bceb28341368efbdc81ec71893dfa}} 
+\index{Command.c@{Command.c}!initCommandList@{initCommandList}}
+\index{initCommandList@{initCommandList}!Command.c@{Command.c}}
+\doxysubsubsection{\texorpdfstring{initCommandList()}{initCommandList()}}
+{\footnotesize\ttfamily void init\+Command\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize the global list of available commands, command\+List. 
+
+Definition at line \mbox{\hyperlink{_command_8c_source_l00028}{28}} of file \mbox{\hyperlink{_command_8c_source}{Command.\+c}}.
+
+\mbox{\Hypertarget{_command_8c_aa3d9fcc59bb4194ba72397423febb9d7}\label{_command_8c_aa3d9fcc59bb4194ba72397423febb9d7}} 
+\index{Command.c@{Command.c}!isCommand@{isCommand}}
+\index{isCommand@{isCommand}!Command.c@{Command.c}}
+\doxysubsubsection{\texorpdfstring{isCommand()}{isCommand()}}
+{\footnotesize\ttfamily int is\+Command (\begin{DoxyParamCaption}\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+Return true if the message in params contains a command (starts with a \char`\"{}/\char`\"{}). 
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_command_8c_source_l00041}{41}} of file \mbox{\hyperlink{_command_8c_source}{Command.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}\label{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}} 
+\index{Command.c@{Command.c}!commandList@{commandList}}
+\index{commandList@{commandList}!Command.c@{Command.c}}
+\doxysubsubsection{\texorpdfstring{commandList}{commandList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_command}{Command}}$\ast$ command\+List\mbox{[}\mbox{\hyperlink{global_8c_afbba329c1ebf150d9c697177de5c2d26}{NB\+\_\+\+COMMAND}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_command_8c_source_l00024}{24}} of file \mbox{\hyperlink{_command_8c_source}{Command.\+c}}.
+

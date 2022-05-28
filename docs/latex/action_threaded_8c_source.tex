@@ -1,36 +1,36 @@
 \hypertarget{action_threaded_8c_source}{}\doxysection{action\+Threaded.\+c}
-\label{action_threaded_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/actionThreaded.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/actionThreaded.c}}
-
+\label{action_threaded_8c_source}\index{src/command/actionThreaded.c@{src/command/actionThreaded.c}}
+\mbox{\hyperlink{action_threaded_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00002}00002 \textcolor{comment}{// Struct used for threaded function.}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00003}\mbox{\hyperlink{structparam_file_threaded}{00003}} \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} \{}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00004}00004     \textcolor{keywordtype}{char} *message;}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00005}00005     \textcolor{keywordtype}{char} *username;}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00006}00006     \textcolor{keywordtype}{char} *filename;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00004}\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{00004}}     \textcolor{keywordtype}{char} *\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}};}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00005}\mbox{\hyperlink{structparam_file_threaded_a9b20c006bd90a09e1465fb668700e81d}{00005}}     \textcolor{keywordtype}{char} *\mbox{\hyperlink{structparam_file_threaded_a9b20c006bd90a09e1465fb668700e81d}{username}};}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00006}\mbox{\hyperlink{structparam_file_threaded_aeac90097f29f7529968697163cea5c18}{00006}}     \textcolor{keywordtype}{char} *\mbox{\hyperlink{structparam_file_threaded_aeac90097f29f7529968697163cea5c18}{filename}};}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00007}00007 \};}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00016}00016 \textcolor{keywordtype}{void} *sendFileThreaded (\textcolor{keywordtype}{void} *paramVoid) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00016}\mbox{\hyperlink{action_threaded_8c_af405b6ba1c0db643754041e5617d7701}{00016}} \textcolor{keywordtype}{void} *\mbox{\hyperlink{action_threaded_8c_af405b6ba1c0db643754041e5617d7701}{sendFileThreaded}} (\textcolor{keywordtype}{void} *paramVoid) \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00017}00017     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param = (\textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *)paramVoid;}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00019}00019     FILE *file = openFile(param-\/>filename, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00019}00019     FILE *file = \mbox{\hyperlink{util_8c_a874999d2079111de1048e75d22b45354}{openFile}}(param-\/>\mbox{\hyperlink{structparam_file_threaded_aeac90097f29f7529968697163cea5c18}{filename}}, \textcolor{stringliteral}{"{}rb"{}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00020}00020 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00021}00021     \textcolor{keywordflow}{if} (file != NULL) \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00022}00022         \textcolor{comment}{// File exists.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00023}00023         sendMessage(param-\/>message);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00023}00023         \mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{sendMessage}}(param-\/>\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00024}00024 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00025}00025         \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00026}00026         \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00026}00026         \textcolor{keywordtype}{int} portSocketForFile = \mbox{\hyperlink{receive_8c_abad535e0f683d91516d96a033fad40be}{receiveNewPort}}();}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00027}00027 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00028}00028         \textcolor{comment}{// Connection to the socket used to send files.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00029}00029         \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00030}00030         sendFile(clientSocketForFile, file);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00029}00029         \textcolor{keywordtype}{int} clientSocketForFile = \mbox{\hyperlink{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}{connectToServer}}(\mbox{\hyperlink{global_8c_a77360afa4099281daa8ee4b1dca4e713}{IP}}, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00030}00030         \mbox{\hyperlink{send_8c_a942b285fb37fa062e5816d27a0865c0a}{sendFile}}(clientSocketForFile, file);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00031}00031         close(clientSocketForFile);}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00032}00032         window\_print\_green(FILE\_SENT);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00032}00032         \mbox{\hyperlink{colors_8c_a23e9e446ee668089effe24ea4b7826ac}{window\_print\_green}}(\mbox{\hyperlink{i18n__en_8c_afe46cf2b2c0ef33f0a26522bb57292d2}{FILE\_SENT}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00033}00033     \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00034}00034     \textcolor{keywordflow}{else} \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00035}00035         \textcolor{comment}{// File doesn't exists.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00036}00036         window\_print\_red(FILE\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00036}00036         \mbox{\hyperlink{colors_8c_affab9a388d687aaae91c09766e603fc2}{window\_print\_red}}(\mbox{\hyperlink{i18n__en_8c_a775241e32b7ccb12e344ae23aa2db6b1}{FILE\_NOT\_FOUND}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00037}00037     \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00038}00038 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00039}00039     free(param);}
@@ -38,28 +38,28 @@
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00041}00041     pthread\_exit(NULL);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00042}00042 \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00051}00051 \textcolor{keywordtype}{void} *receiveFileThreaded (\textcolor{keywordtype}{void} *paramVoid) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00051}\mbox{\hyperlink{action_threaded_8c_a6ffa207f40f3413713ed00382da4a3b1}{00051}} \textcolor{keywordtype}{void} *\mbox{\hyperlink{action_threaded_8c_a6ffa207f40f3413713ed00382da4a3b1}{receiveFileThreaded}} (\textcolor{keywordtype}{void} *paramVoid) \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00052}00052     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param = (\textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *)paramVoid;}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00054}00054     sendMessage(param-\/>message);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00054}00054     \mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{sendMessage}}(param-\/>\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00055}00055 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00056}00056     \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00057}00057     \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00057}00057     \textcolor{keywordtype}{int} portSocketForFile = \mbox{\hyperlink{receive_8c_abad535e0f683d91516d96a033fad40be}{receiveNewPort}}();}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00058}00058 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00059}00059     \textcolor{comment}{// Connection to the socket used to send files.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00060}00060     \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00060}00060     \textcolor{keywordtype}{int} clientSocketForFile = \mbox{\hyperlink{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}{connectToServer}}(\mbox{\hyperlink{global_8c_a77360afa4099281daa8ee4b1dca4e713}{IP}}, portSocketForFile);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00061}00061     \textcolor{keywordtype}{int} requestStatus;}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00062}00062 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00063}00063     recv(clientSocketForFile, \&requestStatus, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}), 0);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00064}00064 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00065}00065     \textcolor{keywordflow}{if} (requestStatus == 404) \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00066}00066         \textcolor{comment}{// File not found.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00067}00067         window\_print\_red(FILE\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00067}00067         \mbox{\hyperlink{colors_8c_affab9a388d687aaae91c09766e603fc2}{window\_print\_red}}(\mbox{\hyperlink{i18n__en_8c_a775241e32b7ccb12e344ae23aa2db6b1}{FILE\_NOT\_FOUND}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00068}00068     \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00069}00069     \textcolor{keywordflow}{else} \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00070}00070         \textcolor{comment}{// Status == 204. File found.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00071}00071         receiveFile(clientSocketForFile, param-\/>filename);}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00072}00072         window\_print\_green(FILE\_IMPORTED);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00071}00071         \mbox{\hyperlink{receive_8c_a5356a63851436e180fb478c4d84ae0ad}{receiveFile}}(clientSocketForFile, param-\/>\mbox{\hyperlink{structparam_file_threaded_aeac90097f29f7529968697163cea5c18}{filename}});}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00072}00072         \mbox{\hyperlink{colors_8c_a23e9e446ee668089effe24ea4b7826ac}{window\_print\_green}}(\mbox{\hyperlink{i18n__en_8c_a902a2e1552a9cde57622b750a788f9bf}{FILE\_IMPORTED}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00073}00073         close(clientSocketForFile);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00074}00074     \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00075}00075 }
@@ -68,7 +68,7 @@
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00078}00078     pthread\_exit(NULL);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00079}00079 \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00087}00087 \textcolor{keywordtype}{void} *mpSendFileThreaded (\textcolor{keywordtype}{void} *paramVoid) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00087}\mbox{\hyperlink{action_threaded_8c_a83486a7897ff5acb2c7e2f73d841dc46}{00087}} \textcolor{keywordtype}{void} *\mbox{\hyperlink{action_threaded_8c_a83486a7897ff5acb2c7e2f73d841dc46}{mpSendFileThreaded}} (\textcolor{keywordtype}{void} *paramVoid) \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00088}00088     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param = (\textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *)paramVoid;}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00089}00089 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00090}00090     \textcolor{comment}{// Check file exists locally.}}
@@ -77,36 +77,36 @@
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00093}00093     \textcolor{comment}{// Server asert that the wanted user is connected.}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00094}00094         \textcolor{comment}{// If connected, send the file.}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00096}00096     window\_print\_white(FILE\_SENDING);}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00097}00097     FILE *file = openFile(param-\/>filename, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00096}00096     \mbox{\hyperlink{colors_8c_a7c806bc7b475d48823e55f8ae578ab13}{window\_print\_white}}(\mbox{\hyperlink{i18n__en_8c_a1999eb68869baf3f8e837759bae6b174}{FILE\_SENDING}});}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00097}00097     FILE *file = \mbox{\hyperlink{util_8c_a874999d2079111de1048e75d22b45354}{openFile}}(param-\/>\mbox{\hyperlink{structparam_file_threaded_aeac90097f29f7529968697163cea5c18}{filename}}, \textcolor{stringliteral}{"{}rb"{}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00098}00098 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00099}00099     \textcolor{keywordflow}{if} (file != NULL) \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00100}00100         \textcolor{comment}{// File exists.}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00102}00102         sendMessage(param-\/>message);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00102}00102         \mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{sendMessage}}(param-\/>\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00103}00103 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00104}00104         \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00105}00105         \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00105}00105         \textcolor{keywordtype}{int} portSocketForFile = \mbox{\hyperlink{receive_8c_abad535e0f683d91516d96a033fad40be}{receiveNewPort}}();}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00106}00106 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00107}00107         \textcolor{comment}{// Connection to the socket used to send files.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00108}00108         \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00108}00108         \textcolor{keywordtype}{int} clientSocketForFile = \mbox{\hyperlink{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}{connectToServer}}(\mbox{\hyperlink{global_8c_a77360afa4099281daa8ee4b1dca4e713}{IP}}, portSocketForFile);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00109}00109         \textcolor{keywordtype}{int} userTargetStatus;}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00110}00110         recv(clientSocketForFile, \&userTargetStatus, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}), 0);   }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00111}00111 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00112}00112         \textcolor{keywordflow}{if} (userTargetStatus == 204) \{}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00113}00113             \textcolor{keywordflow}{if} (isDebugMode) \{ printf(\textcolor{stringliteral}{"{}Send file. \(\backslash\)n"{}}); \}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00114}00114             sendFile(clientSocketForFile, file);}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00115}00115             window\_print\_green(FILE\_SENT);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00113}00113             \textcolor{keywordflow}{if} (\mbox{\hyperlink{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}{isDebugMode}}) \{ printf(\textcolor{stringliteral}{"{}Send file. \(\backslash\)n"{}}); \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00114}00114             \mbox{\hyperlink{send_8c_a942b285fb37fa062e5816d27a0865c0a}{sendFile}}(clientSocketForFile, file);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00115}00115             \mbox{\hyperlink{colors_8c_a23e9e446ee668089effe24ea4b7826ac}{window\_print\_green}}(\mbox{\hyperlink{i18n__en_8c_afe46cf2b2c0ef33f0a26522bb57292d2}{FILE\_SENT}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00116}00116         \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00117}00117         \textcolor{keywordflow}{else} \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00118}00118             \textcolor{comment}{// userTargetStatus == 404}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00119}00119             window\_print\_red(USER\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00119}00119             \mbox{\hyperlink{colors_8c_affab9a388d687aaae91c09766e603fc2}{window\_print\_red}}(\mbox{\hyperlink{i18n__en_8c_a91d2a955cc4d87a74095b7055fbd9d7e}{USER\_NOT\_FOUND}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00120}00120         \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00121}00121         close(clientSocketForFile);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00122}00122     \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00123}00123     \textcolor{keywordflow}{else} \{}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00124}00124         \textcolor{comment}{// File doesn't exists.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00125}00125         window\_print\_red(FILE\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00125}00125         \mbox{\hyperlink{colors_8c_affab9a388d687aaae91c09766e603fc2}{window\_print\_red}}(\mbox{\hyperlink{i18n__en_8c_a775241e32b7ccb12e344ae23aa2db6b1}{FILE\_NOT\_FOUND}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00126}00126     \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00127}00127 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00128}00128     free(param);}
@@ -114,30 +114,30 @@
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00130}00130     pthread\_exit(NULL);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00131}00131 \}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00132}00132 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00139}00139 \textcolor{keywordtype}{void} *mpReceiveFileThreaded (\textcolor{keywordtype}{void} *message) \{}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00140}00140     message = (\textcolor{keywordtype}{char} *)message;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00139}\mbox{\hyperlink{action_threaded_8c_ab51b04f36f56ed0e7c8fba4bfd371384}{00139}} \textcolor{keywordtype}{void} *\mbox{\hyperlink{action_threaded_8c_ab51b04f36f56ed0e7c8fba4bfd371384}{mpReceiveFileThreaded}} (\textcolor{keywordtype}{void} *\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}}) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00140}00140     \mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}} = (\textcolor{keywordtype}{char} *)\mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}};}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00141}00141 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00142}00142     window\_print\_white(FILE\_RECEIVING);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00142}00142     \mbox{\hyperlink{colors_8c_a7c806bc7b475d48823e55f8ae578ab13}{window\_print\_white}}(\mbox{\hyperlink{i18n__en_8c_af77f1fce87715c6b3c869108e9380de1}{FILE\_RECEIVING}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00143}00143     \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00144}00144     \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00144}00144     \textcolor{keywordtype}{int} portSocketForFile = \mbox{\hyperlink{receive_8c_abad535e0f683d91516d96a033fad40be}{receiveNewPort}}();}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00145}00145 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00146}00146     \textcolor{comment}{// Connection to the socket used to send files.}}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00147}00147     \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00147}00147     \textcolor{keywordtype}{int} clientSocketForFile = \mbox{\hyperlink{client_socket_8c_a331a2d290348deac91f3e619ccf3efc8}{connectToServer}}(\mbox{\hyperlink{global_8c_a77360afa4099281daa8ee4b1dca4e713}{IP}}, portSocketForFile);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00148}00148 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00149}00149     \textcolor{keywordtype}{char} *regexGroupList[3];}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00150}00150     getRegexGroup(regexGroupList, message, commandList[1]-\/>regex);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00150}00150     \mbox{\hyperlink{regex_8c_aa65837f664d674ef7d9dbc95bf926990}{getRegexGroup}}(regexGroupList, \mbox{\hyperlink{structparam_file_threaded_a0b2e8c7f76df48129f994ecc46d5c66c}{message}}, \mbox{\hyperlink{_command_8c_aad80e827e00aa17683b9961cbc4ec63b}{commandList}}[1]-\/>regex);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00151}00151     \textcolor{comment}{// regexGroupList[0] == message}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00152}00152     \textcolor{comment}{// regexGroupList[1] == -\/send || -\/get || username}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00153}00153     \textcolor{comment}{// regexGroupList[2] == filename}}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00154}00154 }
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00155}00155     receiveFile(clientSocketForFile, regexGroupList[2]);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00155}00155     \mbox{\hyperlink{receive_8c_a5356a63851436e180fb478c4d84ae0ad}{receiveFile}}(clientSocketForFile, regexGroupList[2]);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00156}00156 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00157}00157     free(regexGroupList[0]);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00158}00158     free(regexGroupList[1]);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00159}00159     free(regexGroupList[2]);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00160}00160 }
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00161}00161     close(clientSocketForFile);}
-\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00162}00162     window\_print\_green(FILE\_RECEIVED);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00162}00162     \mbox{\hyperlink{colors_8c_a23e9e446ee668089effe24ea4b7826ac}{window\_print\_green}}(\mbox{\hyperlink{i18n__en_8c_aa617a748910fbef25c676ef8b3b3e9cd}{FILE\_RECEIVED}});}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00163}00163     pthread\_exit(NULL);}
 \DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00164}00164 \}}
 

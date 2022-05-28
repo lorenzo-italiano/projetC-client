@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>projetC-client: /Users/tom/Documents/partageGit/projetC/projetC-client/src/socket/send.c Source File</title>
+<title>projetC-client: src/socket/send.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">projetC-client<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">projetC-client
    </div>
   </td>
  </tr>
@@ -62,28 +62,28 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_db5d8c0870ce84e17ad60fae723678a9.html">projetC-client</a></li><li class="navelem"><a class="el" href="dir_64ab3c1107266106511b6fda32b327a8.html">src</a></li><li class="navelem"><a class="el" href="dir_e4bc9be5ba8b355873f53518ffe273ea.html">socket</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9ad1227260954e346101f3844f0abb3d.html">socket</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">send.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> sendMessageInt (<span class="keywordtype">int</span> messageSize) {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">if</span>(send(acceptedSocketDescriptor, &amp;messageSize, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>), 0) == -1){</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        throwError(ERROR_SEND_MESSAGE, 1);</div>
+<a href="send_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="send_8c.html#acddf6eedec7a65835d40cf00fd8699fd">    7</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="send_8c.html#acddf6eedec7a65835d40cf00fd8699fd">sendMessageInt</a> (<span class="keywordtype">int</span> messageSize) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">if</span>(send(<a class="code hl_variable" href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a>, &amp;messageSize, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>), 0) == -1){</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <a class="code hl_function" href="error_8c.html#ad5fd1194b361cfb4bc723c13d4b2182b">throwError</a>(<a class="code hl_define" href="i18n__en_8c.html#a4fcc38c57ecf05f33ade6193aae4cbf3">ERROR_SEND_MESSAGE</a>, 1);</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    }</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">if</span>(isDebugMode){</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>            printf(SEND_MESSAGE_INT);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a>){</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>            printf(<a class="code hl_define" href="i18n__en_8c.html#ade0d3ac7e3093ab497e780d9b6c61609">SEND_MESSAGE_INT</a>);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        }</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> sendMessageString (<span class="keywordtype">char</span> *message, <span class="keywordtype">int</span> size) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">if</span>(send(acceptedSocketDescriptor, message, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * size, 0) == -1){</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        throwError(ERROR_SEND_MESSAGE, 1);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="send_8c.html#aa6f1d7cbf830d18a18f171bc585b5037">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="send_8c.html#aa6f1d7cbf830d18a18f171bc585b5037">sendMessageString</a> (<span class="keywordtype">char</span> *message, <span class="keywordtype">int</span> size) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">if</span>(send(<a class="code hl_variable" href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a>, message, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * size, 0) == -1){</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_function" href="error_8c.html#ad5fd1194b361cfb4bc723c13d4b2182b">throwError</a>(<a class="code hl_define" href="i18n__en_8c.html#a4fcc38c57ecf05f33ade6193aae4cbf3">ERROR_SEND_MESSAGE</a>, 1);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//    else {</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//        TODO Set text to magenta</span></div>
@@ -95,16 +95,16 @@ $(function() {
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//    }</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> sendMessage(<span class="keywordtype">char</span> *userMessage){</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a>(<span class="keywordtype">char</span> *userMessage){</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> messageSize = (int)strlen(userMessage);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Send message size.</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    sendMessageInt(messageSize);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="send_8c.html#acddf6eedec7a65835d40cf00fd8699fd">sendMessageInt</a>(messageSize);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// Send message.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    sendMessageString(userMessage, messageSize);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="send_8c.html#aa6f1d7cbf830d18a18f171bc585b5037">sendMessageString</a>(userMessage, messageSize);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> sendFile(<span class="keywordtype">int</span> socketForFile, FILE *file){</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="send_8c.html#a942b285fb37fa062e5816d27a0865c0a">   60</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="send_8c.html#a942b285fb37fa062e5816d27a0865c0a">sendFile</a>(<span class="keywordtype">int</span> socketForFile, FILE *file){</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">long</span> fileSize;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    fseek(file, 0, SEEK_END);          <span class="comment">// Jump to the end of the file.</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    fileSize = ftell(file);             <span class="comment">// Get the current byte offset in the file.</span></div>
@@ -114,20 +114,31 @@ $(function() {
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    send(socketForFile, &amp;fileSize, <span class="keyword">sizeof</span>(<span class="keywordtype">long</span>), 0);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Send the file bloc per bloc.</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">long</span> blocSize = MAX_SIZE_SENT;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">long</span> blocSize = <a class="code hl_define" href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">MAX_SIZE_SENT</a>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">char</span> subBuffer[blocSize];</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; fileSize; i += MAX_SIZE_SENT) {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        blocSize = (i + MAX_SIZE_SENT &lt; fileSize) ? MAX_SIZE_SENT : fileSize - i;   <span class="comment">// Calcul the bloc&#39;s size.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; fileSize; i += <a class="code hl_define" href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">MAX_SIZE_SENT</a>) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        blocSize = (i + <a class="code hl_define" href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">MAX_SIZE_SENT</a> &lt; fileSize) ? <a class="code hl_define" href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">MAX_SIZE_SENT</a> : fileSize - i;   <span class="comment">// Calcul the bloc&#39;s size.</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        fread(subBuffer, blocSize, 1, file); <span class="comment">// Read in the file.</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> (send(socketForFile, subBuffer, <span class="keyword">sizeof</span>(subBuffer), 0) == -1) {   <span class="comment">// Send bloc of data.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            throwError(ERROR_SEND_FILE, 1);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <a class="code hl_function" href="error_8c.html#ad5fd1194b361cfb4bc723c13d4b2182b">throwError</a>(<a class="code hl_define" href="i18n__en_8c.html#a1a261a2f09b09678225152d8fd728191">ERROR_SEND_FILE</a>, 1);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        bzero(subBuffer, MAX_SIZE_SENT);    <span class="comment">// Clear the buffer.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        bzero(subBuffer, <a class="code hl_define" href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">MAX_SIZE_SENT</a>);    <span class="comment">// Clear the buffer.</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    fclose(file); <span class="comment">// Close the file</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+<div class="ttc" id="aerror_8c_html_ad5fd1194b361cfb4bc723c13d4b2182b"><div class="ttname"><a href="error_8c.html#ad5fd1194b361cfb4bc723c13d4b2182b">throwError</a></div><div class="ttdeci">void throwError(char *errorMessage, int hasErrno)</div><div class="ttdef"><b>Definition:</b> <a href="error_8c_source.html#l00007">error.c:7</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a24d2c747aa74c9920a7bb854ba7bdd26"><div class="ttname"><a href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a></div><div class="ttdeci">int isDebugMode</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00019">global.c:19</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a4da35cd01e3a4eb2711d8531f9fefdd7"><div class="ttname"><a href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">MAX_SIZE_SENT</a></div><div class="ttdeci">#define MAX_SIZE_SENT</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00001">global.c:1</a></div></div>
+<div class="ttc" id="aglobal_8c_html_af3026a10afe86549e403ed46b8ff437a"><div class="ttname"><a href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a></div><div class="ttdeci">int acceptedSocketDescriptor</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00017">global.c:17</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_a1a261a2f09b09678225152d8fd728191"><div class="ttname"><a href="i18n__en_8c.html#a1a261a2f09b09678225152d8fd728191">ERROR_SEND_FILE</a></div><div class="ttdeci">#define ERROR_SEND_FILE</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00032">i18n_en.c:32</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_a4fcc38c57ecf05f33ade6193aae4cbf3"><div class="ttname"><a href="i18n__en_8c.html#a4fcc38c57ecf05f33ade6193aae4cbf3">ERROR_SEND_MESSAGE</a></div><div class="ttdeci">#define ERROR_SEND_MESSAGE</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00031">i18n_en.c:31</a></div></div>
+<div class="ttc" id="ai18n__en_8c_html_ade0d3ac7e3093ab497e780d9b6c61609"><div class="ttname"><a href="i18n__en_8c.html#ade0d3ac7e3093ab497e780d9b6c61609">SEND_MESSAGE_INT</a></div><div class="ttdeci">#define SEND_MESSAGE_INT</div><div class="ttdef"><b>Definition:</b> <a href="i18n__en_8c_source.html#l00024">i18n_en.c:24</a></div></div>
+<div class="ttc" id="asend_8c_html_a232ae0b8d47fa481b9c67b1dfaeedf17"><div class="ttname"><a href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a></div><div class="ttdeci">void sendMessage(char *userMessage)</div><div class="ttdef"><b>Definition:</b> <a href="send_8c_source.html#l00044">send.c:44</a></div></div>
+<div class="ttc" id="asend_8c_html_a942b285fb37fa062e5816d27a0865c0a"><div class="ttname"><a href="send_8c.html#a942b285fb37fa062e5816d27a0865c0a">sendFile</a></div><div class="ttdeci">void sendFile(int socketForFile, FILE *file)</div><div class="ttdef"><b>Definition:</b> <a href="send_8c_source.html#l00060">send.c:60</a></div></div>
+<div class="ttc" id="asend_8c_html_aa6f1d7cbf830d18a18f171bc585b5037"><div class="ttname"><a href="send_8c.html#aa6f1d7cbf830d18a18f171bc585b5037">sendMessageString</a></div><div class="ttdeci">void sendMessageString(char *message, int size)</div><div class="ttdef"><b>Definition:</b> <a href="send_8c_source.html#l00024">send.c:24</a></div></div>
+<div class="ttc" id="asend_8c_html_acddf6eedec7a65835d40cf00fd8699fd"><div class="ttname"><a href="send_8c.html#acddf6eedec7a65835d40cf00fd8699fd">sendMessageInt</a></div><div class="ttdeci">void sendMessageInt(int messageSize)</div><div class="ttdef"><b>Definition:</b> <a href="send_8c_source.html#l00007">send.c:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

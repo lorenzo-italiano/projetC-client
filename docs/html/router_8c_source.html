@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>projetC-client: /Users/tom/Documents/partageGit/projetC/projetC-client/src/command/router.c Source File</title>
+<title>projetC-client: src/command/router.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">projetC-client<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">projetC-client
    </div>
   </td>
  </tr>
@@ -62,45 +62,55 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_db5d8c0870ce84e17ad60fae723678a9.html">projetC-client</a></li><li class="navelem"><a class="el" href="dir_64ab3c1107266106511b6fda32b327a8.html">src</a></li><li class="navelem"><a class="el" href="dir_e5b499ecae28702b28348f2e57cbf530.html">command</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2b1a946209a10c32ed7ce5dec2f54bea.html">command</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">router.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;Command.c&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;action.c&quot;</span></div>
+<a href="router_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_command_8c.html">Command.c</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="action_8c.html">action.c</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">void</span> doCommandAction (<span class="keywordtype">char</span> *message) {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_struct" href="struct_command.html">Command</a> *command = getCommand(message);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="router_8c.html#a3cbc0941b621fb4c2452f655ed953097">   11</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="router_8c.html#a3cbc0941b621fb4c2452f655ed953097">doCommandAction</a> (<span class="keywordtype">char</span> *message) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_struct" href="struct_command.html">Command</a> *command = <a class="code hl_function" href="_command_8c.html#aeb617e5c55cd5efe3217bc05ac2e8638">getCommand</a>(message);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">if</span> (command == NULL) {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="comment">// Unknown action.</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        sendMessage(message);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_function" href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a>(message);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;disconnect&quot;</span>, command-&gt;name) == 0) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;disconnect&quot;</span>, command-&gt;<a class="code hl_variable" href="struct_command.html#a5ac083a645d964373f022d03df4849c8">name</a>) == 0) {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="comment">// Disconnection.</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        disconnectAction();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_function" href="action_8c.html#a431426b48c7770349b3d0a5797f17314">disconnectAction</a>();</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;file&quot;</span>, command-&gt;name) == 0) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;file&quot;</span>, command-&gt;<a class="code hl_variable" href="struct_command.html#a5ac083a645d964373f022d03df4849c8">name</a>) == 0) {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="comment">// File sending.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        fileAction(command, message);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_function" href="action_8c.html#aaa9a1375e669fd7686c7628599f0fcc4">fileAction</a>(command, message);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;files&quot;</span>, command-&gt;name) == 0) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;files&quot;</span>, command-&gt;<a class="code hl_variable" href="struct_command.html#a5ac083a645d964373f022d03df4849c8">name</a>) == 0) {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">// Files listing.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        filesAction(command, message);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_function" href="action_8c.html#a8b9919af4c0acbc6858b429cc3941c12">filesAction</a>(command, message);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;join&quot;</span>, command-&gt;name) == 0) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(<span class="stringliteral">&quot;join&quot;</span>, command-&gt;<a class="code hl_variable" href="struct_command.html#a5ac083a645d964373f022d03df4849c8">name</a>) == 0) {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="comment">// Files listing.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        joinAction(message);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_function" href="action_8c.html#aad264a1f01f9bcf28cd1c150c67b9e96">joinAction</a>(message);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment">// Unknown action.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        sendMessage(message);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_function" href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a>(message);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="ttc" id="a_command_8c_html"><div class="ttname"><a href="_command_8c.html">Command.c</a></div></div>
+<div class="ttc" id="a_command_8c_html_aeb617e5c55cd5efe3217bc05ac2e8638"><div class="ttname"><a href="_command_8c.html#aeb617e5c55cd5efe3217bc05ac2e8638">getCommand</a></div><div class="ttdeci">Command * getCommand(char *message)</div><div class="ttdef"><b>Definition:</b> <a href="_command_8c_source.html#l00052">Command.c:52</a></div></div>
+<div class="ttc" id="aaction_8c_html"><div class="ttname"><a href="action_8c.html">action.c</a></div></div>
+<div class="ttc" id="aaction_8c_html_a431426b48c7770349b3d0a5797f17314"><div class="ttname"><a href="action_8c.html#a431426b48c7770349b3d0a5797f17314">disconnectAction</a></div><div class="ttdeci">void disconnectAction()</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00007">action.c:7</a></div></div>
+<div class="ttc" id="aaction_8c_html_a8b9919af4c0acbc6858b429cc3941c12"><div class="ttname"><a href="action_8c.html#a8b9919af4c0acbc6858b429cc3941c12">filesAction</a></div><div class="ttdeci">void filesAction(Command *command, char *message)</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00061">action.c:61</a></div></div>
+<div class="ttc" id="aaction_8c_html_aaa9a1375e669fd7686c7628599f0fcc4"><div class="ttname"><a href="action_8c.html#aaa9a1375e669fd7686c7628599f0fcc4">fileAction</a></div><div class="ttdeci">void fileAction(Command *command, char *message)</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00018">action.c:18</a></div></div>
+<div class="ttc" id="aaction_8c_html_aad264a1f01f9bcf28cd1c150c67b9e96"><div class="ttname"><a href="action_8c.html#aad264a1f01f9bcf28cd1c150c67b9e96">joinAction</a></div><div class="ttdeci">void joinAction(char *message)</div><div class="ttdef"><b>Definition:</b> <a href="action_8c_source.html#l00111">action.c:111</a></div></div>
+<div class="ttc" id="arouter_8c_html_a3cbc0941b621fb4c2452f655ed953097"><div class="ttname"><a href="router_8c.html#a3cbc0941b621fb4c2452f655ed953097">doCommandAction</a></div><div class="ttdeci">void doCommandAction(char *message)</div><div class="ttdef"><b>Definition:</b> <a href="router_8c_source.html#l00011">router.c:11</a></div></div>
+<div class="ttc" id="asend_8c_html_a232ae0b8d47fa481b9c67b1dfaeedf17"><div class="ttname"><a href="send_8c.html#a232ae0b8d47fa481b9c67b1dfaeedf17">sendMessage</a></div><div class="ttdeci">void sendMessage(char *userMessage)</div><div class="ttdef"><b>Definition:</b> <a href="send_8c_source.html#l00044">send.c:44</a></div></div>
 <div class="ttc" id="astruct_command_html"><div class="ttname"><a href="struct_command.html">Command</a></div><div class="ttdef"><b>Definition:</b> <a href="_command_8c_source.html#l00001">Command.c:1</a></div></div>
+<div class="ttc" id="astruct_command_html_a5ac083a645d964373f022d03df4849c8"><div class="ttname"><a href="struct_command.html#a5ac083a645d964373f022d03df4849c8">Command::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> <a href="_command_8c_source.html#l00002">Command.c:2</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

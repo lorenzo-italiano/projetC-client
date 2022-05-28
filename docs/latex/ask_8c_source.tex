@@ -1,36 +1,36 @@
 \hypertarget{ask_8c_source}{}\doxysection{ask.\+c}
-\label{ask_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/util/ask.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/util/ask.c}}
-
+\label{ask_8c_source}\index{src/util/ask.c@{src/util/ask.c}}
+\mbox{\hyperlink{ask_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00005}00005 \textcolor{keywordtype}{char} *askUserForString () \{}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00006}00006     \textcolor{keywordtype}{char} *message = (\textcolor{keywordtype}{char} *) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * MAX\_SIZE\_SENT);}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00005}\mbox{\hyperlink{ask_8c_ad6f3735a9ab1b4a80a01eb6e22f52f90}{00005}} \textcolor{keywordtype}{char} *\mbox{\hyperlink{ask_8c_ad6f3735a9ab1b4a80a01eb6e22f52f90}{askUserForString}} () \{}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00006}00006     \textcolor{keywordtype}{char} *message = (\textcolor{keywordtype}{char} *) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}});}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00008}00008     \textcolor{keywordflow}{if}(isDebugMode)\{}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00009}00009         printf(ASK\_FOR\_STRING);}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00008}00008     \textcolor{keywordflow}{if}(\mbox{\hyperlink{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}{isDebugMode}})\{}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00009}00009         printf(\mbox{\hyperlink{i18n__en_8c_a761fef10c46d18c2537df6df87993995}{ASK\_FOR\_STRING}});}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00010}00010     \}}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00011}00011     \textcolor{keywordflow}{if} (fgets(message, MAX\_SIZE\_SENT, stdin) == NULL) \{}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00012}00012         throwError(ERROR\_FGETS, 1);}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00011}00011     \textcolor{keywordflow}{if} (fgets(message, \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}}, stdin) == NULL) \{}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00012}00012         \mbox{\hyperlink{error_8c_ad5fd1194b361cfb4bc723c13d4b2182b}{throwError}}(\mbox{\hyperlink{i18n__en_8c_a9121787233399c92fbe2dc8e55db3985}{ERROR\_FGETS}}, 1);}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00013}00013     \}}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00014}00014     \textcolor{keywordflow}{return} message;}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00015}00015 \}}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00020}00020 \textcolor{keywordtype}{void} askForUsername () \{}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00020}\mbox{\hyperlink{ask_8c_a6b5106d936cacb24702b93f891a86f72}{00020}} \textcolor{keywordtype}{void} \mbox{\hyperlink{ask_8c_a6b5106d936cacb24702b93f891a86f72}{askForUsername}} () \{}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00021}00021     \textcolor{keywordtype}{int} verifiedUsername = 0;}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00022}00022 }
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00023}00023     \textcolor{keywordflow}{while}(!verifiedUsername)\{}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00024}00024         printf(ASK\_FOR\_USERNAME);}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00025}00025         username = askUserForString();}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00026}00026         username[strlen(username) -\/ 1] = \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00027}00027         sendMessage(username);}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00024}00024         printf(\mbox{\hyperlink{i18n__en_8c_a5e106f275af3fc4a64b7724bf91d1e70}{ASK\_FOR\_USERNAME}});}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00025}00025         \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}} = \mbox{\hyperlink{ask_8c_ad6f3735a9ab1b4a80a01eb6e22f52f90}{askUserForString}}();}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00026}00026         \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}}[strlen(\mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}}) -\/ 1] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00027}00027         \mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{sendMessage}}(\mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}});}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00028}00028         printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00029}00029         \textcolor{keywordtype}{int} resp = receiveMessageInt();}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00029}00029         \textcolor{keywordtype}{int} resp = \mbox{\hyperlink{receive_8c_a76c6cb9cb91ec56dfe2c6fa4f10cbc45}{receiveMessageInt}}();}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00030}00030         \textcolor{keywordflow}{if}(resp == 201)\{}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00031}00031             printf(VALID\_USERNAME);}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00031}00031             printf(\mbox{\hyperlink{i18n__en_8c_a065258254bf6fe96130cd2858e375c92}{VALID\_USERNAME}});}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00032}00032             verifiedUsername = 1;}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00033}00033         \}}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00034}00034         \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{\Hypertarget{ask_8c_source_l00035}00035             printf(INVALID\_USERNAME);}
+\DoxyCodeLine{\Hypertarget{ask_8c_source_l00035}00035             printf(\mbox{\hyperlink{i18n__en_8c_ac9f0fc38b3a167a0f251b218ad8674f2}{INVALID\_USERNAME}});}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00036}00036         \}}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00037}00037     \}}
 \DoxyCodeLine{\Hypertarget{ask_8c_source_l00038}00038 \}}

@@ -1,6 +1,6 @@
 \hypertarget{utils_8c_source}{}\doxysection{utils.\+c}
-\label{utils_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/ui/utils.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/ui/utils.c}}
-
+\label{utils_8c_source}\index{src/ui/utils.c@{src/ui/utils.c}}
+\mbox{\hyperlink{utils_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00002}00002 \textcolor{keyword}{static} \textcolor{keywordtype}{void} interface\_init()\{}
@@ -26,24 +26,24 @@
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00022}00022     bkgd(COLOR\_PAIR(1));}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00023}00023 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00024}00024     \textcolor{comment}{/* height, width offsetHeight, offsetWidth */}}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00025}00025     win\_screen = newwin(LINES-\/8,COLS-\/2,3,1);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00026}00026     assert(win\_screen != NULL);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00027}00027     box(win\_screen, 0 , 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00025}00025     \mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}} = newwin(LINES-\/8,COLS-\/2,3,1);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00026}00026     assert(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}} != NULL);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00027}00027     box(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}}, 0 , 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00029}00029     win\_title = newwin(3,COLS-\/2,0,1);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00030}00030     assert(win\_title != NULL);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00031}00031     box(win\_title, 0 , 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00029}00029     \mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}} = newwin(3,COLS-\/2,0,1);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00030}00030     assert(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}} != NULL);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00031}00031     box(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}}, 0 , 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00033}00033     win\_display = subwin(win\_screen, LINES-\/12,COLS-\/6,5,3);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00034}00034     scrollok(win\_display, TRUE);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00033}00033     \mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}} = subwin(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}}, LINES-\/12,COLS-\/6,5,3);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00034}00034     scrollok(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}}, TRUE);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00036}00036     win\_form = newwin(5,COLS-\/2,LINES-\/5,1);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00037}00037     assert(win\_form != NULL);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00038}00038     box(win\_form, 0, 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00036}00036     \mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}} = newwin(5,COLS-\/2,LINES-\/5,1);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00037}00037     assert(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}} != NULL);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00038}00038     box(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}}, 0, 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00040}00040     sub\_win\_form = subwin(win\_form, 1,COLS-\/6,LINES-\/3,3);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00041}00041     assert(sub\_win\_form != NULL);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00042}00042     box(sub\_win\_form, 0, 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00040}00040     \mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}} = subwin(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}}, 1,COLS-\/6,LINES-\/3,3);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00041}00041     assert(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}} != NULL);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00042}00042     box(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}}, 0, 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00043}00043 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00044}00044     refresh\_all();}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00045}00045 \}}
@@ -83,60 +83,60 @@
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00079}00079 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00080}00080     \textcolor{keywordflow}{switch} (ch) \{}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00081}00081         \textcolor{keywordflow}{case} 10:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00082}00082             \textcolor{keywordflow}{if}(strcmp(trim\_whitespaces(field\_buffer(fields[1], 0)),\textcolor{stringliteral}{"{}Message.."{}}) != 0)\{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00082}00082             \textcolor{keywordflow}{if}(strcmp(trim\_whitespaces(field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], 0)),\textcolor{stringliteral}{"{}Message.."{}}) != 0)\{}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00083}00083 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00084}00084                 \textcolor{comment}{// Or the current field buffer won't be sync with what is displayed}}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00085}00085                 form\_driver(form, REQ\_NEXT\_FIELD);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00086}00086                 form\_driver(form, REQ\_PREV\_FIELD);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00085}00085                 form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_NEXT\_FIELD);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00086}00086                 form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_PREV\_FIELD);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00087}00087                 move(LINES-\/3, 2);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00088}00088 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00089}00089                 doCommandAction(strcat(trim\_whitespaces(field\_buffer(fields[1], 0)),\textcolor{stringliteral}{"{}\(\backslash\)n"{}}));}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00089}00089                 \mbox{\hyperlink{router_8c_a3cbc0941b621fb4c2452f655ed953097}{doCommandAction}}(strcat(trim\_whitespaces(field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], 0)),\textcolor{stringliteral}{"{}\(\backslash\)n"{}}));}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00090}00090                 \textcolor{comment}{//wprintw(win\_display, strcat(trim\_whitespaces(field\_buffer(fields[1], 0)),"{}\(\backslash\)n"{}));}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00091}00091                 \textcolor{comment}{//window\_print\_magenta(strcat(trim\_whitespaces(field\_buffer(fields[1], 0)),"{}\(\backslash\)n"{}));}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00092}00092                 \textcolor{comment}{//wrefresh(win\_display);}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00093}00093 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00094}00094                 set\_field\_buffer(fields[1], 0, \textcolor{stringliteral}{"{}Message.."{}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00094}00094                 set\_field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], 0, \textcolor{stringliteral}{"{}Message.."{}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00095}00095 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00096}00096                 refresh();}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00097}00097                 pos\_form\_cursor(form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00097}00097                 pos\_form\_cursor(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00098}00098             \}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00099}00099 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00100}00100             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00101}00101 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00102}00102         \textcolor{keywordflow}{case} KEY\_DOWN:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00103}00103             form\_driver(form, REQ\_NEXT\_FIELD);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00104}00104             form\_driver(form, REQ\_END\_LINE);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00103}00103             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_NEXT\_FIELD);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00104}00104             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_END\_LINE);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00105}00105             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00106}00106 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00107}00107         \textcolor{keywordflow}{case} KEY\_UP:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00108}00108             form\_driver(form, REQ\_PREV\_FIELD);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00109}00109             form\_driver(form, REQ\_END\_LINE);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00108}00108             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_PREV\_FIELD);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00109}00109             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_END\_LINE);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00110}00110             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00111}00111 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00112}00112         \textcolor{keywordflow}{case} KEY\_LEFT:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00113}00113             form\_driver(form, REQ\_PREV\_CHAR);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00113}00113             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_PREV\_CHAR);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00114}00114             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00115}00115 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00116}00116         \textcolor{keywordflow}{case} KEY\_RIGHT:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00117}00117             form\_driver(form, REQ\_NEXT\_CHAR);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00117}00117             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_NEXT\_CHAR);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00118}00118             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00119}00119 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00120}00120             \textcolor{comment}{// Delete the char before cursor}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00121}00121         \textcolor{keywordflow}{case} KEY\_BACKSPACE:}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00122}00122         \textcolor{keywordflow}{case} 127:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00123}00123             form\_driver(form, REQ\_DEL\_PREV);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00123}00123             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_DEL\_PREV);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00124}00124             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00125}00125 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00126}00126             \textcolor{comment}{// Delete the char under the cursor}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00127}00127         \textcolor{keywordflow}{case} KEY\_DC:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00128}00128             form\_driver(form, REQ\_DEL\_CHAR);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00128}00128             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, REQ\_DEL\_CHAR);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00129}00129             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00130}00130 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00131}00131         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00132}00132             \textcolor{keywordflow}{if}(strcmp(trim\_whitespaces(field\_buffer(fields[1], 0)),\textcolor{stringliteral}{"{}Message.."{}}) == 0)\{}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00133}00133                 set\_field\_buffer(fields[1], 0, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00132}00132             \textcolor{keywordflow}{if}(strcmp(trim\_whitespaces(field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], 0)),\textcolor{stringliteral}{"{}Message.."{}}) == 0)\{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00133}00133                 set\_field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], 0, \textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00134}00134             \}}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00135}00135             form\_driver(form, ch);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00135}00135             form\_driver(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, ch);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00136}00136             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00137}00137     \}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00138}00138 }
@@ -144,45 +144,45 @@
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00140}00140 \textcolor{comment}{        set\_field\_buffer(fields[1], 0, "{}Message.."{});}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00141}00141 \textcolor{comment}{    \}*/}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00142}00142 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00143}00143     wrefresh(win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00143}00143     wrefresh(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00144}00144 \}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00145}00145 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00146}00146 \textcolor{keyword}{static} \textcolor{keywordtype}{void} form\_initialisation()\{}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00147}00147     fields[0] = new\_field(1, 10, 0, 0, 0, 0);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00148}00148     fields[1] = new\_field(1, 40, 0, 15, 0, 0);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00149}00149     fields[2] = NULL;}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00147}00147     \mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[0] = new\_field(1, 10, 0, 0, 0, 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00148}00148     \mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1] = new\_field(1, 40, 0, 15, 0, 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00149}00149     \mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[2] = NULL;}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00150}00150 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00151}00151     assert(fields[0] != NULL \&\& fields[1] != NULL);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00151}00151     assert(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[0] != NULL \&\& \mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1] != NULL);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00152}00152 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00153}00153     set\_field\_buffer(fields[0], 0, \textcolor{stringliteral}{"{}Message: "{}});}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00154}00154     set\_field\_buffer(fields[1], 0, \textcolor{stringliteral}{"{}Message.."{}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00153}00153     set\_field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[0], 0, \textcolor{stringliteral}{"{}Message: "{}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00154}00154     set\_field\_buffer(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], 0, \textcolor{stringliteral}{"{}Message.."{}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00155}00155 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00156}00156     set\_field\_opts(fields[0], O\_VISIBLE | O\_PUBLIC | O\_AUTOSKIP);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00157}00157     set\_field\_opts(fields[1], O\_VISIBLE | O\_PUBLIC | O\_EDIT | O\_ACTIVE);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00156}00156     set\_field\_opts(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[0], O\_VISIBLE | O\_PUBLIC | O\_AUTOSKIP);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00157}00157     set\_field\_opts(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], O\_VISIBLE | O\_PUBLIC | O\_EDIT | O\_ACTIVE);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00158}00158 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00159}00159     set\_field\_back(fields[1], A\_UNDERLINE);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00159}00159     set\_field\_back(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1], A\_UNDERLINE);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00160}00160 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00161}00161     form = new\_form(fields);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00162}00162     assert(form != NULL);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00163}00163     set\_form\_win(form, sub\_win\_form);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00164}00164     set\_form\_sub(form, sub\_win\_form);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00165}00165     post\_form(form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00161}00161     \mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}} = new\_form(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00162}00162     assert(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}} != NULL);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00163}00163     set\_form\_win(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, \mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00164}00164     set\_form\_sub(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}}, \mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00165}00165     post\_form(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00166}00166 \}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00167}00167 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00168}00168 \textcolor{keyword}{static} \textcolor{keywordtype}{void} free\_interface()\{}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00169}00169     unpost\_form(form);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00170}00170     free\_form(form);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00171}00171     free\_field(fields[0]);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00172}00172     free\_field(fields[1]);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00173}00173     free\_field(fields[2]);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00169}00169     unpost\_form(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00170}00170     free\_form(\mbox{\hyperlink{global_8c_a77aa91746f2308130ee8638af6887392}{form}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00171}00171     free\_field(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[0]);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00172}00172     free\_field(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[1]);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00173}00173     free\_field(\mbox{\hyperlink{global_8c_a4692ce48f64c8231afe0021347f398d4}{fields}}[2]);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00174}00174 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00175}00175     delwin(win\_screen);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00176}00176     delwin(win\_form);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00177}00177     delwin(win\_display);}
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00178}00178     delwin(sub\_win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00175}00175     delwin(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00176}00176     delwin(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00177}00177     delwin(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}});}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00178}00178     delwin(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00179}00179 \}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00180}00180 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00181}00181 \textcolor{keywordtype}{void} resize\_window()\{}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00181}\mbox{\hyperlink{utils_8c_a873cf0f92f2661836d796ebc98f11b82}{00181}} \textcolor{keywordtype}{void} \mbox{\hyperlink{utils_8c_a873cf0f92f2661836d796ebc98f11b82}{resize\_window}}()\{}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00182}00182     \textcolor{keyword}{struct }winsize w;}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00183}00183     ioctl(0, TIOCGWINSZ, \&w);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00184}00184     COLS = w.ws\_col;}
@@ -194,83 +194,83 @@
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00190}00190 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00191}00191     \textcolor{comment}{// win screen}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00192}00192 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00193}00193     wclear(win\_screen);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00193}00193     wclear(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00194}00194 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00195}00195     wrefresh(win\_screen);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00195}00195     wrefresh(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00196}00196 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00197}00197     wresize(win\_screen, LINES-\/8,COLS-\/2);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00197}00197     wresize(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}}, LINES-\/8,COLS-\/2);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00198}00198 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00199}00199     wrefresh(win\_screen);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00199}00199     wrefresh(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00200}00200 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00201}00201     mvwin(win\_screen, 3, 1);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00201}00201     mvwin(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}}, 3, 1);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00202}00202 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00203}00203     wclear(win\_screen);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00203}00203     wclear(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00204}00204 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00205}00205     wrefresh(win\_screen);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00205}00205     wrefresh(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00206}00206 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00207}00207     \textcolor{comment}{// win title}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00208}00208 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00209}00209     wclear(win\_title);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00209}00209     wclear(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00210}00210 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00211}00211     wrefresh(win\_title);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00211}00211     wrefresh(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00212}00212 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00213}00213     wresize(win\_title, 3,COLS-\/2);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00213}00213     wresize(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}}, 3,COLS-\/2);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00214}00214 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00215}00215     wrefresh(win\_title);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00215}00215     wrefresh(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00216}00216 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00217}00217     mvwin(win\_title, 0, 1);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00217}00217     mvwin(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}}, 0, 1);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00218}00218 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00219}00219     wclear(win\_title);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00219}00219     wclear(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00220}00220 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00221}00221     wrefresh(win\_title);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00221}00221     wrefresh(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00222}00222 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00223}00223     \textcolor{comment}{// win display}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00224}00224 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00225}00225     wclear(win\_display);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00225}00225     wclear(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00226}00226 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00227}00227     wrefresh(win\_display);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00227}00227     wrefresh(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00228}00228 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00229}00229     wresize(win\_display, LINES-\/12,COLS-\/6);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00229}00229     wresize(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}}, LINES-\/12,COLS-\/6);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00230}00230 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00231}00231     wrefresh(win\_display);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00231}00231     wrefresh(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00232}00232 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00233}00233     mvwin(win\_display, 5,3);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00233}00233     mvwin(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}}, 5,3);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00234}00234 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00235}00235     wclear(win\_display);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00235}00235     wclear(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00236}00236 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00237}00237     wrefresh(win\_display);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00237}00237     wrefresh(\mbox{\hyperlink{global_8c_aa9606d844c06e7bc1a543ac51f11a0ee}{win\_display}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00238}00238 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00239}00239     \textcolor{comment}{// win form}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00240}00240 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00241}00241     wclear(win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00241}00241     wclear(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00242}00242 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00243}00243     wrefresh(win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00243}00243     wrefresh(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00244}00244 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00245}00245     wresize(win\_form, 5,COLS-\/2);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00245}00245     wresize(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}}, 5,COLS-\/2);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00246}00246 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00247}00247     wrefresh(win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00247}00247     wrefresh(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00248}00248 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00249}00249     mvwin(win\_form, LINES-\/5, 1);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00249}00249     mvwin(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}}, LINES-\/5, 1);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00250}00250 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00251}00251     wclear(win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00251}00251     wclear(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00252}00252 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00253}00253     wrefresh(win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00253}00253     wrefresh(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00254}00254 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00255}00255     \textcolor{comment}{// sub win form}}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00256}00256 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00257}00257     wclear(sub\_win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00257}00257     wclear(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00258}00258 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00259}00259     wrefresh(sub\_win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00259}00259     wrefresh(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00260}00260 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00261}00261     wresize(sub\_win\_form, 1,COLS-\/6);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00261}00261     wresize(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}}, 1,COLS-\/6);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00262}00262 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00263}00263     wrefresh(sub\_win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00263}00263     wrefresh(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00264}00264 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00265}00265     mvwin(sub\_win\_form, 3, LINES-\/3);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00265}00265     mvwin(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}}, 3, LINES-\/3);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00266}00266 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00267}00267     wclear(sub\_win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00267}00267     wclear(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00268}00268 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00269}00269     wrefresh(sub\_win\_form);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00269}00269     wrefresh(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}});}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00270}00270 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00271}00271     refresh\_all();}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00272}00272 }
@@ -279,13 +279,13 @@
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00275}00275     clear();}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00276}00276     wclear(stdscr);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00277}00277 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00278}00278     box(win\_form, 0, 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00278}00278     box(\mbox{\hyperlink{global_8c_acabafd623676116571b3d489eb9b777b}{win\_form}}, 0, 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00279}00279 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00280}00280     box(win\_screen, 0 , 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00280}00280     box(\mbox{\hyperlink{global_8c_a34e1505c51600923f8940b4ac8d33f50}{win\_screen}}, 0 , 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00281}00281 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00282}00282     box(win\_title, 0 , 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00282}00282     box(\mbox{\hyperlink{global_8c_a52c198266f9c338c249bd0c781cd637a}{win\_title}}, 0 , 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00283}00283 }
-\DoxyCodeLine{\Hypertarget{utils_8c_source_l00284}00284     box(sub\_win\_form, 0, 0);}
+\DoxyCodeLine{\Hypertarget{utils_8c_source_l00284}00284     box(\mbox{\hyperlink{global_8c_a81be67ebc502e7edb6233bfeb2eac252}{sub\_win\_form}}, 0, 0);}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00285}00285 }
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00286}00286     refresh\_all();}
 \DoxyCodeLine{\Hypertarget{utils_8c_source_l00287}00287 \}}

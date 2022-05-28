@@ -1,0 +1,88 @@
+\hypertarget{send_8c}{}\doxysection{src/socket/send.c File Reference}
+\label{send_8c}\index{src/socket/send.c@{src/socket/send.c}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{send_8c_acddf6eedec7a65835d40cf00fd8699fd}{send\+Message\+Int}} (int message\+Size)
+\item 
+void \mbox{\hyperlink{send_8c_aa6f1d7cbf830d18a18f171bc585b5037}{send\+Message\+String}} (char $\ast$message, int size)
+\item 
+void \mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{send\+Message}} (char $\ast$user\+Message)
+\item 
+void \mbox{\hyperlink{send_8c_a942b285fb37fa062e5816d27a0865c0a}{send\+File}} (int socket\+For\+File, FILE $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{send_8c_a942b285fb37fa062e5816d27a0865c0a}\label{send_8c_a942b285fb37fa062e5816d27a0865c0a}} 
+\index{send.c@{send.c}!sendFile@{sendFile}}
+\index{sendFile@{sendFile}!send.c@{send.c}}
+\doxysubsubsection{\texorpdfstring{sendFile()}{sendFile()}}
+{\footnotesize\ttfamily void send\+File (\begin{DoxyParamCaption}\item[{int}]{socket\+For\+File,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+Send the file in params to the socket also in params. The file is sent by blocs of size MAX\+\_\+\+SIZE\+\_\+\+SENT.
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket\+For\+File} & \\
+\hline
+{\em file} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{send_8c_source_l00060}{60}} of file \mbox{\hyperlink{send_8c_source}{send.\+c}}.
+
+\mbox{\Hypertarget{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}\label{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}} 
+\index{send.c@{send.c}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!send.c@{send.c}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily void send\+Message (\begin{DoxyParamCaption}\item[{char $\ast$}]{user\+Message }\end{DoxyParamCaption})}
+
+Send a message to the server. Send the message\textquotesingle{}s size and after the message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{send_8c_source_l00044}{44}} of file \mbox{\hyperlink{send_8c_source}{send.\+c}}.
+
+\mbox{\Hypertarget{send_8c_acddf6eedec7a65835d40cf00fd8699fd}\label{send_8c_acddf6eedec7a65835d40cf00fd8699fd}} 
+\index{send.c@{send.c}!sendMessageInt@{sendMessageInt}}
+\index{sendMessageInt@{sendMessageInt}!send.c@{send.c}}
+\doxysubsubsection{\texorpdfstring{sendMessageInt()}{sendMessageInt()}}
+{\footnotesize\ttfamily void send\+Message\+Int (\begin{DoxyParamCaption}\item[{int}]{message\+Size }\end{DoxyParamCaption})}
+
+For an accepted socket descriptor in params, send a message of type int. This message is usually used to send the message\textquotesingle{}s size which will be sent after.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{send_8c_source_l00007}{7}} of file \mbox{\hyperlink{send_8c_source}{send.\+c}}.
+
+\mbox{\Hypertarget{send_8c_aa6f1d7cbf830d18a18f171bc585b5037}\label{send_8c_aa6f1d7cbf830d18a18f171bc585b5037}} 
+\index{send.c@{send.c}!sendMessageString@{sendMessageString}}
+\index{sendMessageString@{sendMessageString}!send.c@{send.c}}
+\doxysubsubsection{\texorpdfstring{sendMessageString()}{sendMessageString()}}
+{\footnotesize\ttfamily void send\+Message\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{message,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+For an accepted socket descriptor and a message size, send the message in params.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em size} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{send_8c_source_l00024}{24}} of file \mbox{\hyperlink{send_8c_source}{send.\+c}}.
+

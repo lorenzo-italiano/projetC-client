@@ -1,0 +1,83 @@
+\hypertarget{action_8c}{}\doxysection{src/command/action.c File Reference}
+\label{action_8c}\index{src/command/action.c@{src/command/action.c}}
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}action\+Threaded.\+c\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{action_8c_a431426b48c7770349b3d0a5797f17314}{disconnect\+Action}} ()
+\item 
+void \mbox{\hyperlink{action_8c_aaa9a1375e669fd7686c7628599f0fcc4}{file\+Action}} (\mbox{\hyperlink{struct_command}{Command}} $\ast$command, char $\ast$message)
+\item 
+void \mbox{\hyperlink{action_8c_a8b9919af4c0acbc6858b429cc3941c12}{files\+Action}} (\mbox{\hyperlink{struct_command}{Command}} $\ast$command, char $\ast$message)
+\item 
+void \mbox{\hyperlink{action_8c_aad264a1f01f9bcf28cd1c150c67b9e96}{join\+Action}} (char $\ast$message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{action_8c_a431426b48c7770349b3d0a5797f17314}\label{action_8c_a431426b48c7770349b3d0a5797f17314}} 
+\index{action.c@{action.c}!disconnectAction@{disconnectAction}}
+\index{disconnectAction@{disconnectAction}!action.c@{action.c}}
+\doxysubsubsection{\texorpdfstring{disconnectAction()}{disconnectAction()}}
+{\footnotesize\ttfamily void disconnect\+Action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Shutdown the client. 
+
+Definition at line \mbox{\hyperlink{action_8c_source_l00007}{7}} of file \mbox{\hyperlink{action_8c_source}{action.\+c}}.
+
+\mbox{\Hypertarget{action_8c_aaa9a1375e669fd7686c7628599f0fcc4}\label{action_8c_aaa9a1375e669fd7686c7628599f0fcc4}} 
+\index{action.c@{action.c}!fileAction@{fileAction}}
+\index{fileAction@{fileAction}!action.c@{action.c}}
+\doxysubsubsection{\texorpdfstring{fileAction()}{fileAction()}}
+{\footnotesize\ttfamily void file\+Action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command}{Command}} $\ast$}]{command,  }\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+Action used to send a file to the server. Create a thread which use file\+Action\+Threaded(...).
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{action_8c_source_l00018}{18}} of file \mbox{\hyperlink{action_8c_source}{action.\+c}}.
+
+\mbox{\Hypertarget{action_8c_a8b9919af4c0acbc6858b429cc3941c12}\label{action_8c_a8b9919af4c0acbc6858b429cc3941c12}} 
+\index{action.c@{action.c}!filesAction@{filesAction}}
+\index{filesAction@{filesAction}!action.c@{action.c}}
+\doxysubsubsection{\texorpdfstring{filesAction()}{filesAction()}}
+{\footnotesize\ttfamily void files\+Action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command}{Command}} $\ast$}]{command,  }\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+Print directory\textquotesingle{}s names within uploads/. Depending on the option in message, print the client or server directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{action_8c_source_l00061}{61}} of file \mbox{\hyperlink{action_8c_source}{action.\+c}}.
+
+\mbox{\Hypertarget{action_8c_aad264a1f01f9bcf28cd1c150c67b9e96}\label{action_8c_aad264a1f01f9bcf28cd1c150c67b9e96}} 
+\index{action.c@{action.c}!joinAction@{joinAction}}
+\index{joinAction@{joinAction}!action.c@{action.c}}
+\doxysubsubsection{\texorpdfstring{joinAction()}{joinAction()}}
+{\footnotesize\ttfamily void join\+Action (\begin{DoxyParamCaption}\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+Action used to join another channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{action_8c_source_l00111}{111}} of file \mbox{\hyperlink{action_8c_source}{action.\+c}}.
+

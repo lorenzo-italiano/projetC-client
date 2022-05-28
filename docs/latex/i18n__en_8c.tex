@@ -1,0 +1,440 @@
+\hypertarget{i18n__en_8c}{}\doxysection{src/internationalization/i18n\+\_\+en.c File Reference}
+\label{i18n__en_8c}\index{src/internationalization/i18n\_en.c@{src/internationalization/i18n\_en.c}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_adb5c67286a96c662b043ba0e89868cc7}{PROGRAM\+\_\+\+START}}~\char`\"{}Program starting. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a37a36e18754a9279e6b2754c8b7df333}{PROGRAM\+\_\+\+END}}~\char`\"{}Program ending. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a37166dd79d4cd67a60e9e9ee2d8d0f79}{WAITING\+\_\+\+SERVER\+\_\+\+CONNECTION}}~\char`\"{}Connecting to the server. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a761fef10c46d18c2537df6df87993995}{ASK\+\_\+\+FOR\+\_\+\+STRING}}~\char`\"{}Enter your message \+: \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a5e106f275af3fc4a64b7724bf91d1e70}{ASK\+\_\+\+FOR\+\_\+\+USERNAME}}~\char`\"{}Enter your \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}} \+: \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a48c15a9daf286e6f05fe6daf1fdad157}{FILE\+\_\+\+LIST\+\_\+\+HEADER\+\_\+\+CLIENT}}~\char`\"{}List of available files within the repertory uploads \+: \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a4b9900aeba7c629e0b06d8e60ed93a67}{FILE\+\_\+\+LIST\+\_\+\+HEADER\+\_\+\+SERVER}}~\char`\"{}List of available files within the server \+: \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a1999eb68869baf3f8e837759bae6b174}{FILE\+\_\+\+SENDING}}~\char`\"{}File sending...\textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_af77f1fce87715c6b3c869108e9380de1}{FILE\+\_\+\+RECEIVING}}~\char`\"{}Receiving a file...\textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_aa617a748910fbef25c676ef8b3b3e9cd}{FILE\+\_\+\+RECEIVED}}~\char`\"{}File received. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_afe46cf2b2c0ef33f0a26522bb57292d2}{FILE\+\_\+\+SENT}}~\char`\"{}The file has been sent. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a775241e32b7ccb12e344ae23aa2db6b1}{FILE\+\_\+\+NOT\+\_\+\+FOUND}}~\char`\"{}File not fount. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a902a2e1552a9cde57622b750a788f9bf}{FILE\+\_\+\+IMPORTED}}~\char`\"{}The file has been imported. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a91d2a955cc4d87a74095b7055fbd9d7e}{USER\+\_\+\+NOT\+\_\+\+FOUND}}~\char`\"{}User not found. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a72d6fba4ea08d8506dbe2506928be4c1}{USER\+\_\+\+ALREADY\+\_\+\+EXISTS}}~\char`\"{}This \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}} is already used. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a065258254bf6fe96130cd2858e375c92}{VALID\+\_\+\+USERNAME}}~\char`\"{}Username validated. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ac9f0fc38b3a167a0f251b218ad8674f2}{INVALID\+\_\+\+USERNAME}}~\char`\"{}Invalid username. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ae472352b6bd68c4e1dca80adedf2f773}{SERVER\+\_\+\+CONNECTION\+\_\+\+CLOSED}}~\char`\"{}The connection with the server is closed. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ade0d3ac7e3093ab497e780d9b6c61609}{SEND\+\_\+\+MESSAGE\+\_\+\+INT}}~\char`\"{}Message of type int sent. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a9fe6d721b4952026acc3ff4ef1f17824}{ERROR\+\_\+\+SOCKET\+\_\+\+CREATION}}~\char`\"{}Error while socket\textquotesingle{}s creation. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_af25e85dfb6af940f17445bdc629059c3}{ERROR\+\_\+\+SOCKET\+\_\+\+CONNECTION}}~\char`\"{}Error while socket\textquotesingle{}s connection. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ac4b0757fd52ffa7f9b3c16d15f12c33e}{ERROR\+\_\+\+INET}}~\char`\"{}Error while converting ip with inet. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_afd4447bbba8e61ae71fcadd4e355c794}{ERROR\+\_\+\+RECEIVE\+\_\+\+MESSAGE}}~\char`\"{}Error while receiving message. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a4fcc38c57ecf05f33ade6193aae4cbf3}{ERROR\+\_\+\+SEND\+\_\+\+MESSAGE}}~\char`\"{}Error while sending message. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a1a261a2f09b09678225152d8fd728191}{ERROR\+\_\+\+SEND\+\_\+\+FILE}}~\char`\"{}Error while sending file. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ac46b6b3b01aa4deab60611c284d46fe3}{ERROR\+\_\+\+REGEX}}~\char`\"{}Regex error. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a82946ecdafd06bfe3373e945b7d6113c}{ERROR\+\_\+\+REGEX\+\_\+\+NOT\+\_\+\+COMPILED}}~\char`\"{}Could not compile regex. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a9121787233399c92fbe2dc8e55db3985}{ERROR\+\_\+\+FGETS}}~\char`\"{}Error fgets. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ac65c73d8312fce3813eef9a065e1b8c6}{ERROR\+\_\+\+THREAD\+\_\+\+CREATION}}~\char`\"{}Error while creating thread. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_af94c9e3c1e8a00be6cb2ab8851055473}{ERROR\+\_\+\+ARGS}}~\char`\"{}Error arguments. Use \+:\textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ad2fba9586350c63ebd5241c2b939e110}{ERROR\+\_\+\+PORT}}~\char`\"{}Error \+: the port must be more than 1024. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a159564c3a5a6742031f18cde118f395e}{CHANNEL\+\_\+\+WELCOME}}~\char`\"{}Welcome to this channel. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_ab03727955c2c151b30acab6a9d76c9b6}{CHANNEL\+\_\+\+NOT\+\_\+\+FOUND}}~\char`\"{}Channel not found. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a778d0363a4466191cf4da8191de39f32}{ALREADY\+\_\+\+IN\+\_\+\+CHANNEL}}~\char`\"{}You already are in this channel. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_acf23cb7e7ad998d2647f218b1dc2f373}{CHANNEL\+\_\+\+FULL}}~\char`\"{}Sorry, the channel is already full. \textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{i18n__en_8c_a19eda4489c3d7541ec5b35cba29a68ba}{TERMINAL\+\_\+\+SIZE\+\_\+\+WARNING}}~\char`\"{}Beware \+: to have the best experience, be sure to put your terminal on a confortable size, you won\textquotesingle{}t be able to change it later ! \textbackslash{}n\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{i18n__en_8c_a778d0363a4466191cf4da8191de39f32}\label{i18n__en_8c_a778d0363a4466191cf4da8191de39f32}} 
+\index{i18n\_en.c@{i18n\_en.c}!ALREADY\_IN\_CHANNEL@{ALREADY\_IN\_CHANNEL}}
+\index{ALREADY\_IN\_CHANNEL@{ALREADY\_IN\_CHANNEL}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ALREADY\_IN\_CHANNEL}{ALREADY\_IN\_CHANNEL}}
+{\footnotesize\ttfamily \#define ALREADY\+\_\+\+IN\+\_\+\+CHANNEL~\char`\"{}You already are in this channel. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00044}{44}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a761fef10c46d18c2537df6df87993995}\label{i18n__en_8c_a761fef10c46d18c2537df6df87993995}} 
+\index{i18n\_en.c@{i18n\_en.c}!ASK\_FOR\_STRING@{ASK\_FOR\_STRING}}
+\index{ASK\_FOR\_STRING@{ASK\_FOR\_STRING}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ASK\_FOR\_STRING}{ASK\_FOR\_STRING}}
+{\footnotesize\ttfamily \#define ASK\+\_\+\+FOR\+\_\+\+STRING~\char`\"{}Enter your message \+: \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00005}{5}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a5e106f275af3fc4a64b7724bf91d1e70}\label{i18n__en_8c_a5e106f275af3fc4a64b7724bf91d1e70}} 
+\index{i18n\_en.c@{i18n\_en.c}!ASK\_FOR\_USERNAME@{ASK\_FOR\_USERNAME}}
+\index{ASK\_FOR\_USERNAME@{ASK\_FOR\_USERNAME}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ASK\_FOR\_USERNAME}{ASK\_FOR\_USERNAME}}
+{\footnotesize\ttfamily \#define ASK\+\_\+\+FOR\+\_\+\+USERNAME~\char`\"{}Enter your \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}} \+: \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00006}{6}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_acf23cb7e7ad998d2647f218b1dc2f373}\label{i18n__en_8c_acf23cb7e7ad998d2647f218b1dc2f373}} 
+\index{i18n\_en.c@{i18n\_en.c}!CHANNEL\_FULL@{CHANNEL\_FULL}}
+\index{CHANNEL\_FULL@{CHANNEL\_FULL}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{CHANNEL\_FULL}{CHANNEL\_FULL}}
+{\footnotesize\ttfamily \#define CHANNEL\+\_\+\+FULL~\char`\"{}Sorry, the channel is already full. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00045}{45}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ab03727955c2c151b30acab6a9d76c9b6}\label{i18n__en_8c_ab03727955c2c151b30acab6a9d76c9b6}} 
+\index{i18n\_en.c@{i18n\_en.c}!CHANNEL\_NOT\_FOUND@{CHANNEL\_NOT\_FOUND}}
+\index{CHANNEL\_NOT\_FOUND@{CHANNEL\_NOT\_FOUND}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{CHANNEL\_NOT\_FOUND}{CHANNEL\_NOT\_FOUND}}
+{\footnotesize\ttfamily \#define CHANNEL\+\_\+\+NOT\+\_\+\+FOUND~\char`\"{}Channel not found. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00043}{43}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a159564c3a5a6742031f18cde118f395e}\label{i18n__en_8c_a159564c3a5a6742031f18cde118f395e}} 
+\index{i18n\_en.c@{i18n\_en.c}!CHANNEL\_WELCOME@{CHANNEL\_WELCOME}}
+\index{CHANNEL\_WELCOME@{CHANNEL\_WELCOME}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{CHANNEL\_WELCOME}{CHANNEL\_WELCOME}}
+{\footnotesize\ttfamily \#define CHANNEL\+\_\+\+WELCOME~\char`\"{}Welcome to this channel. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00042}{42}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_af94c9e3c1e8a00be6cb2ab8851055473}\label{i18n__en_8c_af94c9e3c1e8a00be6cb2ab8851055473}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_ARGS@{ERROR\_ARGS}}
+\index{ERROR\_ARGS@{ERROR\_ARGS}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_ARGS}{ERROR\_ARGS}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+ARGS~\char`\"{}Error arguments. Use \+:\textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00039}{39}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a9121787233399c92fbe2dc8e55db3985}\label{i18n__en_8c_a9121787233399c92fbe2dc8e55db3985}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_FGETS@{ERROR\_FGETS}}
+\index{ERROR\_FGETS@{ERROR\_FGETS}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_FGETS}{ERROR\_FGETS}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+FGETS~\char`\"{}Error fgets. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00037}{37}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ac4b0757fd52ffa7f9b3c16d15f12c33e}\label{i18n__en_8c_ac4b0757fd52ffa7f9b3c16d15f12c33e}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_INET@{ERROR\_INET}}
+\index{ERROR\_INET@{ERROR\_INET}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_INET}{ERROR\_INET}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+INET~\char`\"{}Error while converting ip with inet. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00028}{28}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ad2fba9586350c63ebd5241c2b939e110}\label{i18n__en_8c_ad2fba9586350c63ebd5241c2b939e110}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_PORT@{ERROR\_PORT}}
+\index{ERROR\_PORT@{ERROR\_PORT}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_PORT}{ERROR\_PORT}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+PORT~\char`\"{}Error \+: the port must be more than 1024. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00040}{40}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_afd4447bbba8e61ae71fcadd4e355c794}\label{i18n__en_8c_afd4447bbba8e61ae71fcadd4e355c794}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_RECEIVE\_MESSAGE@{ERROR\_RECEIVE\_MESSAGE}}
+\index{ERROR\_RECEIVE\_MESSAGE@{ERROR\_RECEIVE\_MESSAGE}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_RECEIVE\_MESSAGE}{ERROR\_RECEIVE\_MESSAGE}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+RECEIVE\+\_\+\+MESSAGE~\char`\"{}Error while receiving message. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00030}{30}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ac46b6b3b01aa4deab60611c284d46fe3}\label{i18n__en_8c_ac46b6b3b01aa4deab60611c284d46fe3}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_REGEX@{ERROR\_REGEX}}
+\index{ERROR\_REGEX@{ERROR\_REGEX}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_REGEX}{ERROR\_REGEX}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+REGEX~\char`\"{}Regex error. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00034}{34}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a82946ecdafd06bfe3373e945b7d6113c}\label{i18n__en_8c_a82946ecdafd06bfe3373e945b7d6113c}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_REGEX\_NOT\_COMPILED@{ERROR\_REGEX\_NOT\_COMPILED}}
+\index{ERROR\_REGEX\_NOT\_COMPILED@{ERROR\_REGEX\_NOT\_COMPILED}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_REGEX\_NOT\_COMPILED}{ERROR\_REGEX\_NOT\_COMPILED}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+REGEX\+\_\+\+NOT\+\_\+\+COMPILED~\char`\"{}Could not compile regex. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00035}{35}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a1a261a2f09b09678225152d8fd728191}\label{i18n__en_8c_a1a261a2f09b09678225152d8fd728191}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_SEND\_FILE@{ERROR\_SEND\_FILE}}
+\index{ERROR\_SEND\_FILE@{ERROR\_SEND\_FILE}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SEND\_FILE}{ERROR\_SEND\_FILE}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+SEND\+\_\+\+FILE~\char`\"{}Error while sending file. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00032}{32}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a4fcc38c57ecf05f33ade6193aae4cbf3}\label{i18n__en_8c_a4fcc38c57ecf05f33ade6193aae4cbf3}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_SEND\_MESSAGE@{ERROR\_SEND\_MESSAGE}}
+\index{ERROR\_SEND\_MESSAGE@{ERROR\_SEND\_MESSAGE}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SEND\_MESSAGE}{ERROR\_SEND\_MESSAGE}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+SEND\+\_\+\+MESSAGE~\char`\"{}Error while sending message. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00031}{31}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_af25e85dfb6af940f17445bdc629059c3}\label{i18n__en_8c_af25e85dfb6af940f17445bdc629059c3}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_SOCKET\_CONNECTION@{ERROR\_SOCKET\_CONNECTION}}
+\index{ERROR\_SOCKET\_CONNECTION@{ERROR\_SOCKET\_CONNECTION}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SOCKET\_CONNECTION}{ERROR\_SOCKET\_CONNECTION}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+SOCKET\+\_\+\+CONNECTION~\char`\"{}Error while socket\textquotesingle{}s connection. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00027}{27}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a9fe6d721b4952026acc3ff4ef1f17824}\label{i18n__en_8c_a9fe6d721b4952026acc3ff4ef1f17824}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_SOCKET\_CREATION@{ERROR\_SOCKET\_CREATION}}
+\index{ERROR\_SOCKET\_CREATION@{ERROR\_SOCKET\_CREATION}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SOCKET\_CREATION}{ERROR\_SOCKET\_CREATION}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+SOCKET\+\_\+\+CREATION~\char`\"{}Error while socket\textquotesingle{}s creation. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00026}{26}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ac65c73d8312fce3813eef9a065e1b8c6}\label{i18n__en_8c_ac65c73d8312fce3813eef9a065e1b8c6}} 
+\index{i18n\_en.c@{i18n\_en.c}!ERROR\_THREAD\_CREATION@{ERROR\_THREAD\_CREATION}}
+\index{ERROR\_THREAD\_CREATION@{ERROR\_THREAD\_CREATION}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_THREAD\_CREATION}{ERROR\_THREAD\_CREATION}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+THREAD\+\_\+\+CREATION~\char`\"{}Error while creating thread. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00038}{38}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a902a2e1552a9cde57622b750a788f9bf}\label{i18n__en_8c_a902a2e1552a9cde57622b750a788f9bf}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_IMPORTED@{FILE\_IMPORTED}}
+\index{FILE\_IMPORTED@{FILE\_IMPORTED}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_IMPORTED}{FILE\_IMPORTED}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+IMPORTED~\char`\"{}The file has been imported. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00016}{16}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a48c15a9daf286e6f05fe6daf1fdad157}\label{i18n__en_8c_a48c15a9daf286e6f05fe6daf1fdad157}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_LIST\_HEADER\_CLIENT@{FILE\_LIST\_HEADER\_CLIENT}}
+\index{FILE\_LIST\_HEADER\_CLIENT@{FILE\_LIST\_HEADER\_CLIENT}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_LIST\_HEADER\_CLIENT}{FILE\_LIST\_HEADER\_CLIENT}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+LIST\+\_\+\+HEADER\+\_\+\+CLIENT~\char`\"{}List of available files within the repertory uploads \+: \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00008}{8}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a4b9900aeba7c629e0b06d8e60ed93a67}\label{i18n__en_8c_a4b9900aeba7c629e0b06d8e60ed93a67}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_LIST\_HEADER\_SERVER@{FILE\_LIST\_HEADER\_SERVER}}
+\index{FILE\_LIST\_HEADER\_SERVER@{FILE\_LIST\_HEADER\_SERVER}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_LIST\_HEADER\_SERVER}{FILE\_LIST\_HEADER\_SERVER}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+LIST\+\_\+\+HEADER\+\_\+\+SERVER~\char`\"{}List of available files within the server \+: \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00009}{9}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a775241e32b7ccb12e344ae23aa2db6b1}\label{i18n__en_8c_a775241e32b7ccb12e344ae23aa2db6b1}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_NOT\_FOUND@{FILE\_NOT\_FOUND}}
+\index{FILE\_NOT\_FOUND@{FILE\_NOT\_FOUND}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_NOT\_FOUND}{FILE\_NOT\_FOUND}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+NOT\+\_\+\+FOUND~\char`\"{}File not fount. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00015}{15}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_aa617a748910fbef25c676ef8b3b3e9cd}\label{i18n__en_8c_aa617a748910fbef25c676ef8b3b3e9cd}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_RECEIVED@{FILE\_RECEIVED}}
+\index{FILE\_RECEIVED@{FILE\_RECEIVED}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_RECEIVED}{FILE\_RECEIVED}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+RECEIVED~\char`\"{}File received. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00013}{13}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_af77f1fce87715c6b3c869108e9380de1}\label{i18n__en_8c_af77f1fce87715c6b3c869108e9380de1}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_RECEIVING@{FILE\_RECEIVING}}
+\index{FILE\_RECEIVING@{FILE\_RECEIVING}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_RECEIVING}{FILE\_RECEIVING}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+RECEIVING~\char`\"{}Receiving a file...\textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00012}{12}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a1999eb68869baf3f8e837759bae6b174}\label{i18n__en_8c_a1999eb68869baf3f8e837759bae6b174}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_SENDING@{FILE\_SENDING}}
+\index{FILE\_SENDING@{FILE\_SENDING}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_SENDING}{FILE\_SENDING}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+SENDING~\char`\"{}File sending...\textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00011}{11}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_afe46cf2b2c0ef33f0a26522bb57292d2}\label{i18n__en_8c_afe46cf2b2c0ef33f0a26522bb57292d2}} 
+\index{i18n\_en.c@{i18n\_en.c}!FILE\_SENT@{FILE\_SENT}}
+\index{FILE\_SENT@{FILE\_SENT}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{FILE\_SENT}{FILE\_SENT}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+SENT~\char`\"{}The file has been sent. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00014}{14}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ac9f0fc38b3a167a0f251b218ad8674f2}\label{i18n__en_8c_ac9f0fc38b3a167a0f251b218ad8674f2}} 
+\index{i18n\_en.c@{i18n\_en.c}!INVALID\_USERNAME@{INVALID\_USERNAME}}
+\index{INVALID\_USERNAME@{INVALID\_USERNAME}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{INVALID\_USERNAME}{INVALID\_USERNAME}}
+{\footnotesize\ttfamily \#define INVALID\+\_\+\+USERNAME~\char`\"{}Invalid username. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00021}{21}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a37a36e18754a9279e6b2754c8b7df333}\label{i18n__en_8c_a37a36e18754a9279e6b2754c8b7df333}} 
+\index{i18n\_en.c@{i18n\_en.c}!PROGRAM\_END@{PROGRAM\_END}}
+\index{PROGRAM\_END@{PROGRAM\_END}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{PROGRAM\_END}{PROGRAM\_END}}
+{\footnotesize\ttfamily \#define PROGRAM\+\_\+\+END~\char`\"{}Program ending. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00002}{2}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_adb5c67286a96c662b043ba0e89868cc7}\label{i18n__en_8c_adb5c67286a96c662b043ba0e89868cc7}} 
+\index{i18n\_en.c@{i18n\_en.c}!PROGRAM\_START@{PROGRAM\_START}}
+\index{PROGRAM\_START@{PROGRAM\_START}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{PROGRAM\_START}{PROGRAM\_START}}
+{\footnotesize\ttfamily \#define PROGRAM\+\_\+\+START~\char`\"{}Program starting. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00001}{1}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ade0d3ac7e3093ab497e780d9b6c61609}\label{i18n__en_8c_ade0d3ac7e3093ab497e780d9b6c61609}} 
+\index{i18n\_en.c@{i18n\_en.c}!SEND\_MESSAGE\_INT@{SEND\_MESSAGE\_INT}}
+\index{SEND\_MESSAGE\_INT@{SEND\_MESSAGE\_INT}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{SEND\_MESSAGE\_INT}{SEND\_MESSAGE\_INT}}
+{\footnotesize\ttfamily \#define SEND\+\_\+\+MESSAGE\+\_\+\+INT~\char`\"{}Message of type int sent. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00024}{24}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_ae472352b6bd68c4e1dca80adedf2f773}\label{i18n__en_8c_ae472352b6bd68c4e1dca80adedf2f773}} 
+\index{i18n\_en.c@{i18n\_en.c}!SERVER\_CONNECTION\_CLOSED@{SERVER\_CONNECTION\_CLOSED}}
+\index{SERVER\_CONNECTION\_CLOSED@{SERVER\_CONNECTION\_CLOSED}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{SERVER\_CONNECTION\_CLOSED}{SERVER\_CONNECTION\_CLOSED}}
+{\footnotesize\ttfamily \#define SERVER\+\_\+\+CONNECTION\+\_\+\+CLOSED~\char`\"{}The connection with the server is closed. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00023}{23}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a19eda4489c3d7541ec5b35cba29a68ba}\label{i18n__en_8c_a19eda4489c3d7541ec5b35cba29a68ba}} 
+\index{i18n\_en.c@{i18n\_en.c}!TERMINAL\_SIZE\_WARNING@{TERMINAL\_SIZE\_WARNING}}
+\index{TERMINAL\_SIZE\_WARNING@{TERMINAL\_SIZE\_WARNING}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{TERMINAL\_SIZE\_WARNING}{TERMINAL\_SIZE\_WARNING}}
+{\footnotesize\ttfamily \#define TERMINAL\+\_\+\+SIZE\+\_\+\+WARNING~\char`\"{}Beware \+: to have the best experience, be sure to put your terminal on a confortable size, you won\textquotesingle{}t be able to change it later ! \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00047}{47}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a72d6fba4ea08d8506dbe2506928be4c1}\label{i18n__en_8c_a72d6fba4ea08d8506dbe2506928be4c1}} 
+\index{i18n\_en.c@{i18n\_en.c}!USER\_ALREADY\_EXISTS@{USER\_ALREADY\_EXISTS}}
+\index{USER\_ALREADY\_EXISTS@{USER\_ALREADY\_EXISTS}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{USER\_ALREADY\_EXISTS}{USER\_ALREADY\_EXISTS}}
+{\footnotesize\ttfamily \#define USER\+\_\+\+ALREADY\+\_\+\+EXISTS~\char`\"{}This \mbox{\hyperlink{global_8c_a9b20c006bd90a09e1465fb668700e81d}{username}} is already used. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00019}{19}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a91d2a955cc4d87a74095b7055fbd9d7e}\label{i18n__en_8c_a91d2a955cc4d87a74095b7055fbd9d7e}} 
+\index{i18n\_en.c@{i18n\_en.c}!USER\_NOT\_FOUND@{USER\_NOT\_FOUND}}
+\index{USER\_NOT\_FOUND@{USER\_NOT\_FOUND}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{USER\_NOT\_FOUND}{USER\_NOT\_FOUND}}
+{\footnotesize\ttfamily \#define USER\+\_\+\+NOT\+\_\+\+FOUND~\char`\"{}User not found. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00018}{18}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a065258254bf6fe96130cd2858e375c92}\label{i18n__en_8c_a065258254bf6fe96130cd2858e375c92}} 
+\index{i18n\_en.c@{i18n\_en.c}!VALID\_USERNAME@{VALID\_USERNAME}}
+\index{VALID\_USERNAME@{VALID\_USERNAME}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{VALID\_USERNAME}{VALID\_USERNAME}}
+{\footnotesize\ttfamily \#define VALID\+\_\+\+USERNAME~\char`\"{}Username validated. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00020}{20}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+
+\mbox{\Hypertarget{i18n__en_8c_a37166dd79d4cd67a60e9e9ee2d8d0f79}\label{i18n__en_8c_a37166dd79d4cd67a60e9e9ee2d8d0f79}} 
+\index{i18n\_en.c@{i18n\_en.c}!WAITING\_SERVER\_CONNECTION@{WAITING\_SERVER\_CONNECTION}}
+\index{WAITING\_SERVER\_CONNECTION@{WAITING\_SERVER\_CONNECTION}!i18n\_en.c@{i18n\_en.c}}
+\doxysubsubsection{\texorpdfstring{WAITING\_SERVER\_CONNECTION}{WAITING\_SERVER\_CONNECTION}}
+{\footnotesize\ttfamily \#define WAITING\+\_\+\+SERVER\+\_\+\+CONNECTION~\char`\"{}Connecting to the server. \textbackslash{}n\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{i18n__en_8c_source_l00003}{3}} of file \mbox{\hyperlink{i18n__en_8c_source}{i18n\+\_\+en.\+c}}.
+

@@ -1,22 +1,22 @@
 \hypertarget{send_8c_source}{}\doxysection{send.\+c}
-\label{send_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/socket/send.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/socket/send.c}}
-
+\label{send_8c_source}\index{src/socket/send.c@{src/socket/send.c}}
+\mbox{\hyperlink{send_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00007}00007 \textcolor{keywordtype}{void} sendMessageInt (\textcolor{keywordtype}{int} messageSize) \{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00008}00008     \textcolor{keywordflow}{if}(send(acceptedSocketDescriptor, \&messageSize, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}), 0) == -\/1)\{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00009}00009         throwError(ERROR\_SEND\_MESSAGE, 1);}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00007}\mbox{\hyperlink{send_8c_acddf6eedec7a65835d40cf00fd8699fd}{00007}} \textcolor{keywordtype}{void} \mbox{\hyperlink{send_8c_acddf6eedec7a65835d40cf00fd8699fd}{sendMessageInt}} (\textcolor{keywordtype}{int} messageSize) \{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00008}00008     \textcolor{keywordflow}{if}(send(\mbox{\hyperlink{global_8c_af3026a10afe86549e403ed46b8ff437a}{acceptedSocketDescriptor}}, \&messageSize, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}), 0) == -\/1)\{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00009}00009         \mbox{\hyperlink{error_8c_ad5fd1194b361cfb4bc723c13d4b2182b}{throwError}}(\mbox{\hyperlink{i18n__en_8c_a4fcc38c57ecf05f33ade6193aae4cbf3}{ERROR\_SEND\_MESSAGE}}, 1);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00010}00010     \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00011}00011     \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00012}00012         \textcolor{keywordflow}{if}(isDebugMode)\{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00013}00013             printf(SEND\_MESSAGE\_INT);}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00012}00012         \textcolor{keywordflow}{if}(\mbox{\hyperlink{global_8c_a24d2c747aa74c9920a7bb854ba7bdd26}{isDebugMode}})\{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00013}00013             printf(\mbox{\hyperlink{i18n__en_8c_ade0d3ac7e3093ab497e780d9b6c61609}{SEND\_MESSAGE\_INT}});}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00014}00014         \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00015}00015     \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00016}00016 \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00024}00024 \textcolor{keywordtype}{void} sendMessageString (\textcolor{keywordtype}{char} *message, \textcolor{keywordtype}{int} size) \{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00025}00025     \textcolor{keywordflow}{if}(send(acceptedSocketDescriptor, message, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * size, 0) == -\/1)\{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00026}00026         throwError(ERROR\_SEND\_MESSAGE, 1);}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00024}\mbox{\hyperlink{send_8c_aa6f1d7cbf830d18a18f171bc585b5037}{00024}} \textcolor{keywordtype}{void} \mbox{\hyperlink{send_8c_aa6f1d7cbf830d18a18f171bc585b5037}{sendMessageString}} (\textcolor{keywordtype}{char} *message, \textcolor{keywordtype}{int} size) \{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00025}00025     \textcolor{keywordflow}{if}(send(\mbox{\hyperlink{global_8c_af3026a10afe86549e403ed46b8ff437a}{acceptedSocketDescriptor}}, message, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * size, 0) == -\/1)\{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00026}00026         \mbox{\hyperlink{error_8c_ad5fd1194b361cfb4bc723c13d4b2182b}{throwError}}(\mbox{\hyperlink{i18n__en_8c_a4fcc38c57ecf05f33ade6193aae4cbf3}{ERROR\_SEND\_MESSAGE}}, 1);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00027}00027     \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00028}00028 \textcolor{comment}{//    else \{}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00029}00029 \textcolor{comment}{//        TODO Set text to magenta}}
@@ -28,16 +28,16 @@
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00035}00035 \textcolor{comment}{//    \}}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00036}00036 \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00044}00044 \textcolor{keywordtype}{void} sendMessage(\textcolor{keywordtype}{char} *userMessage)\{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00044}\mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{00044}} \textcolor{keywordtype}{void} \mbox{\hyperlink{send_8c_a232ae0b8d47fa481b9c67b1dfaeedf17}{sendMessage}}(\textcolor{keywordtype}{char} *userMessage)\{}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00045}00045     \textcolor{keywordtype}{int} messageSize = (int)strlen(userMessage);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00046}00046 }
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00047}00047     \textcolor{comment}{// Send message size.}}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00048}00048     sendMessageInt(messageSize);}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00048}00048     \mbox{\hyperlink{send_8c_acddf6eedec7a65835d40cf00fd8699fd}{sendMessageInt}}(messageSize);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00049}00049     \textcolor{comment}{// Send message.}}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00050}00050     sendMessageString(userMessage, messageSize);}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00050}00050     \mbox{\hyperlink{send_8c_aa6f1d7cbf830d18a18f171bc585b5037}{sendMessageString}}(userMessage, messageSize);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00051}00051 \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00060}00060 \textcolor{keywordtype}{void} sendFile(\textcolor{keywordtype}{int} socketForFile, FILE *file)\{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00060}\mbox{\hyperlink{send_8c_a942b285fb37fa062e5816d27a0865c0a}{00060}} \textcolor{keywordtype}{void} \mbox{\hyperlink{send_8c_a942b285fb37fa062e5816d27a0865c0a}{sendFile}}(\textcolor{keywordtype}{int} socketForFile, FILE *file)\{}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00061}00061     \textcolor{keywordtype}{long} fileSize;}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00062}00062     fseek(file, 0, SEEK\_END);          \textcolor{comment}{// Jump to the end of the file.}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00063}00063     fileSize = ftell(file);             \textcolor{comment}{// Get the current byte offset in the file.}}
@@ -47,16 +47,16 @@
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00067}00067     send(socketForFile, \&fileSize, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{long}), 0);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00068}00068 }
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00069}00069     \textcolor{comment}{// Send the file bloc per bloc.}}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00070}00070     \textcolor{keywordtype}{long} blocSize = MAX\_SIZE\_SENT;}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00070}00070     \textcolor{keywordtype}{long} blocSize = \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}};}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00071}00071     \textcolor{keywordtype}{char} subBuffer[blocSize];}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00072}00072     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < fileSize; i += MAX\_SIZE\_SENT) \{}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00073}00073         blocSize = (i + MAX\_SIZE\_SENT < fileSize) ? MAX\_SIZE\_SENT : fileSize -\/ i;   \textcolor{comment}{// Calcul the bloc's size.}}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00072}00072     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < fileSize; i += \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}}) \{}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00073}00073         blocSize = (i + \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}} < fileSize) ? \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}} : fileSize -\/ i;   \textcolor{comment}{// Calcul the bloc's size.}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00074}00074         fread(subBuffer, blocSize, 1, file); \textcolor{comment}{// Read in the file.}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00075}00075 }
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00076}00076         \textcolor{keywordflow}{if} (send(socketForFile, subBuffer, \textcolor{keyword}{sizeof}(subBuffer), 0) == -\/1) \{   \textcolor{comment}{// Send bloc of data.}}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00077}00077             throwError(ERROR\_SEND\_FILE, 1);}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00077}00077             \mbox{\hyperlink{error_8c_ad5fd1194b361cfb4bc723c13d4b2182b}{throwError}}(\mbox{\hyperlink{i18n__en_8c_a1a261a2f09b09678225152d8fd728191}{ERROR\_SEND\_FILE}}, 1);}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00078}00078         \}}
-\DoxyCodeLine{\Hypertarget{send_8c_source_l00079}00079         bzero(subBuffer, MAX\_SIZE\_SENT);    \textcolor{comment}{// Clear the buffer.}}
+\DoxyCodeLine{\Hypertarget{send_8c_source_l00079}00079         bzero(subBuffer, \mbox{\hyperlink{global_8c_a4da35cd01e3a4eb2711d8531f9fefdd7}{MAX\_SIZE\_SENT}});    \textcolor{comment}{// Clear the buffer.}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00080}00080     \}}
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00081}00081 }
 \DoxyCodeLine{\Hypertarget{send_8c_source_l00082}00082     fclose(file); \textcolor{comment}{// Close the file}}

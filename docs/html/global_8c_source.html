@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>projetC-client: /Users/tom/Documents/partageGit/projetC/projetC-client/src/global.c Source File</title>
+<title>projetC-client: src/global.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">projetC-client<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">projetC-client
    </div>
   </td>
  </tr>
@@ -62,32 +62,43 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_db5d8c0870ce84e17ad60fae723678a9.html">projetC-client</a></li><li class="navelem"><a class="el" href="dir_64ab3c1107266106511b6fda32b327a8.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">global.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#define MAX_SIZE_SENT 512</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ENDING_MESSAGE &quot;/disconnect\n\0&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keywordtype">char</span> *IP;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define NB_COMMAND 4</span></div>
+<a href="global_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="global_8c.html#a4da35cd01e3a4eb2711d8531f9fefdd7">    1</a></span><span class="preprocessor">#define MAX_SIZE_SENT 512</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno"><a class="line" href="global_8c.html#a44ccca153e1092e2cd5fc917d7470eeb">    2</a></span><span class="preprocessor">#define ENDING_MESSAGE &quot;/disconnect\n\0&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="global_8c.html#a77360afa4099281daa8ee4b1dca4e713">    3</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="global_8c.html#a77360afa4099281daa8ee4b1dca4e713">IP</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="global_8c.html#afbba329c1ebf150d9c697177de5c2d26">    4</a></span><span class="preprocessor">#define NB_COMMAND 4</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define CHANNEL_DEFAULT_PORT 3000</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define CHANNEL_SWITCH_PORT 3334</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="global_8c.html#aba5431d531f986c4f7969bf01d0b452e">    6</a></span><span class="preprocessor">#define CHANNEL_DEFAULT_PORT 3000</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="global_8c.html#ad7f270ccd216bd1f1ad29effb2dc82fa">    7</a></span><span class="preprocessor">#define CHANNEL_SWITCH_PORT 3334</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>FORM *form;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>FIELD *fields[3];</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>WINDOW *win_screen;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>WINDOW *win_form;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>WINDOW *win_display;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>WINDOW *sub_win_form;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>WINDOW *win_title;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="global_8c.html#a77aa91746f2308130ee8638af6887392">    9</a></span>FORM *<a class="code hl_variable" href="global_8c.html#a77aa91746f2308130ee8638af6887392">form</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="global_8c.html#a4692ce48f64c8231afe0021347f398d4">   10</a></span>FIELD *<a class="code hl_variable" href="global_8c.html#a4692ce48f64c8231afe0021347f398d4">fields</a>[3];</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="global_8c.html#a34e1505c51600923f8940b4ac8d33f50">   11</a></span>WINDOW *<a class="code hl_variable" href="global_8c.html#a34e1505c51600923f8940b4ac8d33f50">win_screen</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="global_8c.html#acabafd623676116571b3d489eb9b777b">   12</a></span>WINDOW *<a class="code hl_variable" href="global_8c.html#acabafd623676116571b3d489eb9b777b">win_form</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="global_8c.html#aa9606d844c06e7bc1a543ac51f11a0ee">   13</a></span>WINDOW *<a class="code hl_variable" href="global_8c.html#aa9606d844c06e7bc1a543ac51f11a0ee">win_display</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="global_8c.html#a81be67ebc502e7edb6233bfeb2eac252">   14</a></span>WINDOW *<a class="code hl_variable" href="global_8c.html#a81be67ebc502e7edb6233bfeb2eac252">sub_win_form</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="global_8c.html#a52c198266f9c338c249bd0c781cd637a">   15</a></span>WINDOW *<a class="code hl_variable" href="global_8c.html#a52c198266f9c338c249bd0c781cd637a">win_title</a>;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">int</span> acceptedSocketDescriptor;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">char</span> *username;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">int</span> isDebugMode = 0;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">   17</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="global_8c.html#a9b20c006bd90a09e1465fb668700e81d">   18</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="global_8c.html#a9b20c006bd90a09e1465fb668700e81d">username</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">   19</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a> = 0;</div>
+<div class="ttc" id="aglobal_8c_html_a24d2c747aa74c9920a7bb854ba7bdd26"><div class="ttname"><a href="global_8c.html#a24d2c747aa74c9920a7bb854ba7bdd26">isDebugMode</a></div><div class="ttdeci">int isDebugMode</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00019">global.c:19</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a34e1505c51600923f8940b4ac8d33f50"><div class="ttname"><a href="global_8c.html#a34e1505c51600923f8940b4ac8d33f50">win_screen</a></div><div class="ttdeci">WINDOW * win_screen</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00011">global.c:11</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a4692ce48f64c8231afe0021347f398d4"><div class="ttname"><a href="global_8c.html#a4692ce48f64c8231afe0021347f398d4">fields</a></div><div class="ttdeci">FIELD * fields[3]</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00010">global.c:10</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a52c198266f9c338c249bd0c781cd637a"><div class="ttname"><a href="global_8c.html#a52c198266f9c338c249bd0c781cd637a">win_title</a></div><div class="ttdeci">WINDOW * win_title</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00015">global.c:15</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a77360afa4099281daa8ee4b1dca4e713"><div class="ttname"><a href="global_8c.html#a77360afa4099281daa8ee4b1dca4e713">IP</a></div><div class="ttdeci">char * IP</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00003">global.c:3</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a77aa91746f2308130ee8638af6887392"><div class="ttname"><a href="global_8c.html#a77aa91746f2308130ee8638af6887392">form</a></div><div class="ttdeci">FORM * form</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00009">global.c:9</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a81be67ebc502e7edb6233bfeb2eac252"><div class="ttname"><a href="global_8c.html#a81be67ebc502e7edb6233bfeb2eac252">sub_win_form</a></div><div class="ttdeci">WINDOW * sub_win_form</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00014">global.c:14</a></div></div>
+<div class="ttc" id="aglobal_8c_html_a9b20c006bd90a09e1465fb668700e81d"><div class="ttname"><a href="global_8c.html#a9b20c006bd90a09e1465fb668700e81d">username</a></div><div class="ttdeci">char * username</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00018">global.c:18</a></div></div>
+<div class="ttc" id="aglobal_8c_html_aa9606d844c06e7bc1a543ac51f11a0ee"><div class="ttname"><a href="global_8c.html#aa9606d844c06e7bc1a543ac51f11a0ee">win_display</a></div><div class="ttdeci">WINDOW * win_display</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00013">global.c:13</a></div></div>
+<div class="ttc" id="aglobal_8c_html_acabafd623676116571b3d489eb9b777b"><div class="ttname"><a href="global_8c.html#acabafd623676116571b3d489eb9b777b">win_form</a></div><div class="ttdeci">WINDOW * win_form</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00012">global.c:12</a></div></div>
+<div class="ttc" id="aglobal_8c_html_af3026a10afe86549e403ed46b8ff437a"><div class="ttname"><a href="global_8c.html#af3026a10afe86549e403ed46b8ff437a">acceptedSocketDescriptor</a></div><div class="ttdeci">int acceptedSocketDescriptor</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00017">global.c:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

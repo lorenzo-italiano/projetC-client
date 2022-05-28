@@ -1,0 +1,148 @@
+\hypertarget{receive_8c}{}\doxysection{src/socket/receive.c File Reference}
+\label{receive_8c}\index{src/socket/receive.c@{src/socket/receive.c}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{receive_8c_a71f0b44ddd5d3f7ebfda7954438b1b5b}{receive\+Message\+Int\+From}} (int server\+Socket)
+\item 
+int \mbox{\hyperlink{receive_8c_a76c6cb9cb91ec56dfe2c6fa4f10cbc45}{receive\+Message\+Int}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{receive_8c_a340d84dcdeaaac7a8a7d1bde9c1c37d6}{receive\+Message\+String\+From}} (int server\+Socket, int message\+Size)
+\item 
+char $\ast$ \mbox{\hyperlink{receive_8c_a3f1dbb921e95edf1e99a324304678f9c}{receive\+Message\+String}} (int message\+Size)
+\item 
+char $\ast$ \mbox{\hyperlink{receive_8c_a5a2c745e3990f8de71b399dcbe4e0f6d}{receive\+Message\+From}} (int server\+Socket)
+\item 
+char $\ast$ \mbox{\hyperlink{receive_8c_ad263c3702fc55203cc98a49d21bbe01f}{receive\+Message}} ()
+\item 
+void \mbox{\hyperlink{receive_8c_a5356a63851436e180fb478c4d84ae0ad}{receive\+File}} (int server\+File\+Socket, char $\ast$file\+Name)
+\item 
+int \mbox{\hyperlink{receive_8c_abad535e0f683d91516d96a033fad40be}{receive\+New\+Port}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{receive_8c_a5356a63851436e180fb478c4d84ae0ad}\label{receive_8c_a5356a63851436e180fb478c4d84ae0ad}} 
+\index{receive.c@{receive.c}!receiveFile@{receiveFile}}
+\index{receiveFile@{receiveFile}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveFile()}{receiveFile()}}
+{\footnotesize\ttfamily void receive\+File (\begin{DoxyParamCaption}\item[{int}]{server\+File\+Socket,  }\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+Receive a file from a server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+File\+Socket} & \\
+\hline
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00081}{81}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_ad263c3702fc55203cc98a49d21bbe01f}\label{receive_8c_ad263c3702fc55203cc98a49d21bbe01f}} 
+\index{receive.c@{receive.c}!receiveMessage@{receiveMessage}}
+\index{receiveMessage@{receiveMessage}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveMessage()}{receiveMessage()}}
+{\footnotesize\ttfamily char $\ast$ receive\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Wait until receiving a message. 
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00070}{70}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_a5a2c745e3990f8de71b399dcbe4e0f6d}\label{receive_8c_a5a2c745e3990f8de71b399dcbe4e0f6d}} 
+\index{receive.c@{receive.c}!receiveMessageFrom@{receiveMessageFrom}}
+\index{receiveMessageFrom@{receiveMessageFrom}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveMessageFrom()}{receiveMessageFrom()}}
+{\footnotesize\ttfamily char $\ast$ receive\+Message\+From (\begin{DoxyParamCaption}\item[{int}]{server\+Socket }\end{DoxyParamCaption})}
+
+Wait until receiving a message. 
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00062}{62}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_a76c6cb9cb91ec56dfe2c6fa4f10cbc45}\label{receive_8c_a76c6cb9cb91ec56dfe2c6fa4f10cbc45}} 
+\index{receive.c@{receive.c}!receiveMessageInt@{receiveMessageInt}}
+\index{receiveMessageInt@{receiveMessageInt}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveMessageInt()}{receiveMessageInt()}}
+{\footnotesize\ttfamily int receive\+Message\+Int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+For an accepted socket descriptor, wait until receiving an int message. This message is usually the size of the message which will be sent just after.
+
+\begin{DoxyReturn}{Returns}
+the size of the message which will be sent after. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00025}{25}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_a71f0b44ddd5d3f7ebfda7954438b1b5b}\label{receive_8c_a71f0b44ddd5d3f7ebfda7954438b1b5b}} 
+\index{receive.c@{receive.c}!receiveMessageIntFrom@{receiveMessageIntFrom}}
+\index{receiveMessageIntFrom@{receiveMessageIntFrom}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveMessageIntFrom()}{receiveMessageIntFrom()}}
+{\footnotesize\ttfamily int receive\+Message\+Int\+From (\begin{DoxyParamCaption}\item[{int}]{server\+Socket }\end{DoxyParamCaption})}
+
+For an accepted socket descriptor, wait until receiving an int message. This message is usually the size of the message which will be sent just after.
+
+\begin{DoxyReturn}{Returns}
+the size of the message which will be sent after. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00007}{7}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_a3f1dbb921e95edf1e99a324304678f9c}\label{receive_8c_a3f1dbb921e95edf1e99a324304678f9c}} 
+\index{receive.c@{receive.c}!receiveMessageString@{receiveMessageString}}
+\index{receiveMessageString@{receiveMessageString}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveMessageString()}{receiveMessageString()}}
+{\footnotesize\ttfamily char $\ast$ receive\+Message\+String (\begin{DoxyParamCaption}\item[{int}]{message\+Size }\end{DoxyParamCaption})}
+
+For an accepted socket descriptor, wait until receiving a message of the message\+Size in params.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\+Size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the gotten message. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00055}{55}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_a340d84dcdeaaac7a8a7d1bde9c1c37d6}\label{receive_8c_a340d84dcdeaaac7a8a7d1bde9c1c37d6}} 
+\index{receive.c@{receive.c}!receiveMessageStringFrom@{receiveMessageStringFrom}}
+\index{receiveMessageStringFrom@{receiveMessageStringFrom}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveMessageStringFrom()}{receiveMessageStringFrom()}}
+{\footnotesize\ttfamily char $\ast$ receive\+Message\+String\+From (\begin{DoxyParamCaption}\item[{int}]{server\+Socket,  }\item[{int}]{message\+Size }\end{DoxyParamCaption})}
+
+For an accepted socket descriptor, wait until receiving a message of the message\+Size in params.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message\+Size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the gotten message. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00035}{35}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
+\mbox{\Hypertarget{receive_8c_abad535e0f683d91516d96a033fad40be}\label{receive_8c_abad535e0f683d91516d96a033fad40be}} 
+\index{receive.c@{receive.c}!receiveNewPort@{receiveNewPort}}
+\index{receiveNewPort@{receiveNewPort}!receive.c@{receive.c}}
+\doxysubsubsection{\texorpdfstring{receiveNewPort()}{receiveNewPort()}}
+{\footnotesize\ttfamily int receive\+New\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Connect to the switch channel and wait until receiving a new port. Can also receive an error status.
+
+\begin{DoxyReturn}{Returns}
+a new port received by the switch channel. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receive_8c_source_l00115}{115}} of file \mbox{\hyperlink{receive_8c_source}{receive.\+c}}.
+
