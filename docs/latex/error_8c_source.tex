@@ -1,0 +1,16 @@
+\hypertarget{error_8c_source}{}\doxysection{error.\+c}
+\label{error_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/util/error.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/util/error.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00007}00007 \textcolor{keywordtype}{void} throwError (\textcolor{keywordtype}{char} *errorMessage, \textcolor{keywordtype}{int} hasErrno) \{}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00008}00008     \textcolor{keywordflow}{if} (hasErrno) \{}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00009}00009         perror(errorMessage);}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00010}00010     \}}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00011}00011     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00012}00012         printf(\textcolor{stringliteral}{"{}\%s \(\backslash\)n"{}}, errorMessage);}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00013}00013     \}}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00014}00014     exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{error_8c_source_l00015}00015 \}}
+
+\end{DoxyCode}

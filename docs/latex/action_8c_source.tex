@@ -1,0 +1,123 @@
+\hypertarget{action_8c_source}{}\doxysection{action.\+c}
+\label{action_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/action.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/action.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00001}00001 \textcolor{preprocessor}{\#include <dirent.h>}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00002}00002 \textcolor{preprocessor}{\#include "{}actionThreaded.c"{}}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00007}00007 \textcolor{keywordtype}{void} disconnectAction () \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00008}00008     shutdownClient();}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00009}00009 \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00018}00018 \textcolor{keywordtype}{void} fileAction (\mbox{\hyperlink{struct_command}{Command}} *command, \textcolor{keywordtype}{char} *message) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00019}00019     \textcolor{comment}{// Get filename and add it to the file path.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00020}00020     \textcolor{keywordtype}{char} *regexGroupList[3];}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00021}00021     getRegexGroup(regexGroupList, message, command-\/>regex);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00022}00022     \textcolor{comment}{// regexGroupList[0] = message}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00023}00023     \textcolor{comment}{// regexGroupList[1] = -\/send || -\/get || username}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00024}00024     \textcolor{comment}{// regexGroupList[2] = filename}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00026}00026     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00027}00027     param = malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} \mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}}));}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00028}00028     param-\/>message = message;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00029}00029     param-\/>username = regexGroupList[1];    \textcolor{comment}{// -\/send || -\/get || username}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00030}00030     param-\/>filename = regexGroupList[2];}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00032}00032     pthread\_t fileThread;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00034}00034     \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/send"{}}, regexGroupList[1]) == 0) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00035}00035         \textcolor{comment}{// User send file to the server.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00036}00036         \textcolor{keywordflow}{if} (isDebugMode) \{ printf(\textcolor{stringliteral}{"{}file -\/send filename\(\backslash\)n"{}}); \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00037}00037         pthread\_create(\&fileThread, NULL, sendFileThreaded, param);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00039}00039     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/get"{}}, regexGroupList[1]) == 0) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00040}00040         \textcolor{comment}{// User get file from the server.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00041}00041         \textcolor{keywordflow}{if} (isDebugMode) \{ printf(\textcolor{stringliteral}{"{}file -\/get filename\(\backslash\)n"{}}); \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00042}00042         pthread\_create(\&fileThread, NULL, receiveFileThreaded, param);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00044}00044     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00045}00045         \textcolor{comment}{// User send file to other user.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00046}00046         \textcolor{keywordflow}{if} (isDebugMode) \{ printf(\textcolor{stringliteral}{"{}file username filename\(\backslash\)n"{}}); \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00048}00048         pthread\_create(\&fileThread, NULL, mpSendFileThreaded, param);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00051}00051     \textcolor{comment}{// Free within threaded functions.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00052}00052 \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00061}00061 \textcolor{keywordtype}{void} filesAction (\mbox{\hyperlink{struct_command}{Command}} *command, \textcolor{keywordtype}{char} *message) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00062}00062     \textcolor{comment}{// Get the option. -\/c || -\/s.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00063}00063     \textcolor{keywordtype}{char} *regexGroupList[3];}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00064}00064     getRegexGroup(regexGroupList, message, command-\/>regex);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00066}00066     \textcolor{keywordflow}{if} (strcmp(regexGroupList[1], \textcolor{stringliteral}{"{}c"{}}) == 0) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00067}00067         \textcolor{comment}{// Client files listing.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00069}00069         window\_print\_white(FILE\_LIST\_HEADER\_CLIENT);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00071}00071         \textcolor{comment}{// Get uploads path.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00072}00072         \textcolor{keywordtype}{char} uploadDirectoryPath[200];}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00073}00073         getUploadDirectoryPath(uploadDirectoryPath);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00075}00075         \textcolor{comment}{// Get directory.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00076}00076         DIR *directory;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00077}00077         \textcolor{keyword}{struct }dirent *file;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00078}00078         directory = opendir(uploadDirectoryPath);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00079}00079         \textcolor{keywordflow}{if} (directory == NULL) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00080}00080             throwError(\textcolor{stringliteral}{"{}Unable to open the directory. \(\backslash\)n"{}}, 0);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00083}00083         \textcolor{keywordflow}{while} ((file = readdir(directory)) != NULL) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00084}00084             \textcolor{keywordflow}{if} (strcmp(file-\/>d\_name, \textcolor{stringliteral}{"{}."{}}) != 0 \&\& strcmp(file-\/>d\_name, \textcolor{stringliteral}{"{}.."{}}) != 0) \{  \textcolor{comment}{// Don't take files : "{}."{} et "{}.."{}.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00085}00085 \textcolor{comment}{//                printf("{}File \%d : \%s\(\backslash\)n"{}, n, file-\/>d\_name);}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00086}00086 \textcolor{comment}{//                printf("{}\%s\(\backslash\)n"{}, file-\/>d\_name);}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00087}00087                 window\_print\_white(\textcolor{stringliteral}{"{}\(\backslash\)t"{}});}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00088}00088                 window\_print\_white(file-\/>d\_name);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00089}00089                 window\_print\_white(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00090}00090             \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00091}00091         \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00092}00092         window\_print\_white(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00093}00093         closedir(directory);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00094}00094     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00095}00095     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(regexGroupList[1], \textcolor{stringliteral}{"{}s"{}}) == 0) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00096}00096         \textcolor{comment}{// Server files listing.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00097}00097         window\_print\_white(FILE\_LIST\_HEADER\_SERVER);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00098}00098         sendMessage(message);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00101}00101 \textcolor{comment}{//    free(regexGroupList[0]);}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00102}00102 \textcolor{comment}{//    free(regexGroupList[1]);}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00103}00103 \textcolor{comment}{//    free(regexGroupList[2]);}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00111}00111 \textcolor{keywordtype}{void} joinAction (\textcolor{keywordtype}{char} *message) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00112}00112     sendMessage(message);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00113}00113     \textcolor{keywordtype}{int} newPort = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00115}00115     \textcolor{keywordflow}{if} (newPort == 404) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00116}00116         \textcolor{comment}{// Channel not found.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00117}00117         window\_print\_red(CHANNEL\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00118}00118     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00119}00119     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (newPort == 400) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00120}00120         \textcolor{comment}{// Bad request.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00121}00121         window\_print\_red(ALREADY\_IN\_CHANNEL);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00123}00123     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (newPort == 409) \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00124}00124         \textcolor{comment}{// Bad request.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00125}00125         window\_print\_red(CHANNEL\_FULL);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00126}00126     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00127}00127     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00128}00128         \textcolor{comment}{// Port received.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00129}00129         \textcolor{keywordtype}{int} newServerSocket = connectToServer(IP, newPort);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00130}00130         \textcolor{keywordtype}{int} oldSocket = acceptedSocketDescriptor;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00131}00131         acceptedSocketDescriptor = newServerSocket;}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00132}00132         window\_print\_cyan(CHANNEL\_WELCOME);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00134}00134         \textcolor{comment}{// Set the new channel name.}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00135}00135         \textcolor{keywordtype}{char} *newChannelName = receiveMessageFrom(oldSocket);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00136}00136         set\_title(newChannelName);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00137}00137         free(newChannelName);}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00138}00138     \}}
+\DoxyCodeLine{\Hypertarget{action_8c_source_l00139}00139 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,54 @@
+\hypertarget{i18n__fr_8c_source}{}\doxysection{i18n\+\_\+fr.\+c}
+\label{i18n__fr_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/internationalization/i18n\_fr.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/internationalization/i18n\_fr.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00001}00001 \textcolor{preprocessor}{\#define PROGRAM\_START "{}Début du programme. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00002}00002 \textcolor{preprocessor}{\#define PROGRAM\_END "{}Fin du programme. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00003}00003 \textcolor{preprocessor}{\#define WAITING\_SERVER\_CONNECTION "{}Connexion au serveur. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00005}00005 \textcolor{preprocessor}{\#define ASK\_FOR\_STRING "{}Entrez votre message : \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00006}00006 \textcolor{preprocessor}{\#define ASK\_FOR\_USERNAME "{}Entrez votre nom d'utilisateur : \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00008}00008 \textcolor{preprocessor}{\#define FILE\_LIST\_HEADER\_CLIENT "{}Liste des fichiers disponibles dans le dossier uploads : \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00009}00009 \textcolor{preprocessor}{\#define FILE\_LIST\_HEADER\_SERVER "{}Liste des fichiers disponibles sur le serveur : \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00011}00011 \textcolor{preprocessor}{\#define FILE\_SENDING "{}Fichier en cours d'envoi...\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00012}00012 \textcolor{preprocessor}{\#define FILE\_RECEIVING "{}En train de recevoir un fichier...\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00013}00013 \textcolor{preprocessor}{\#define FILE\_RECEIVED "{}Fichier reçu. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00014}00014 \textcolor{preprocessor}{\#define FILE\_SENT "{}Le fichier a bien été envoyé. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00015}00015 \textcolor{preprocessor}{\#define FILE\_NOT\_FOUND "{}Fichier introuvable. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00016}00016 \textcolor{preprocessor}{\#define FILE\_IMPORTED "{}Le fichier a bien été importé. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00018}00018 \textcolor{preprocessor}{\#define USER\_NOT\_FOUND "{}Utilisateur introuvable. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00019}00019 \textcolor{preprocessor}{\#define USER\_ALREADY\_EXISTS "{}Ce nom d'utilisateur est déjà utilisé. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00020}00020 \textcolor{preprocessor}{\#define VALID\_USERNAME "{}Nom d'utilisateur validé. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00021}00021 \textcolor{preprocessor}{\#define INVALID\_USERNAME "{}Nom d'utilisateur non valid. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00023}00023 \textcolor{preprocessor}{\#define SERVER\_CONNECTION\_CLOSED "{}La connexion avec le serveur distant a été fermée. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00024}00024 \textcolor{preprocessor}{\#define SEND\_MESSAGE\_INT "{}Message de type int envoyé. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00026}00026 \textcolor{preprocessor}{\#define ERROR\_SOCKET\_CREATION "{}Erreur lors de la création du socket. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00027}00027 \textcolor{preprocessor}{\#define ERROR\_SOCKET\_CONNECTION "{}Erreur lors de la connexion au socket. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00028}00028 \textcolor{preprocessor}{\#define ERROR\_INET "{}La conversion d'adresse IP a echouée. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00030}00030 \textcolor{preprocessor}{\#define ERROR\_RECEIVE\_MESSAGE "{}Erreur lors de la reception du message. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00031}00031 \textcolor{preprocessor}{\#define ERROR\_SEND\_MESSAGE "{}Erreur lors de l'envoi du message. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00032}00032 \textcolor{preprocessor}{\#define ERROR\_SEND\_FILE "{}Erreur lors de l'envoi du fichier. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00034}00034 \textcolor{preprocessor}{\#define ERROR\_REGEX "{}Erreur regex. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00035}00035 \textcolor{preprocessor}{\#define ERROR\_REGEX\_NOT\_COMPILED "{}Impossible de compiled le regex. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00037}00037 \textcolor{preprocessor}{\#define ERROR\_FGETS "{}Erreur fgets. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00038}00038 \textcolor{preprocessor}{\#define ERROR\_THREAD\_CREATION "{}Erreur lors de la création du thread. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00039}00039 \textcolor{preprocessor}{\#define ERROR\_ARGS "{}Erreur: Nombre d'arguments invalide. Utilisation :\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00040}00040 \textcolor{preprocessor}{\#define ERROR\_PORT "{}Erreur: le port doit être supérieur à 1024. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00042}00042 \textcolor{preprocessor}{\#define CHANNEL\_WELCOME "{}Bienvenue dans ce channel. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00043}00043 \textcolor{preprocessor}{\#define CHANNEL\_NOT\_FOUND "{}Channel introuvable. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00044}00044 \textcolor{preprocessor}{\#define ALREADY\_IN\_CHANNEL "{}Vous êtes déjà dans ce channel. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00045}00045 \textcolor{preprocessor}{\#define CHANNEL\_FULL "{}Désolé, le channel est déjà remplit. \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00047}00047 \textcolor{preprocessor}{\#define TERMINAL\_SIZE\_WARNING "{}Attention : pour profiter d'une expérience optimale, veillez à mettre une taille de terminal adéquate, vous ne pourrez plus changer après ! \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{i18n__fr_8c_source_l00048}00048 }
+
+\end{DoxyCode}

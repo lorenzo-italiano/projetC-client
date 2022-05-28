@@ -1,0 +1,37 @@
+\hypertarget{router_8c_source}{}\doxysection{router.\+c}
+\label{router_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/router.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/router.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00001}00001 \textcolor{preprocessor}{\#include "{}Command.c"{}}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00002}00002 \textcolor{preprocessor}{\#include "{}action.c"{}}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00011}00011 \textcolor{keywordtype}{void} doCommandAction (\textcolor{keywordtype}{char} *message) \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00012}00012     \mbox{\hyperlink{struct_command}{Command}} *command = getCommand(message);}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00014}00014     \textcolor{keywordflow}{if} (command == NULL) \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00015}00015         \textcolor{comment}{// Unknown action.}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00016}00016         sendMessage(message);}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00017}00017     \}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00018}00018     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}disconnect"{}}, command-\/>name) == 0) \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00019}00019         \textcolor{comment}{// Disconnection.}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00020}00020         disconnectAction();}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00021}00021     \}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00022}00022     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}file"{}}, command-\/>name) == 0) \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00023}00023         \textcolor{comment}{// File sending.}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00024}00024         fileAction(command, message);}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00026}00026     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}files"{}}, command-\/>name) == 0) \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00027}00027         \textcolor{comment}{// Files listing.}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00028}00028         filesAction(command, message);}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00030}00030     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}join"{}}, command-\/>name) == 0) \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00031}00031         \textcolor{comment}{// Files listing.}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00032}00032         joinAction(message);}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00034}00034     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00035}00035         \textcolor{comment}{// Unknown action.}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00036}00036         sendMessage(message);}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{router_8c_source_l00038}00038 \}}
+
+\end{DoxyCode}

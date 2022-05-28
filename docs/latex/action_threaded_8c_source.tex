@@ -1,0 +1,144 @@
+\hypertarget{action_threaded_8c_source}{}\doxysection{action\+Threaded.\+c}
+\label{action_threaded_8c_source}\index{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/actionThreaded.c@{/Users/tom/Documents/partageGit/projetC/projetC-\/client/src/command/actionThreaded.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00002}00002 \textcolor{comment}{// Struct used for threaded function.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00003}\mbox{\hyperlink{structparam_file_threaded}{00003}} \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00004}00004     \textcolor{keywordtype}{char} *message;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00005}00005     \textcolor{keywordtype}{char} *username;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00006}00006     \textcolor{keywordtype}{char} *filename;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00007}00007 \};}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00016}00016 \textcolor{keywordtype}{void} *sendFileThreaded (\textcolor{keywordtype}{void} *paramVoid) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00017}00017     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param = (\textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *)paramVoid;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00019}00019     FILE *file = openFile(param-\/>filename, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00021}00021     \textcolor{keywordflow}{if} (file != NULL) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00022}00022         \textcolor{comment}{// File exists.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00023}00023         sendMessage(param-\/>message);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00025}00025         \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00026}00026         \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00028}00028         \textcolor{comment}{// Connection to the socket used to send files.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00029}00029         \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00030}00030         sendFile(clientSocketForFile, file);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00031}00031         close(clientSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00032}00032         window\_print\_green(FILE\_SENT);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00034}00034     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00035}00035         \textcolor{comment}{// File doesn't exists.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00036}00036         window\_print\_red(FILE\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00039}00039     free(param);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00041}00041     pthread\_exit(NULL);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00051}00051 \textcolor{keywordtype}{void} *receiveFileThreaded (\textcolor{keywordtype}{void} *paramVoid) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00052}00052     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param = (\textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *)paramVoid;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00054}00054     sendMessage(param-\/>message);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00056}00056     \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00057}00057     \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00059}00059     \textcolor{comment}{// Connection to the socket used to send files.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00060}00060     \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00061}00061     \textcolor{keywordtype}{int} requestStatus;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00063}00063     recv(clientSocketForFile, \&requestStatus, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}), 0);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00065}00065     \textcolor{keywordflow}{if} (requestStatus == 404) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00066}00066         \textcolor{comment}{// File not found.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00067}00067         window\_print\_red(FILE\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00068}00068     \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00069}00069     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00070}00070         \textcolor{comment}{// Status == 204. File found.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00071}00071         receiveFile(clientSocketForFile, param-\/>filename);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00072}00072         window\_print\_green(FILE\_IMPORTED);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00073}00073         close(clientSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00076}00076     free(param);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00078}00078     pthread\_exit(NULL);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00079}00079 \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00087}00087 \textcolor{keywordtype}{void} *mpSendFileThreaded (\textcolor{keywordtype}{void} *paramVoid) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00088}00088     \textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *param = (\textcolor{keyword}{struct }\mbox{\hyperlink{structparam_file_threaded}{paramFileThreaded}} *)paramVoid;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00090}00090     \textcolor{comment}{// Check file exists locally.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00091}00091     \textcolor{comment}{// Send message to serv.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00092}00092     \textcolor{comment}{// Connect to second socket.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00093}00093     \textcolor{comment}{// Server asert that the wanted user is connected.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00094}00094         \textcolor{comment}{// If connected, send the file.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00096}00096     window\_print\_white(FILE\_SENDING);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00097}00097     FILE *file = openFile(param-\/>filename, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00099}00099     \textcolor{keywordflow}{if} (file != NULL) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00100}00100         \textcolor{comment}{// File exists.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00102}00102         sendMessage(param-\/>message);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00104}00104         \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00105}00105         \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00107}00107         \textcolor{comment}{// Connection to the socket used to send files.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00108}00108         \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00109}00109         \textcolor{keywordtype}{int} userTargetStatus;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00110}00110         recv(clientSocketForFile, \&userTargetStatus, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}), 0);   }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00112}00112         \textcolor{keywordflow}{if} (userTargetStatus == 204) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00113}00113             \textcolor{keywordflow}{if} (isDebugMode) \{ printf(\textcolor{stringliteral}{"{}Send file. \(\backslash\)n"{}}); \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00114}00114             sendFile(clientSocketForFile, file);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00115}00115             window\_print\_green(FILE\_SENT);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00116}00116         \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00117}00117         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00118}00118             \textcolor{comment}{// userTargetStatus == 404}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00119}00119             window\_print\_red(USER\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00120}00120         \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00121}00121         close(clientSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00123}00123     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00124}00124         \textcolor{comment}{// File doesn't exists.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00125}00125         window\_print\_red(FILE\_NOT\_FOUND);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00126}00126     \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00128}00128     free(param);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00130}00130     pthread\_exit(NULL);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00131}00131 \}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00139}00139 \textcolor{keywordtype}{void} *mpReceiveFileThreaded (\textcolor{keywordtype}{void} *message) \{}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00140}00140     message = (\textcolor{keywordtype}{char} *)message;}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00142}00142     window\_print\_white(FILE\_RECEIVING);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00143}00143     \textcolor{comment}{// Receive the port of the socket used to transfer files, by the switch socket.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00144}00144     \textcolor{keywordtype}{int} portSocketForFile = receiveNewPort();}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00146}00146     \textcolor{comment}{// Connection to the socket used to send files.}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00147}00147     \textcolor{keywordtype}{int} clientSocketForFile = connectToServer(IP, portSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00149}00149     \textcolor{keywordtype}{char} *regexGroupList[3];}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00150}00150     getRegexGroup(regexGroupList, message, commandList[1]-\/>regex);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00151}00151     \textcolor{comment}{// regexGroupList[0] == message}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00152}00152     \textcolor{comment}{// regexGroupList[1] == -\/send || -\/get || username}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00153}00153     \textcolor{comment}{// regexGroupList[2] == filename}}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00155}00155     receiveFile(clientSocketForFile, regexGroupList[2]);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00157}00157     free(regexGroupList[0]);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00158}00158     free(regexGroupList[1]);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00159}00159     free(regexGroupList[2]);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00161}00161     close(clientSocketForFile);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00162}00162     window\_print\_green(FILE\_RECEIVED);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00163}00163     pthread\_exit(NULL);}
+\DoxyCodeLine{\Hypertarget{action_threaded_8c_source_l00164}00164 \}}
+
+\end{DoxyCode}
