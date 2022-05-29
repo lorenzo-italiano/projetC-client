@@ -4,6 +4,7 @@ static void interface_init(){
     noecho();
     cbreak(); // voir ce que ça fait
     keypad(stdscr, TRUE);
+    curs_set(0);
     refresh();
 
     if(has_colors() == 0)
@@ -19,6 +20,14 @@ static void interface_init(){
     init_pair(5, COLOR_BLUE, COLOR_BLACK);
     init_pair(6, COLOR_MAGENTA, COLOR_BLACK);
     init_pair(7, COLOR_CYAN, COLOR_BLACK);
+
+    init_pair(8, COLOR_WHITE, COLOR_RED);
+    init_pair(9, COLOR_WHITE, COLOR_YELLOW);
+    init_pair(10, COLOR_WHITE, COLOR_GREEN);
+    init_pair(11, COLOR_WHITE, COLOR_CYAN);
+    init_pair(12, COLOR_WHITE, COLOR_BLUE);
+    init_pair(13, COLOR_WHITE, COLOR_MAGENTA);
+
     bkgd(COLOR_PAIR(1));
 
     /* height, width offsetHeight, offsetWidth */

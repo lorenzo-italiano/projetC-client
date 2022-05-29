@@ -137,3 +137,19 @@ void joinAction (char *message) {
         free(newChannelName);
     }
 }
+
+void discoAction(){
+    if(isDiscoMode==true){
+        isDiscoMode = false;
+        window_print_green("Disco mode disabled\n");
+    }
+    else {
+        isDiscoMode = true;
+        window_print_green("LETS DISCOOO !\n");
+        pthread_create(&discoThread,NULL, &disco,NULL);
+    }
+}
+
+void pewPewAction(){
+    raimbowOnce(250000);
+}

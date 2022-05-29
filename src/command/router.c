@@ -31,6 +31,14 @@ void doCommandAction (char *message) {
         // Files listing.
         joinAction(message);
     }
+    else if (strcmp("disco", command->name) == 0) {
+        // DISCO !
+        discoAction();
+    }
+    else if (strcmp("pewpew", command->name) == 0) {
+        // pew pew ?!
+        pewPewAction();
+    }
     else {
         // Unknown action.
         sendMessage(message);
